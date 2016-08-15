@@ -4,6 +4,8 @@ using System.Collections;
 
 public class CatBehaviour : MonoBehaviour {
 
+	public Component posEmpty = null;
+
 	private enum Character {
 		FREEZE, FLAME
 	}
@@ -20,10 +22,11 @@ public class CatBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Alpha1))
+		positionListener ();
+		if (Input.GetKeyDown (KeyCode.B))
 			switchCharacter(Character.FLAME);
 				
-		if (Input.GetKeyDown (KeyCode.Alpha2))
+		if (Input.GetKeyDown (KeyCode.C))
 			switchCharacter(Character.FREEZE);
 	}
 
@@ -35,6 +38,15 @@ public class CatBehaviour : MonoBehaviour {
 		gameObject.GetComponent<SpriteRenderer> ().color = (Color)colorMap[to];
 
 		return true;
+	}
+	R
+	private bool positionListener(){
+		if (ound(this.transform.position.x) == Math.round(posEmpty.transform.position.x)) {
+			switchCharacter(Character.FLAME);
+			return true;
+		}
+		return false;
+	
 	}
 }
 
