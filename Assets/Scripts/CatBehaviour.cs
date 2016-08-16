@@ -89,10 +89,8 @@ public class CatBehaviour : MonoBehaviour {
 		batteryActual = batteryMax;
 	}
 
-	private void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.tag == "Hund")
-		{
+	private void OnCollisionEnter2D(Collision2D other) {
+		if (other.collider.tag == "Hund") {
 			lives--;
 		}
 	}
