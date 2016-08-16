@@ -4,7 +4,8 @@ using System.Collections;
 
 public class CatBehaviour : MonoBehaviour {
 
-	public Component posEmpty = null;
+	public int batteryMax = 100;
+	public double batteryActual = 0;
 
 	private enum Character {
 		FREEZE, FLAME
@@ -22,7 +23,7 @@ public class CatBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		positionListener ();
+
 		if (Input.GetKeyDown (KeyCode.B))
 			switchCharacter(Character.FLAME);
 				
@@ -39,14 +40,13 @@ public class CatBehaviour : MonoBehaviour {
 
 		return true;
 	}
-	R
-	private bool positionListener(){
-		if (ound(this.transform.position.x) == Math.round(posEmpty.transform.position.x)) {
-			switchCharacter(Character.FLAME);
-			return true;
+
+	public void batteryLoad ()
+	{
+		while (batteryActual < batteryMax) {
+			batteryActual += 1;
+			//print (batteryActual);
 		}
-		return false;
-	
 	}
 }
 
