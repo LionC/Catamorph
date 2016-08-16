@@ -13,12 +13,5 @@ public class DogController : MonoBehaviour {
 	void Update () {
 	
 	}
-
-	private void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.tag == "Player")
-		{
-			print ("TestCollider");
-		}
-	}
+		
 }
