@@ -61,6 +61,8 @@ public class CatBehaviour : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+
+
 		if (isFlying) {
 			resetGravity ();
 			rigidBody.AddForce(new Vector2(0f, flyForce));
