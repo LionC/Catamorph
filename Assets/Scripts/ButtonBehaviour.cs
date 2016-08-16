@@ -27,7 +27,5 @@ public class ButtonBehaviour : MonoBehaviour {
 		GetComponent<SpriteRenderer> ().sprite = afterTriggerSprite;
 		Destroy (toDestroy);
 		afterDestroyAnim.SetActive(true);
-
-
 	}
 }
