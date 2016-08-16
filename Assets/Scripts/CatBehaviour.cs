@@ -71,8 +71,6 @@ public class CatBehaviour : MonoBehaviour {
 			rigidBody.AddForce (new Vector2 (0f, glideForce));
 			glideForceAddedOnce = true;
 		}
-
-		Debug.Log ("V: " + rigidBody.velocity.y);
 	}
 
 	private void resetGravity() {
