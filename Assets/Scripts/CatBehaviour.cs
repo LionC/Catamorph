@@ -5,12 +5,13 @@ using UnityStandardAssets._2D;
 
 public class CatBehaviour : MonoBehaviour {
 
-<<<<<<< HEAD
+
 	public int batteryMax = 100;
 	public double batteryActual = 0;
-=======
-	//public Component posEmpty = null;
->>>>>>> origin/master
+	public int lives = 9;
+
+	public Component posEmpty = null;
+
 
 	private enum Character {
 		FREEZE, FLAME
@@ -31,18 +32,18 @@ public class CatBehaviour : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rigidBody = GetComponent<Rigidbody2D> ();
-		platformerCharacter2D = GetComponent<PlatformerCharacter2D> ();
+		platformerCharacter2D = GetComponent<PlatformerCharacter2D>();
 		colorMap.Add (Character.FREEZE, new Color (0, .2f, .8f));
 		colorMap.Add (Character.FLAME, new Color (.8f, .2f, 0));
 	}
 	
 	// Update is called once per frame
 	void Update () {
-<<<<<<< HEAD
 
-=======
-		//positionListener ();
->>>>>>> origin/master
+
+
+		positionListener ();
+
 		if (Input.GetKeyDown (KeyCode.B))
 			switchCharacter(Character.FLAME);
 				
@@ -91,7 +92,7 @@ public class CatBehaviour : MonoBehaviour {
 		return true;
 	}
 
-<<<<<<< HEAD
+
 	public void batteryLoad ()
 	{
 		while (batteryActual < batteryMax) {
@@ -99,15 +100,15 @@ public class CatBehaviour : MonoBehaviour {
 			//print (batteryActual);
 		}
 	}
-=======
-//	private bool positionListener(){
-//		if (Mathf.Round(this.transform.position.x) == Mathf.Round(posEmpty.transform.position.x)) {
-//			switchCharacter(Character.FLAME);
-//			return true;
-//		}
-//		return false;
-//	
-//	}
->>>>>>> origin/master
+
+	private bool positionListener(){
+		if (Mathf.Round(this.transform.position.x) == Mathf.Round(posEmpty.transform.position.x)) {
+			switchCharacter(Character.FLAME);
+			return true;
+		}
+		return false;
+	
+	}
+
 }
 
