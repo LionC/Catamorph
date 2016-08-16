@@ -10,9 +10,6 @@ public class CatBehaviour : MonoBehaviour {
 	public double batteryActual = 0;
 	public int lives = 9;
 
-	public Component posEmpty = null;
-
-
 	private enum Character {
 		FREEZE, FLAME
 	}
@@ -42,7 +39,7 @@ public class CatBehaviour : MonoBehaviour {
 
 
 
-		positionListener ();
+
 
 		if (Input.GetKeyDown (KeyCode.B))
 			switchCharacter(Character.FLAME);
@@ -100,15 +97,6 @@ public class CatBehaviour : MonoBehaviour {
 			batteryActual += 1;
 			//print (batteryActual);
 		}
-	}
-
-	private bool positionListener(){
-		if (Mathf.Round(this.transform.position.x) == Mathf.Round(posEmpty.transform.position.x)) {
-			switchCharacter(Character.FLAME);
-			return true;
-		}
-		return false;
-	
 	}
 
 }
