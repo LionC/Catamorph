@@ -12,7 +12,7 @@ public class RenderController : MonoBehaviour {
 	public Sprite clear;
 	// Use this for initialization
 	void Start () {
-		CatTransformation= 3;
+		CatTransformation= 1;
 	}
 	
 	// Update is called once per frame
