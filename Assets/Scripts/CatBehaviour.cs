@@ -12,17 +12,21 @@ public class CatBehaviour : MonoBehaviour {
 	}
 
 	private Character character = Character.FREEZE;
+	private PlatformerCharacter2D platformerCharacter2D;
 	private Rigidbody2D rigidBody;
 	private bool isFlying = false;
 	private bool isGliding = false;
+	private bool glideForceAddedOnce = false;
+
 	public float flyForce = 50f;
-	public float glideForce = 30f;
+	public float glideForce = -1f;
 
 	private IDictionary colorMap = new Dictionary<Character, Color> ();
 
 	// Use this for initialization
 	void Start () {
 		rigidBody = GetComponent<Rigidbody2D> ();
+		platformerCharacter2D = GetComponent<PlatformerCharacter2D> ();
 		colorMap.Add (Character.FREEZE, new Color (0, .2f, .8f));
 		colorMap.Add (Character.FLAME, new Color (.8f, .2f, 0));
 	}
@@ -36,27 +40,36 @@ public class CatBehaviour : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.C))
 			switchCharacter(Character.FREEZE);
 
-		if (Input.GetKey (KeyCode.F))
+		if (Input.GetKey (KeyCode.F)) {
 			isFlying = true;
-		else if (!Input.GetKey (KeyCode.F) && isFlying)
+			resetGravity ();
+		}
+		else if (!Input.GetKey (KeyCode.F) && isFlying && !platformerCharacter2D.m_Grounded) {
 			isFlying = false;
-		else if (!isFlying && !PlatformerCharacter2D.m_Grounded)
 			isGliding = true;
-		else if (isGliding && PlatformerCharacter2D.m_Grounded)
+		} 
+		else if (isGliding && platformerCharacter2D.m_Grounded) {
 			isGliding = false;
+			resetGravity ();
+		}
 	}
 
 	void FixedUpdate() {
 		if (isFlying)
 			rigidBody.AddForce(new Vector2(0f, flyForce));
 		
-		if (isGliding) {
-			Debug.Log (rigidBody.velocity.y);
+		if (isGliding && rigidBody.velocity.y <= -0.5f && !glideForceAddedOnce) {
 			rigidBody.gravityScale = 0;
-			//!!!position or velocity down!!!
-
-			//rigidBody.AddForce(new Vector2(0f, glideForce));
+			rigidBody.AddForce (new Vector2 (0f, glideForce));
+			glideForceAddedOnce = true;
 		}
+
+		Debug.Log ("V: " + rigidBody.velocity.y);
+	}
+
+	private void resetGravity() {
+		rigidBody.gravityScale = 3;
+		glideForceAddedOnce = false;
 	}
 
 	private bool switchCharacter(Character to) {
