@@ -5,6 +5,7 @@ public class ButtonBehaviour : MonoBehaviour {
 
 	public GameObject toDestroy;
 	public Sprite afterTriggerSprite;
+	public GameObject afterDestroyAnim;
 
 	bool pressed = false;
 
@@ -25,5 +26,8 @@ public class ButtonBehaviour : MonoBehaviour {
 		pressed = true;
 		GetComponent<SpriteRenderer> ().sprite = afterTriggerSprite;
 		Destroy (toDestroy);
+		afterDestroyAnim.SetActive(true);
+
+
 	}
 }

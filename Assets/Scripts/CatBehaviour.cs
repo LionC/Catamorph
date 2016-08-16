@@ -10,6 +10,9 @@ public class CatBehaviour : MonoBehaviour {
 	public int batteryMax = 100;
 	public double batteryActual = 0;
 	public int lives = 9;
+	public float flyForce = 50f;
+	public float glideForce = -1f;
+	public float glideVelocityDelay = -2.5f; //Lower value => faster glide-down
 
 	private enum Character {
 		FREEZE, FLAME
@@ -21,9 +24,6 @@ public class CatBehaviour : MonoBehaviour {
 	private bool isFlying = false;
 	private bool isGliding = false;
 	private bool glideForceAddedOnce = false;
-
-	public float flyForce = 50f;
-	public float glideForce = -1f;
 
 	private IDictionary colorMap = new Dictionary<Character, Color> ();
 
@@ -37,11 +37,6 @@ public class CatBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-
-
-
-
 		if (Input.GetKeyDown (KeyCode.B))
 			switchCharacter(Character.FLAME);
 				
@@ -67,7 +62,7 @@ public class CatBehaviour : MonoBehaviour {
 			rigidBody.AddForce(new Vector2(0f, flyForce));
 		}
 			
-		if (isGliding && rigidBody.velocity.y <= -1f && !glideForceAddedOnce) {
+		if (isGliding && rigidBody.velocity.y <= glideVelocityDelay && !glideForceAddedOnce) {
 			rigidBody.gravityScale = 0;
 			rigidBody.AddForce (new Vector2 (0f, glideForce));
 			glideForceAddedOnce = true;
@@ -93,9 +88,12 @@ public class CatBehaviour : MonoBehaviour {
 
 	public void batteryLoad ()
 	{
-		while (batteryActual < batteryMax) {
-			batteryActual += 1;
-			//print (batteryActual);
+		batteryActual = batteryMax;
+	}
+
+	private void OnCollisionEnter2D(Collision2D other) {
+		if (other.collider.tag == "Hund") {
+			lives--;
 		}
 	}
 
