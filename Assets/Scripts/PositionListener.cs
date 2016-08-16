@@ -30,7 +30,7 @@ public class PositionListener : MonoBehaviour {
 				}
 			}
 			if (tag == "Katzenminze") {
-				player.GetComponent<PlatformerCharacter2D> ().timeLeft = 10.0f;
+				player.GetComponent<PlatformerCharacter2D> ().timeLeft = 7.0f;
 				player.GetComponent<PlatformerCharacter2D> ().inverted = true;
 			}
 		}

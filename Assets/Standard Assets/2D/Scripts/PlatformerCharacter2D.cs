@@ -8,7 +8,7 @@ namespace UnityStandardAssets._2D
     {
 		public bool inverted = false;
 		private System.Random rand = new System.Random();
-		public float timeLeft = 10.0f;
+		public float timeLeft = 7.0f;
 
         [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
         [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.

@@ -36,11 +36,6 @@ public class CatBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-
-
-
-
 		if (Input.GetKeyDown (KeyCode.B))
 			switchCharacter(Character.FLAME);
 				
@@ -61,8 +56,6 @@ public class CatBehaviour : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		Debug.Log ("V: " + rigidBody.velocity.y);
-
 		if (isFlying) {
 			resetGravity ();
 			rigidBody.AddForce(new Vector2(0f, flyForce));
