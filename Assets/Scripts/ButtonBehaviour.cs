@@ -19,7 +19,7 @@ public class ButtonBehaviour : MonoBehaviour {
 	
 	}
 
-	public void OnTriggerEnter2D() {
+	public void OnTriggerenter2D() {
 		if (pressed == true)
 			return;
 

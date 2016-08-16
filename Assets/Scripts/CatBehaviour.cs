@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using System;
 using UnityStandardAssets._2D;
 
 public class CatBehaviour : MonoBehaviour {
@@ -72,8 +73,10 @@ public class CatBehaviour : MonoBehaviour {
 		rigidBody.gravityScale = 3;
 		glideForceAddedOnce = false;
 	}
+		
 
-	private bool switchCharacter(Character to) {
+	private bool switchCharacter(Character to) 
+	{
 		if (character == to)
 			return false;
 
@@ -82,7 +85,6 @@ public class CatBehaviour : MonoBehaviour {
 
 		return true;
 	}
-
 
 	public void batteryLoad ()
 	{
