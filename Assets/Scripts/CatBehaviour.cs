@@ -52,7 +52,6 @@ public class CatBehaviour : MonoBehaviour {
 
 		if (Input.GetKey (KeyCode.F)) {
 			isFlying = true;
-			resetGravity ();
 		}
 		else if (!Input.GetKey (KeyCode.F) && isFlying && !platformerCharacter2D.m_Grounded) {
 			isFlying = false;
@@ -65,10 +64,12 @@ public class CatBehaviour : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (isFlying)
+		if (isFlying) {
+			resetGravity ();
 			rigidBody.AddForce(new Vector2(0f, flyForce));
-		
-		if (isGliding && rigidBody.velocity.y <= -0.5f && !glideForceAddedOnce) {
+		}
+			
+		if (isGliding && rigidBody.velocity.y <= -1f && !glideForceAddedOnce) {
 			rigidBody.gravityScale = 0;
 			rigidBody.AddForce (new Vector2 (0f, glideForce));
 			glideForceAddedOnce = true;
