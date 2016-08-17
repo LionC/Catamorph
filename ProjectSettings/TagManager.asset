@@ -9,6 +9,7 @@ TagManager:
   - Hund
   - Rocket
   - Laser
+  - CatHitBox
   layers:
   - Default
   - TransparentFX
