@@ -10,7 +10,8 @@ namespace UnityStandardAssets._2D
         {
             if (other.tag == "Player")
             {
-                SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
+				other.gameObject.GetComponent<CatBehaviour> ().lives--;
+				SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
             }
         }
     }
