@@ -1,20 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RocketDestroyable : MonoBehaviour {
-	void OnCollisionenter(Collision col)
+public class LaserDestroyable : MonoBehaviour {
+	public int hp=1;
+	public bool isdestroyable = true;
+	public string Destroyableby="Laser";
+	public void Damage(int damageCount)
 	{
-		if (col.gameObject.tag == "Laser")
-			Destroy (col.gameObject);
+		hp -= damageCount;
+		if (hp <= 0)
+			Destroy (gameObject);
+	}
+	void OnTriggerEnter2D(Collider2D otherCollider)
+	{
+		Bullet shot =
+			otherCollider.gameObject.GetComponent<Bullet> ();
+		if (otherCollider.CompareTag(Destroyableby)) {
+			if (shot.isEnemyShot = isdestroyable) {
+				Damage (shot.damage);
+				Destroy (shot.gameObject);
+			}
+		}
 	}
 
-	// Use this for initialization
 	void Start () {
 
 	}
 
 	// Update is called once per frame
 	void Update () {
-	}
 
+	}
 }
