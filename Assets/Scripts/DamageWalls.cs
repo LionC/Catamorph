@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class DamageWalls : MonoBehaviour {
-	public GameObject player;
 	public string PlayerName;
 	public float TimeLeftHit;
 	void Start () {
@@ -10,7 +9,6 @@ public class DamageWalls : MonoBehaviour {
 		PlayerName= "Catelyn";
 		GameObject Cat = GameObject.Find (PlayerName);
 		CatBehaviour CatBehaviour = Cat.GetComponent<CatBehaviour> ();
-		CatBehaviour.CharacterType = CatBehaviour.CharacterType;
 	}
 	void FixedUpdate(){
 		if (TimeLeftHit > 0) {

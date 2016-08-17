@@ -10,7 +10,7 @@ public class CatBehaviour : MonoBehaviour {
 	public static int MAX_LIFE=9;
 	public int batteryMax = 100;
 	public double batteryActual = 0;
-	public int lives = 9;
+	public float lives = 9f;
 	public float flyForce = 50f;
 	public float glideForce = -1f;
 	public float glideVelocityDelay = -2.5f; //Lower value => faster glide-down 
@@ -97,7 +97,7 @@ public class CatBehaviour : MonoBehaviour {
 
 		}
 	}
-	public int Damage(int lives)
+	public float Damage(float lives)
 	{
 		lives--;
 		return lives;
