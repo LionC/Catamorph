@@ -16,7 +16,7 @@ public class TimedButtonController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		transform = GetComponent<Transform> ();
+		transform = gameObject.GetComponent<Transform> ();
 		platformerCharacter2D = player.GetComponent<PlatformerCharacter2D> ();
 	}
 	
