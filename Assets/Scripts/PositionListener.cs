@@ -17,7 +17,7 @@ public class PositionListener : MonoBehaviour {
 	void FixedUpdate () {
 		positionListener ();
 		if (anSteckdose == true) {
-			player.GetComponent<CatBehaviour>().batteryLoad ();
+			//player.GetComponent<CatBehaviour>().batteryLoad ();
 			anSteckdose = false;
 		}
 	}

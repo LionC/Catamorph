@@ -10,11 +10,13 @@ public class WaterController : MonoBehaviour {
 	private bool triggered = false;
 	private int direction = -1;
 	private Rigidbody2D rigidBody2D;
+	private CatBehaviour catBehavior;
 	private PlatformerCharacter2D platformerCharacter2D;
 
 	// Use this for initialization
 	void Start () {
 		rigidBody2D = player.GetComponent<Rigidbody2D> ();
+		catBehavior = player.GetComponent<CatBehaviour> ();
 		platformerCharacter2D = GetComponent<PlatformerCharacter2D>();
 	}
 
@@ -23,24 +25,17 @@ public class WaterController : MonoBehaviour {
 
 	}
 
-	void FixedUpdate() {
-		if (triggered) {
-			player.transform.position += new Vector3 (((float) direction) * 0.08f, 0.04f, 0f);
-			triggered = false;
-		}
-	}
-
 	public void OnTriggerEnter2D(Collider2D other) {
-		if (other.tag == "Player" && !triggered) {
+		if (other.tag == "Player" && !triggered && (catBehavior.currentAbility == null || catBehavior.currentAbility.ToString() != "FreezerCat")) {
 			if (rigidBody2D.velocity.x <= 0)
 				direction = 1;
 			triggered = true;
+			scareOutOfWater ();
 		}
 	}
 
-	private void scareOutOfWater(Rigidbody2D rigidBody2D) {
-		//rigidBody2D.AddForce (new Vector2(direction * xScareForce, yScareForce));
-
-
+	private void scareOutOfWater() {
+		rigidBody2D.AddForce (new Vector2(direction * xScareForce, yScareForce));
+		triggered = false;
 	}
 }
