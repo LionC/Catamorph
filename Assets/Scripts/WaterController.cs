@@ -24,7 +24,7 @@ public class WaterController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (triggered && platformerCharacter2D.m_Grounded) {
+		if (triggered) {
 			player.transform.position += new Vector3 (((float) direction) * 0.08f, 0.04f, 0f);
 			triggered = false;
 		}

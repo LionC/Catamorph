@@ -29,10 +29,8 @@ public class PositionListener : MonoBehaviour {
 					anSteckdose = true;
 				}
 			}
-			if (tag == "Katzenminze") {
-				player.GetComponent<PlatformerCharacter2D> ().timeLeft = 7.0f;
-				player.GetComponent<PlatformerCharacter2D> ().inverted = true;
-			}
+			if (tag == "Katzenminze")
+				player.GetComponent<PlatformerCharacter2D> ().setInversion (true);
 		}
 	}
 }
