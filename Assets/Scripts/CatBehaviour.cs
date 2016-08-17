@@ -6,6 +6,7 @@ using UnityStandardAssets._2D;
 
 public class CatBehaviour : MonoBehaviour {
 
+	public GameObject player;
 
 	public int batteryMax = 100;
 	public double batteryActual = 0;
@@ -94,7 +95,15 @@ public class CatBehaviour : MonoBehaviour {
 	private void OnCollisionEnter2D(Collision2D other) {
 		if (other.collider.tag == "Hund") {
 			lives--;
+			if (lives < 0) {
+				gameOver ();
+
+			}
 		}
+	}
+
+	private void gameOver(){	//Alles was nach tod passsiert
+		Destroy(player);
 	}
 
 }
