@@ -14,9 +14,10 @@ public class MixerCatController : MonoBehaviour {
 
 	private PlatformerCharacter2D platformerCharacter2D;
 	private Rigidbody2D rigidBody;
-	private bool isFlying = false;
-	private bool isGliding = false;
+	public bool isFlying = false;
+	public bool isGliding = false;
 	private bool glideForceAddedOnce = false;
+	private bool crashed = false;
 
 	// Use this for initialization
 	void Start () {
@@ -26,16 +27,19 @@ public class MixerCatController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey (KeyCode.F)) {
-			isFlying = true;
-		}
-		else if (!Input.GetKey (KeyCode.F) && isFlying && !platformerCharacter2D.m_Grounded) {
-			isFlying = false;
-			isGliding = true;
-		} 
-		else if (isGliding && platformerCharacter2D.m_Grounded) {
-			isGliding = false;
-			resetGravity ();
+		if (!crashed) {
+			if (Input.GetKey (KeyCode.F)) {
+				isFlying = true;
+			} else if (!Input.GetKey (KeyCode.F) && isFlying && !platformerCharacter2D.m_Grounded) {
+				isFlying = false;
+				isGliding = true;
+			} else if (isGliding && platformerCharacter2D.m_Grounded) {
+				isGliding = false;
+				resetGravity ();
+			}
+		} else {
+			if (platformerCharacter2D.m_Grounded)
+				crashed = false;
 		}
 	}
 
@@ -63,6 +67,13 @@ public class MixerCatController : MonoBehaviour {
 
 	public void batteryLoad () {
 		batteryCurrent = batteryMax;
+	}
+
+	public void crash() {
+		crashed = true;
+		isFlying = false;
+		isGliding = false;
+		resetGravity ();
 	}
 		
 	public override string ToString() {

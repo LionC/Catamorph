@@ -4,6 +4,7 @@ using System.Collections;
 public class CheesController : MonoBehaviour {
 
 	public bool hit;
+	public GameObject chees;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,6 @@ public class CheesController : MonoBehaviour {
 		if (other.collider.tag == "Player") {
 			hit = true;
 		}
-		Destroy (gameObject);
+		Destroy (chees);
 	}
 }

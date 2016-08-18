@@ -3,29 +3,35 @@ using System.Collections.Generic;
 using System.Collections;
 using System;
 using UnityStandardAssets._2D;
+using UnityEngine.SceneManagement;
 
 public class CatBehaviour : MonoBehaviour {
 
 	public GameObject player;
+	public float invisibleTimeAfterHitInitialValue = 3f;
+	public float invisibleTimeAfterHit = 0f;
 	public float livesInitialValue = 9f;
 	public float lives = 9f;
 	public MonoBehaviour currentAbility = null;
 
 	private PlatformerCharacter2D platformerCharacter2D;
 	private Rigidbody2D rigidBody;
+	private Scene currentScene;
 
 	// Use this for initialization
 	void Start () {
+		if (PlayerPrefs.HasKey ("currentLives"))
+			lives = PlayerPrefs.GetFloat ("currentLives");
+		else
+			lives = livesInitialValue;
+		
 		rigidBody = GetComponent<Rigidbody2D> ();
 		platformerCharacter2D = GetComponent<PlatformerCharacter2D>();
+		currentScene = SceneManager.GetActiveScene ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-		if (lives <= 0) {
-			gameOver ();
-		}
 		if (Input.GetKeyDown (KeyCode.Alpha1)) {
 			if(currentAbility != null)
 				currentAbility.enabled = false;
@@ -42,21 +48,29 @@ public class CatBehaviour : MonoBehaviour {
 		}
 	}
 
-	private void OnCollisionEnter2D(Collision2D other) {
-		if (other.collider.tag == "Hund") {
-			lives=Damage(lives);
-
-		}
+	void FixedUpdate() {
+		if (invisibleTimeAfterHit > 0)
+			invisibleTimeAfterHit -= Time.deltaTime;
 	}
-	public float Damage(float lives)
-	{
-		lives--;
-		livesInitialValue--;
+
+	public float takeDamage(float damage) {
+		if (invisibleTimeAfterHit <= 0) {
+			lives -= damage;
+			if (lives == 0)
+				gameOver ();
+
+			invisibleTimeAfterHit = invisibleTimeAfterHitInitialValue;
+		}
+		
 		return lives;
 	}
 
-	public void gameOver(){	//Alles was nach tod passsiert
-		Destroy(gameObject);
+	public void fallOutOfLevel() {
+		PlayerPrefs.SetFloat ("currentLives", lives);
+		gameOver ();
 	}
 
+	public void gameOver() {
+		SceneManager.LoadScene(currentScene.name);
+	}
 }

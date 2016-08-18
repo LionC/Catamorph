@@ -3,13 +3,13 @@ using System.Collections;
 
 public class MouseThrowChees : MonoBehaviour {
 
-	public GameObject player, mouse, chees;
-	public float timeLeftShoot = 1;
+	public GameObject player, chees;
+	public float timeLeftShoot = 1.0f;
 	public Vector3 dir;
 
 	// Use this for initialization
 	void Start () {
-		
+		timeLeftShoot = 1;
 	}
 	
 	// Update is called once per frame
@@ -22,11 +22,15 @@ public class MouseThrowChees : MonoBehaviour {
 			timeLeftShoot -= Time.deltaTime;
 		}
 
-		dir = player.transform.position - mouse.transform.position;
+		dir = player.transform.position - transform.position;
 
-		if (player.GetComponent<EnemyControll> ().abs < 5 && timeLeftShoot <= 0) {
+		if ((GetComponent<EnemyControll> ().abs < 5) && (timeLeftShoot <= 0)) {
 			Instantiate (chees);
-			chees.AddComponent<Rigidbody2D> ().AddForce (new Vector2 (dir.x*100, 100.0f));
+			chees.transform.position = transform.position;
+			chees.AddComponent<Rigidbody2D> ().AddForce (new Vector2 (dir.y*100, -100.0f));
+			timeLeftShoot = 1.0f;
 		}
+
+
 	}
 }
