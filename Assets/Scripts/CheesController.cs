@@ -4,11 +4,13 @@ using System.Collections;
 public class CheesController : MonoBehaviour {
 
 	public bool hit;
-	public GameObject chees;
+	public Vector3 spawnPos;
+
 
 	// Use this for initialization
 	void Start () {
 		hit = false;
+		spawnPos = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -16,10 +18,16 @@ public class CheesController : MonoBehaviour {
 	
 	}
 
+	void FixedUpdate(){
+		if (Vector3.Distance (spawnPos, transform.position) >= 5) {
+			Destroy (gameObject);
+		}
+	}
+
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.collider.tag == "Player") {
 			hit = true;
 		}
-		Destroy (chees);
+		Destroy (gameObject);
 	}
 }
