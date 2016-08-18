@@ -37,10 +37,13 @@ public class EnemyControll : MonoBehaviour {
 
 		if (abs < 3) {
 			transform.position += new Vector3 (((posPlayer.x - posEnemy.x) / 10), 0.0f, 0.0f);
-			if ((posEnemy.y - posPlayer.y > 1.5f) || (timeLeftJump <= 0 && hindernis == true)) {
-				jumpTry += 0.5f;
-				transform.position += new Vector3 (0.0f, jumpTry*5, 0.0f);
+			if ((posPlayer.y - posEnemy.y > 0.5f || hindernis == true) && timeLeftJump <= 0) {
+				jumpTry += 0.2f;
+				transform.position += new Vector3 (0.0f, jumpTry, 0.0f);
 				timeLeftJump = 0.2f;
+			}
+			if (posEnemy.y - posPlayer.y > 0) {
+				transform.position += new Vector3 (player.GetComponent<Rigidbody2D>().velocity.x, jumpTry, 0.0f);
 			}
 			hindernis = false;
 		}
