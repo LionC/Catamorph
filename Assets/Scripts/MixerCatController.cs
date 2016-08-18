@@ -7,7 +7,7 @@ public class MixerCatController : MonoBehaviour {
 	public GameObject player;
 	public int batteryMax = 100;
 	public double batteryCurrent = 0;
-	public float flyForce = 50f;
+	public float flyForce = 35f;
 	public float glideForce = -1f;
 	public float glideVelocityDelay = -2.5f; //Lower value => faster glide-down
 	public Color mixerCatColor = new Color(255, 170, 77);

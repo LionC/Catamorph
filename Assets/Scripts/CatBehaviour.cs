@@ -24,7 +24,7 @@ public class CatBehaviour : MonoBehaviour {
 			lives = PlayerPrefs.GetFloat ("currentLives");
 		else
 			lives = livesInitialValue;
-		
+
 		rigidBody = GetComponent<Rigidbody2D> ();
 		platformerCharacter2D = GetComponent<PlatformerCharacter2D>();
 		currentScene = SceneManager.GetActiveScene ();
@@ -56,7 +56,7 @@ public class CatBehaviour : MonoBehaviour {
 	public float takeDamage(float damage) {
 		if (invisibleTimeAfterHit <= 0) {
 			lives -= damage;
-			if (lives == 0)
+			if (lives <= 0)
 				gameOver ();
 
 			invisibleTimeAfterHit = invisibleTimeAfterHitInitialValue;
@@ -73,7 +73,7 @@ public class CatBehaviour : MonoBehaviour {
 	public void gameOver() {
 		if (PlayerPrefs.HasKey ("currentLives"))
 			PlayerPrefs.DeleteKey ("currentLives");
-		
+
 		SceneManager.LoadScene(currentScene.name);
 	}
 }

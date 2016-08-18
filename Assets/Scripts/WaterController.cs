@@ -5,10 +5,8 @@ using UnityStandardAssets._2D;
 public class WaterController : MonoBehaviour {
 
 	public GameObject player;
-	public float xScareForce;
-	public float yScareForce;
+	public Vector2 spawnPoint;
 	private bool triggered = false;
-	private int direction = -1;
 	private Rigidbody2D rigidBody2D;
 	private CatBehaviour catBehavior;
 	private PlatformerCharacter2D platformerCharacter2D;
@@ -27,15 +25,13 @@ public class WaterController : MonoBehaviour {
 
 	public void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Player" && !triggered && (catBehavior.currentAbility == null || catBehavior.currentAbility.ToString() != "FreezerCat")) {
-			if (rigidBody2D.velocity.x <= 0)
-				direction = 1;
 			triggered = true;
 			scareOutOfWater ();
 		}
 	}
 
 	private void scareOutOfWater() {
-		rigidBody2D.AddForce (new Vector2(direction * xScareForce, yScareForce));
+		player.transform.position = new Vector3 (spawnPoint.x, spawnPoint.y, 0f);
 		triggered = false;
 	}
 }
