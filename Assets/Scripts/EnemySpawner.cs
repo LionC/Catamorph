@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		if ((Random.Range(0, 10 -häufigkeit) == 0)  && (timeLastSpawn + delay <= Time.time) && countEnemy <= anzEnemy){
+		if ((Random.Range(0, 10 -häufigkeit) == 0)  && (timeLastSpawn + delay <= Time.time) && countEnemy <= anzEnemy-1){
 			Instantiate (enemy);
 			countEnemy++;
 			transform.position = player.transform.position + new Vector3 (5.0f, 0.1f, 0.0f);

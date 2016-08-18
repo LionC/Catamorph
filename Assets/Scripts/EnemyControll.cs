@@ -11,8 +11,7 @@ public class EnemyControll : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		delayHit = 3;
-		delayJump = 0.2f;
+
 	}
 	
 	// Update is called once per frame
@@ -35,7 +34,7 @@ public class EnemyControll : MonoBehaviour {
 					timeLastJump =Time.time;
 				}
 				if (posEnemy.y - posPlayer.y > 0) {
-					transform.position += new Vector3 (player.GetComponent<Rigidbody2D> ().velocity.x, jumpTry, 0.0f);
+					transform.position += new Vector3 (0.0f, jumpTry, 0.0f);
 				}
 				hindernis = false;
 			}
