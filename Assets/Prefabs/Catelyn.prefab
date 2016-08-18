@@ -44,6 +44,7 @@ GameObject:
   - 114: {fileID: 114000011360894760}
   - 114: {fileID: 114000012031885196}
   - 114: {fileID: 114000010838797582}
+  - 114: {fileID: 114000014079594574}
   m_Layer: 0
   m_Name: Catelyn
   m_TagString: Player
@@ -232,6 +233,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1000012594885196}
+  invisibleTimeAfterHitInitialValue: 3
+  invisibleTimeAfterHit: 0
   livesInitialValue: 9
   lives: 9
   currentAbility: {fileID: 0}
@@ -253,6 +256,20 @@ MonoBehaviour:
   glideForce: -1
   glideVelocityDelay: -2.5
   mixerCatColor: {r: 0.8235294, g: 0.4117647, b: 0.11764706, a: 1}
+  isFlying: 0
+  isGliding: 0
+--- !u!114 &114000014079594574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012594885196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e552dfa0e0d4013a51f9cfb1ba4b78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadingTime: 90
 --- !u!212 &212000013381269978
 SpriteRenderer:
   m_ObjectHideFlags: 1

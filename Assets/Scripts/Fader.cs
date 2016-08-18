@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Fader : MonoBehaviour {
-	public int fadingTime = 120;
+	public int fadingTime = 90;
 
 	private bool fading = false;
 	private bool fadingIn = false;
@@ -46,9 +46,5 @@ public class Fader : MonoBehaviour {
 		fadingIn = true;
 		fadingStep = 0;
 		fading = true;
-	}
-
-	void OnTriggerEnter2D(Collider2D other) {
-		fadeIn ();
 	}
 }
