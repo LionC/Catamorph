@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets._2D;
 
 public class TimedButtonController : MonoBehaviour {
 
 	private bool pressed = false;
 	private bool triggered = false;
 	private Transform transform;
+	private PlatformerCharacter2D platformerCharacter2D;
 
+	public GameObject player;
 	public GameObject objectToDestroy;
 	public GameObject afterObjectDestructionAnim;
 	public float timeAfterTrigger = 0f;
@@ -14,6 +17,7 @@ public class TimedButtonController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		transform = GetComponent<Transform> ();
+		platformerCharacter2D = player.GetComponent<PlatformerCharacter2D> ();
 	}
 	
 	// Update is called once per frame

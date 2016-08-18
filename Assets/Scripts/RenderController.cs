@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class RenderController : MonoBehaviour {
-	public int CatTransformation;
+	private int CatTransformation;
 	public GameObject Weapons;
 	private SpriteRenderer render;
 	public Sprite MännchenGrün;
@@ -12,7 +12,7 @@ public class RenderController : MonoBehaviour {
 	public Sprite clear;
 	// Use this for initialization
 	void Start () {
-		CatTransformation= 1;
+		CatTransformation= 4;
 	}
 	
 	// Update is called once per frame
@@ -44,7 +44,7 @@ public class RenderController : MonoBehaviour {
 	}
 		
 		void OnGUI () {
-		// Make a background box
+
 		GUI.Box (new Rect (10, 10, 100, 90), CatTransformation.ToString());
 	}
 }
