@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System;
 using UnityStandardAssets._2D;
+using UnityEngine.SceneManagement;
 
 public class CatBehaviour : MonoBehaviour {
 
@@ -56,7 +57,7 @@ public class CatBehaviour : MonoBehaviour {
 	}
 
 	public void gameOver(){	//Alles was nach tod passsiert
-		Destroy(gameObject);
+		SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
 	}
 
 }

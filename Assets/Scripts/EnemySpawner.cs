@@ -17,9 +17,9 @@ public class EnemySpawner : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		if (Random.Range(0, 10000000 -häufigkeit) == 1){
+		if (Random.Range(0, 100 -häufigkeit) == 0){
 			Instantiate (enemy);
-			enemy.transform.position = player.transform.position + new Vector3 (5.0f, 0.1f, 0.0f);
+			transform.position = player.transform.position + new Vector3 (5.0f, 0.1f, 0.0f);
 		}
 
 	}
