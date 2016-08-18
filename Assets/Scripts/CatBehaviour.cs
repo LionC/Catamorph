@@ -7,15 +7,15 @@ using UnityStandardAssets._2D;
 public class CatBehaviour : MonoBehaviour {
 
 	public GameObject player;
-
+	public static int MAX_LIFE=9;
 	public int batteryMax = 100;
 	public double batteryActual = 0;
-	public int lives = 9;
+	public float lives = 9f;
 	public float flyForce = 50f;
 	public float glideForce = -1f;
-	public float glideVelocityDelay = -2.5f; //Lower value => faster glide-down
-
-	private enum Character {
+	public float glideVelocityDelay = -2.5f; //Lower value => faster glide-down 
+	public int CharacterType= 0;
+	public enum Character {
 		FREEZE, FLAME
 	}
 
@@ -38,22 +38,21 @@ public class CatBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.B))
-			switchCharacter(Character.FLAME);
-				
-		if (Input.GetKeyDown (KeyCode.C))
-			switchCharacter(Character.FREEZE);
-
-		if (Input.GetKey (KeyCode.F)) {
-			isFlying = true;
+		if (Input.GetKeyDown (KeyCode.B)) {
+			switchCharacter (Character.FLAME);
+			CharacterType = 1;
 		}
-		else if (!Input.GetKey (KeyCode.F) && isFlying && !platformerCharacter2D.m_Grounded) {
-			isFlying = false;
-			isGliding = true;
-		} 
-		else if (isGliding && platformerCharacter2D.m_Grounded) {
-			isGliding = false;
-			resetGravity ();
+		if (Input.GetKeyDown (KeyCode.C)) {
+			switchCharacter (Character.FREEZE);
+			if (Input.GetKey (KeyCode.F)) {
+				isFlying = true;
+			} else if (!Input.GetKey (KeyCode.F) && isFlying && !platformerCharacter2D.m_Grounded) {
+				isFlying = false;
+				isGliding = true;
+			} else if (isGliding && platformerCharacter2D.m_Grounded) {
+				isGliding = false;
+				resetGravity ();
+			}
 		}
 	}
 
@@ -94,17 +93,18 @@ public class CatBehaviour : MonoBehaviour {
 
 	private void OnCollisionEnter2D(Collision2D other) {
 		if (other.collider.tag == "Hund") {
-			lives--;
-			if (lives < 0) {
-				gameOver ();
+			lives=Damage(lives);
 
-			}
 		}
 	}
+	public float Damage(float lives)
+	{
+		lives--;
+		return lives;
+	}
 
-	private void gameOver(){	//Alles was nach tod passsiert
-		Destroy(player);
+	public void gameOver(){	//Alles was nach tod passsiert
+		Destroy(gameObject);
 	}
 
 }
-

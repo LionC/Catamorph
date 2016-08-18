@@ -10,6 +10,7 @@ TagManager:
   - Rocket
   - Laser
   - Ground
+  - CatHitBox
   layers:
   - Default
   - TransparentFX

@@ -7,8 +7,8 @@ namespace UnityStandardAssets._2D
     public class PlatformerCharacter2D : MonoBehaviour
     {
 		public float timeLeftValue = 7f;
-		public float invertedMaxSpeedDenominatorValue = 5f;
-		public float invertedJumpForceDenominatorValue = 1.6f;
+		public float invertedMaxSpeedDenominatorInitialValue = 5f;
+		public float invertedJumpForceDenominatorInitialValue = 1.6f;
 
 		public float timeLeft = 0f;
 		public bool inverted = false;
@@ -70,8 +70,8 @@ namespace UnityStandardAssets._2D
 			inverted = isInverted;
 
 			if (isInverted) {
-				invertedMaxSpeedDenominator = invertedMaxSpeedDenominatorValue;
-				invertedJumpForceDenominator = invertedJumpForceDenominatorValue;
+				invertedMaxSpeedDenominator = invertedMaxSpeedDenominatorInitialValue;
+				invertedJumpForceDenominator = invertedJumpForceDenominatorInitialValue;
 				direction = -1;
 			} else {
 				invertedMaxSpeedDenominator = 1f;
