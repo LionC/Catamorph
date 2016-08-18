@@ -5,8 +5,7 @@ public class DamageWalls : MonoBehaviour {
 
 	public GameObject player;
 
-	public float invisibleTimeAfterHitInitialValue = 3f;
-	public float invisibleTimeAfterHit = 0f;
+	public float damageValue = 1.5f;
 	private CatBehaviour catBehavior;
 	private MixerCatController mixerCatController;
 
@@ -15,16 +14,12 @@ public class DamageWalls : MonoBehaviour {
 		mixerCatController = player.GetComponent<MixerCatController> ();
 	}
 
-	void FixedUpdate() {
-		if (invisibleTimeAfterHit > 0)
-			invisibleTimeAfterHit -= Time.deltaTime;
-	}
+
 
 	public void OnCollisionEnter2D(Collision2D other) {
 		if (other.collider.tag == "Player" && catBehavior.currentAbility != null && catBehavior.currentAbility.ToString () == "MixerCat" && (mixerCatController.isFlying || mixerCatController.isGliding)) {
-			catBehavior.takeDamage ();
+			catBehavior.takeDamage (damageValue);
 			mixerCatController.crash ();
-			invisibleTimeAfterHit = invisibleTimeAfterHitInitialValue;
 		}
 	}
 }

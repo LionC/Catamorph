@@ -7,6 +7,7 @@ public class EnemyControll : MonoBehaviour {
 	public bool hindernis, hit;
 	public Vector3 posEnemy, posPlayer;
 	public float abs, timeLeftHit, timeLeftJump, jumpTry;
+	public float damageValue = 1f;
 
 	// Use this for initialization
 	void Start () {
@@ -51,6 +52,7 @@ public class EnemyControll : MonoBehaviour {
 				transform.position += new Vector3 (coll.collider.GetComponent<Rigidbody2D>().velocity.x*(-1),0.5f,0.0f); //naach hinten fliegen
 				timeLeftHit = 5.0f; //Timer Hit reset
 				hit = true;	//Spieler wurde getroffen
+				player.GetComponent<CatBehaviour>().takeDamage(damageValue);
 			}
 
 			if (coll.collider.tag != "Player" && coll.collider.tag != "Ground") {

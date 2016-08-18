@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public class CatBehaviour : MonoBehaviour {
 
 	public GameObject player;
+	public float invisibleTimeAfterHitInitialValue = 3f;
+	public float invisibleTimeAfterHit = 0f;
 	public float livesInitialValue = 9f;
 	public float lives = 9f;
 	public MonoBehaviour currentAbility = null;
@@ -18,6 +20,11 @@ public class CatBehaviour : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if (PlayerPrefs.HasKey ("currentLives"))
+			lives = PlayerPrefs.GetFloat ("currentLives");
+		else
+			lives = livesInitialValue;
+		
 		rigidBody = GetComponent<Rigidbody2D> ();
 		platformerCharacter2D = GetComponent<PlatformerCharacter2D>();
 		currentScene = SceneManager.GetActiveScene ();
@@ -41,16 +48,26 @@ public class CatBehaviour : MonoBehaviour {
 		}
 	}
 
-	private void OnCollisionEnter2D(Collision2D other) {
-		if (other.collider.tag == "Hund")
-			takeDamage ();
+	void FixedUpdate() {
+		if (invisibleTimeAfterHit > 0)
+			invisibleTimeAfterHit -= Time.deltaTime;
 	}
-	public float takeDamage() {
-		lives --;
-		if (lives == 0)
-			gameOver ();
+
+	public float takeDamage(float damage) {
+		if (invisibleTimeAfterHit <= 0) {
+			lives -= damage;
+			if (lives == 0)
+				gameOver ();
+
+			invisibleTimeAfterHit = invisibleTimeAfterHitInitialValue;
+		}
 		
 		return lives;
+	}
+
+	public void fallOutOfLevel() {
+		PlayerPrefs.SetFloat ("currentLives", lives);
+		gameOver ();
 	}
 
 	public void gameOver() {
