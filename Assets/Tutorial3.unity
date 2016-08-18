@@ -690,6 +690,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011533278376, guid: 8f692f7e923e61f4c95919f42d62f565,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 586791927}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f692f7e923e61f4c95919f42d62f565, type: 2}
   m_IsPrefabParent: 0
@@ -947,6 +952,34 @@ MonoBehaviour:
   lookAheadFactor: 0
   lookAheadReturnSpeed: 0
   lookAheadMoveThreshold: 0
+--- !u!1 &547684971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1760774428}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 547684972}
+  m_Layer: 0
+  m_Name: Missing Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &547684972
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1760774428}
+  m_GameObject: {fileID: 547684971}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
 --- !u!1 &586791927 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
@@ -1812,6 +1845,24 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 586791927}
+    - target: {fileID: 4000012349268638, guid: f916d63eb7aa67d4d9c9bbc303f1f003, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012349268638, guid: f916d63eb7aa67d4d9c9bbc303f1f003, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000010770369738, guid: f916d63eb7aa67d4d9c9bbc303f1f003,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000010770369738, guid: f916d63eb7aa67d4d9c9bbc303f1f003,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f916d63eb7aa67d4d9c9bbc303f1f003, type: 2}
   m_IsPrefabParent: 0
