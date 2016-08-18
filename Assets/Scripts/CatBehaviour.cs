@@ -22,6 +22,10 @@ public class CatBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (lives <= 0) {
+			gameOver ();
+		}
 		if (Input.GetKeyDown (KeyCode.Alpha1)) {
 			if(currentAbility != null)
 				currentAbility.enabled = false;
@@ -47,6 +51,7 @@ public class CatBehaviour : MonoBehaviour {
 	public float Damage(float lives)
 	{
 		lives--;
+		livesInitialValue--;
 		return lives;
 	}
 
