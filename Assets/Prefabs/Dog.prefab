@@ -29,7 +29,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4000011446291122
 Transform:
   m_ObjectHideFlags: 1
@@ -91,9 +91,12 @@ MonoBehaviour:
   posEnemy: {x: 0, y: 0, z: 0}
   posPlayer: {x: 0, y: 0, z: 0}
   abs: 0
-  timeLeftHit: 5
-  timeLeftJump: 0.2
+  timeLastHit: 0
+  timeLastJump: 0
   jumpTry: 0
+  damageValue: 1
+  delayHit: 0
+  delayJump: 0
 --- !u!212 &212000013330828828
 SpriteRenderer:
   m_ObjectHideFlags: 1

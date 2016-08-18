@@ -30,7 +30,7 @@ public class EnemyControll : MonoBehaviour {
 		if (abs < 3) {
 			transform.position += new Vector3 (((posPlayer.x - posEnemy.x) / 10), 0.0f, 0.0f);
 			if ((posPlayer.y - posEnemy.y > 0.5f || hindernis == true) && timeLastJump + delayJump<= Time.time) {
-					jumpTry += 0.2f;
+					jumpTry += 0.1f;
 					transform.position += new Vector3 (0.0f, jumpTry, 0.0f);
 					timeLastJump =Time.time;
 				}

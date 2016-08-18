@@ -30,7 +30,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4000012251210802
 Transform:
   m_ObjectHideFlags: 1
@@ -70,7 +70,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -86,7 +86,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1f6526d94003e4390b9121e76644be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inverted: 0
   catMintSmall: {fileID: 0}
   catMintWindow: {fileID: 0}
   player: {fileID: 0}
@@ -101,7 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d507f870658584cb06388f8c92ac55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hit: 0
+  spawnPos: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
 --- !u!212 &212000011113219114
 SpriteRenderer:
   m_ObjectHideFlags: 1

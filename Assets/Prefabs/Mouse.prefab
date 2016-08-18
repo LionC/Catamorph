@@ -30,7 +30,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4000010361167618
 Transform:
   m_ObjectHideFlags: 1
@@ -92,9 +92,12 @@ MonoBehaviour:
   posEnemy: {x: 0, y: 0, z: 0}
   posPlayer: {x: 0, y: 0, z: 0}
   abs: 0
-  timeLeftHit: 5
-  timeLeftJump: 0.2
+  timeLastHit: 0
+  timeLastJump: 0
   jumpTry: 0
+  damageValue: 1
+  delayHit: 0
+  delayJump: 0
 --- !u!114 &114000013376235936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,9 +110,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  mouse: {fileID: 1000011694631108}
-  chees: {fileID: 0}
-  timeLeftShoot: 1
+  cheese: {fileID: 0}
+  cheeseClone: {fileID: 0}
+  timeLastShot: 0
+  delay: 0
+  forceUp: 0
   dir: {x: 0, y: 0, z: 0}
 --- !u!212 &212000012253852124
 SpriteRenderer:

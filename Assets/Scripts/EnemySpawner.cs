@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemySpawner : MonoBehaviour {
 
-	public GameObject enemy, player;
+	public GameObject enemy, enemyClone, player;
 	public int häufigkeit, anzEnemy;
 	public float delay, timeLastSpawn;
 	public int countEnemy;
@@ -20,9 +20,10 @@ public class EnemySpawner : MonoBehaviour {
 
 	void FixedUpdate(){
 		if ((Random.Range(0, 10 -häufigkeit) == 0)  && (timeLastSpawn + delay <= Time.time) && countEnemy <= anzEnemy-1){
-			Instantiate (enemy);
+			enemyClone = Instantiate (enemy);
 			countEnemy++;
-			enemy.transform.position = transform.position;
+			enemyClone.SetActive (true);
+			enemyClone.transform.position = transform.position;
 			timeLastSpawn = Time.time;
 		}
 
