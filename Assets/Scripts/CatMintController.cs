@@ -4,7 +4,6 @@ using UnityStandardAssets._2D;
 
 public class CatMintController : MonoBehaviour {
 
-	public bool inverted;
 	public GameObject catMintSmall, catMintWindow, player;
 
 	// Use this for initialization
@@ -23,11 +22,15 @@ public class CatMintController : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter2D(Collider2D other){
-		while (other.tag == "Player") {
-			player.GetComponent<PlatformerCharacter2D> ().setInversion(true);
+		if (other.tag == "Player") {
+			player.GetComponent<PlatformerCharacter2D> ().setInversion (true);
 			catMintSmall.SetActive (true);
 			catMintWindow.SetActive (true);
-		}
-		inverted = false;
+		} 
+	}
+
+	private void OnTriggerExit2D (Collider2D other){
+		catMintSmall.SetActive (false);
+		catMintWindow.SetActive (false);
 	}
 }
