@@ -8,6 +8,7 @@ public class EnemyControll : MonoBehaviour {
 	public Vector3 posEnemy, posPlayer;
 	public float abs, timeLastHit, timeLastJump, jumpTry;
 	public float damageValue = 1f, delayHit, delayJump;
+	private bool nichtwichtig;	//test
 
 	// Use this for initialization
 	void Start () {

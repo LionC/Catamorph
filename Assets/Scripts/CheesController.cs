@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets._2D;
 
 public class CheesController : MonoBehaviour {
 
-	public bool hit;
 	public Vector3 spawnPos;
+	public GameObject player;
 
 
 	// Use this for initialization
 	void Start () {
-		hit = false;
 		spawnPos = transform.position;
 	}
 	
@@ -26,7 +26,7 @@ public class CheesController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.collider.tag == "Player") {
-			hit = true;
+			player.GetComponent<PlatformerCharacter2D> ().setInversion (true);
 		}
 		Destroy (gameObject);
 	}

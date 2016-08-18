@@ -22,12 +22,12 @@ public class MouseThrowChees : MonoBehaviour {
 
 		dir = player.transform.position - transform.position;
 
-		if ((GetComponent<EnemyControll> ().abs < 5) && (timeLastShot +delay <= Time.time)) {
+		if ((Vector2.Distance(player.transform.position, transform.position) < 5) && (timeLastShot +delay <= Time.time)) {
 			Instantiate (chees);
 			chees.SetActive (true);
 			timeLastShot = Time.time;
 			chees.transform.position = transform.position;
-			chees.AddComponent<Rigidbody2D> ().AddForce (new Vector2 (dir.y*100, 100.0f));
+			chees.AddComponent<Rigidbody2D> ().AddForce (new Vector2 (dir.y*100, 500.0f));
 		}
 
 
