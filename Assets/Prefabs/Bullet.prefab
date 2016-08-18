@@ -26,7 +26,7 @@ GameObject:
   - 61: {fileID: 61000010266980814}
   m_Layer: 1
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
