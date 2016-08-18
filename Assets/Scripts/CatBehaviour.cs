@@ -67,10 +67,13 @@ public class CatBehaviour : MonoBehaviour {
 
 	public void fallOutOfLevel() {
 		PlayerPrefs.SetFloat ("currentLives", lives);
-		gameOver ();
+		SceneManager.LoadScene(currentScene.name);
 	}
 
 	public void gameOver() {
+		if (PlayerPrefs.HasKey ("currentLives"))
+			PlayerPrefs.DeleteKey ("currentLives");
+		
 		SceneManager.LoadScene(currentScene.name);
 	}
 }

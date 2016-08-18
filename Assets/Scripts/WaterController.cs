@@ -35,7 +35,8 @@ public class WaterController : MonoBehaviour {
 	}
 
 	private void scareOutOfWater() {
-		catBehavior.takeDamage ();
+
+		//catBehavior.takeDamage ();
 		rigidBody2D.AddForce (new Vector2(direction * xScareForce, yScareForce));
 		triggered = false;
 	}
