@@ -12,7 +12,7 @@ public class PfannenTriggerController : MonoBehaviour {
 		{
 		if (other.gameObject.tag=="Player") 
 			{
-			GameObject Pfanne = GameObject.Find ("Pfanne");
+			GameObject Pfanne = transform.parent.gameObject;
 			PfannenBewegung PfannenBewegung = Pfanne.GetComponent<PfannenBewegung>();
 			PfannenBewegung.SetActive = true;
 			Debug.Log ("Active");
