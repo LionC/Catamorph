@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BatteryDrainScript: MonoBehaviour {
 	private BoxCollider2D Collider;
-	public GameObject player;
+	private GameObject player;
 	private CatBehaviour catBehavior;
 	private MixerCatController mixerCatController;
 	private bool drainActive;
@@ -17,6 +17,11 @@ public class BatteryDrainScript: MonoBehaviour {
 		Collider = GetComponent<BoxCollider2D>();
 		delay = 1f;
 	}
+
+	void Awake () {
+		player = GameObject.FindGameObjectWithTag ("Player");
+	}
+
 	void FixedUpdate() {
 		if (drainActive == true) {
 			if (timeLastDrain + delay <= Time.time) {

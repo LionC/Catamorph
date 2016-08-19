@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyControll : MonoBehaviour {
 
-	public GameObject player;
+	private GameObject player;
 	public EnemySpawner spawner;
 	public bool hindernis, hit;
 	public Vector3 posEnemy, posPlayer;
@@ -20,6 +20,10 @@ public class EnemyControll : MonoBehaviour {
 	
 	}
 
+	void Awake () {
+		player = GameObject.FindGameObjectWithTag ("Player");
+	}
+
 	void FixedUpdate(){
 
 		posEnemy = transform.position;
@@ -27,18 +31,23 @@ public class EnemyControll : MonoBehaviour {
 
 		abs = Vector3.Distance (posEnemy, posPlayer);
 
-		if (abs < 3) {
+		if (abs < 3 && tag != "Maus") {
 			transform.position += new Vector3 (((posPlayer.x - posEnemy.x) / 10), 0.0f, 0.0f);
-			if ((posPlayer.y - posEnemy.y > 0.5f || hindernis == true) && timeLastJump + delayJump<= Time.time && tag != "Mouse") {
-					jumpTry += 0.1f;
-					transform.position += new Vector3 (0.0f, jumpTry, 0.0f);
-					timeLastJump =Time.time;
-				}
-			if (posEnemy.y - posPlayer.y > 0 && tag != "Mouse") {
-					transform.position += new Vector3 (0.0f, jumpTry, 0.0f);
-				}
-				hindernis = false;
+			//Jump
+			if ((posPlayer.y - posEnemy.y > 0.5f || hindernis == true) && timeLastJump + delayJump <= Time.time) {
+				jumpTry += 0.1f;
+				transform.position += new Vector3 (0.0f, jumpTry, 0.0f);
+				timeLastJump = Time.time;
 			}
+			if ((posEnemy.y - posPlayer.y > 0) && tag != "Maus") {
+				transform.position += new Vector3 (0.0f, jumpTry, 0.0f);
+			}
+			hindernis = false;
+		} else {
+			if ( abs < 3 && tag == "Maus") {
+				transform.position += new Vector3 (((posEnemy.x - posPlayer.x) / 20), 0.0f, 0.0f);
+			}
+		}
 		if (abs > 10) {
 			spawner.DestroyEnemy ();
 			Destroy (gameObject);

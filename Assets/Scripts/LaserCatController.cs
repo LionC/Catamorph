@@ -3,12 +3,16 @@ using System.Collections;
 
 public class LaserCatController : MonoBehaviour {
 
-	public GameObject player;
+	private GameObject player;
 	public Color laserCatColor = new Color(220, 20, 60);
 
 	// Update is called once per frame
 	void Update () {
 
+	}
+
+	void Awake () {
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 
 	void OnEnable() {

@@ -3,7 +3,8 @@ using System.Collections;
 
 public class EnemySpawner : MonoBehaviour {
 
-	public GameObject enemy, player;
+	public GameObject enemy;
+	private GameObject player;
 	public int häufigkeit, anzEnemy;
 	public float delay, timeLastSpawn;
 	private int countEnemy;
@@ -11,6 +12,10 @@ public class EnemySpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
+	}
+
+	void Awake () {
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 	
 	// Update is called once per frame

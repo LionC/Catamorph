@@ -4,7 +4,7 @@ using UnityStandardAssets._2D;
 
 public class MixerCatController : MonoBehaviour {
 
-	public GameObject player;
+	private GameObject player;
 	public float batteryMax = 100;
 	public float batteryCurrent = 0;
 	public float batteryDrain = 5f;
@@ -25,6 +25,10 @@ public class MixerCatController : MonoBehaviour {
 		rigidBody = GetComponent<Rigidbody2D> ();
 		platformerCharacter2D = GetComponent<PlatformerCharacter2D>();
 		batteryCurrent = batteryMax;
+	}
+
+	void Awake () {
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 	
 	// Update is called once per frame

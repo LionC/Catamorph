@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AbilityChangeSpotController : MonoBehaviour {
 
-	public GameObject player;
+	private GameObject player;
 	public bool rocketIsAvailable;
 	public bool freezerIsAvailable;
 	public bool burnerIsAvailable;
@@ -15,6 +15,10 @@ public class AbilityChangeSpotController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		catBehavior = player.GetComponent<CatBehaviour> ();
+	}
+
+	void Awake () {
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 
 	// Update is called once per frame

@@ -5,13 +5,17 @@ using UnityStandardAssets._2D;
 public class CheesController : MonoBehaviour {
 
 	public Vector3 spawnPos;
-	public GameObject player;
+	private GameObject player;
 	public 
 
 
 	// Use this for initialization
 	void Start () {
 		spawnPos = transform.position;
+	}
+
+	void Awake () {
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 	
 	// Update is called once per frame

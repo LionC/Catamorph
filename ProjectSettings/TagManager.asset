@@ -12,6 +12,7 @@ TagManager:
   - Ground
   - CatHitBox
   - Rocket Destructable Wall
+  - Maus
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - 
   - Foreground
   - Background
-  - 
+  - Ground
   - 
   - 
   - 
