@@ -28,7 +28,7 @@ public class TimedDestroyButtonController : MonoBehaviour {
 
 	void FixedUpdate() {
 		if (pressed) {
-			timeAfterTrigger -= Time.fixedDeltaTime;
+			timeAfterTrigger -= Time.deltaTime;
 
 			if (timeAfterTrigger <= 0 && !triggered) {
 				triggered = true;
@@ -36,7 +36,7 @@ public class TimedDestroyButtonController : MonoBehaviour {
 				if (timeUntilRebuild <= 0)
 					Destroy (reactionObject);
 				else
-					reactionObject.SetActive (false);
+					reactionObject.SetActive (true);
 				
 				reactionObjectAnim.SetActive(true);
 			}

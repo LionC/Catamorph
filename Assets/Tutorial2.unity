@@ -279,6 +279,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 400014, guid: 47d3e747b2e87de4c8358aaa436365ea, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400014, guid: 47d3e747b2e87de4c8358aaa436365ea, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47d3e747b2e87de4c8358aaa436365ea, type: 2}
   m_IsPrefabParent: 0
@@ -358,12 +366,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881f9270de360a04c9e6fc50dc2f3bae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeAfterTriggerInitialValue: 0
+  timeAfterTriggerInitialValue: 2
   timeUntilRebuildInitialValue: 7
   player: {fileID: 1347765959}
   reactionObject: {fileID: 2085688409}
   reactionObjectAnim: {fileID: 0}
-  timeAfterTrigger: 0
+  timeAfterTrigger: 2
   timeUntilRebuild: 7
 --- !u!58 &672401847
 CircleCollider2D:
@@ -731,11 +739,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: ba4eef1c1bb56b444b143beb8d3e30d5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 42.82
+      value: -9.54
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ba4eef1c1bb56b444b143beb8d3e30d5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4.76
+      value: -3.94
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ba4eef1c1bb56b444b143beb8d3e30d5, type: 2}
       propertyPath: m_LocalPosition.z
