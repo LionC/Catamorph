@@ -21,7 +21,7 @@ public class CheesController : MonoBehaviour {
 
 	void FixedUpdate(){
 		
-		if (Vector3.Distance (spawnPos, transform.position) >= 4) {
+		if (Vector3.Distance (spawnPos, transform.position) >= 6) {
 			Destroy (gameObject);
 		}
 	}

@@ -32,20 +32,7 @@ public class CatBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Alpha1)) {
-			if(currentAbility != null)
-				currentAbility.enabled = false;
-			
-			currentAbility = GetComponent<MixerCatController> ();
-			currentAbility.enabled = true;
-		}
-		else if (Input.GetKeyDown (KeyCode.Alpha2)) {
-			if(currentAbility != null)
-				currentAbility.enabled = false;
-
-			currentAbility = GetComponent<FreezerCatController> ();
-			currentAbility.enabled = true;
-		}
+		switchAbility (false, false, false, false, false);  // change if wished/implemented
 	}
 
 	void FixedUpdate() {
@@ -63,6 +50,44 @@ public class CatBehaviour : MonoBehaviour {
 		}
 		
 		return lives;
+	}
+
+	public void switchAbility(bool rocketIsAvailable, bool freezerIsAvailable, bool burnerIsAvailable, bool laserIsAvailable, bool mixerIsAvailable) {
+		if (Input.GetKeyDown (KeyCode.Alpha1) && rocketIsAvailable) {
+			if(currentAbility != null)
+				currentAbility.enabled = false;
+
+			currentAbility = GetComponent<RocketCatController> ();
+			currentAbility.enabled = true;
+		}
+		else if (Input.GetKeyDown (KeyCode.Alpha2) && freezerIsAvailable) {
+			if(currentAbility != null)
+				currentAbility.enabled = false;
+
+			currentAbility = GetComponent<FreezerCatController> ();
+			currentAbility.enabled = true;
+		}
+		else if (Input.GetKeyDown (KeyCode.Alpha3) && burnerIsAvailable) {
+			if(currentAbility != null)
+				currentAbility.enabled = false;
+
+			currentAbility = GetComponent<BurnerCatController> ();
+			currentAbility.enabled = true;
+		}
+		else if (Input.GetKeyDown (KeyCode.Alpha4) && laserIsAvailable) {
+			if(currentAbility != null)
+				currentAbility.enabled = false;
+
+			currentAbility = GetComponent<LaserCatController> ();
+			currentAbility.enabled = true;
+		}
+		else if (Input.GetKeyDown (KeyCode.Alpha5) && mixerIsAvailable) {
+			if(currentAbility != null)
+				currentAbility.enabled = false;
+
+			currentAbility = GetComponent<MixerCatController> ();
+			currentAbility.enabled = true;
+		}
 	}
 
 	public void fallOutOfLevel() {
