@@ -238,6 +238,12 @@ MonoBehaviour:
   livesInitialValue: 9
   lives: 9
   currentAbility: {fileID: 0}
+  CatchedLives: 40
+  CatchedLivesDrain: 0.02
+  CatchedLivesAdd: 1
+  iscatched: 0
+  DamageIfHumanCatched: 0
+  DamgeIfWiggeldFree: 0
 --- !u!114 &114000012031885196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -252,6 +258,7 @@ MonoBehaviour:
   player: {fileID: 1000012594885196}
   batteryMax: 100
   batteryCurrent: 0
+  batteryDrain: 5
   flyForce: 50
   glideForce: -1
   glideVelocityDelay: -2.5
