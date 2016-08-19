@@ -6,10 +6,11 @@ namespace UnityStandardAssets._2D
 	
     public class PlatformerCharacter2D : MonoBehaviour
     {
+		private CatBehaviour catBehaviour;
 		public float timeLeftValue = 7f;
 		public float invertedMaxSpeedDenominatorInitialValue = 5f;
 		public float invertedJumpForceDenominatorInitialValue = 1.6f;
-
+		public GameObject player;
 		public float timeLeft = 0f;
 		public bool inverted = false;
 		public int direction = 1;
@@ -38,8 +39,8 @@ namespace UnityStandardAssets._2D
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
-
-
+			player = GameObject.FindGameObjectWithTag("Player");
+			catBehaviour = player.GetComponent<CatBehaviour> ();//TODO: player auf tag ändern
         }
 
 
@@ -118,7 +119,7 @@ namespace UnityStandardAssets._2D
 				}
 			}
 			// If the player should jump...
-			if (m_Grounded && jump && m_Anim.GetBool ("Ground")) {
+			if (m_Grounded && jump && m_Anim.GetBool ("Ground")&& !catBehaviour.IsCatched) {
 				// Add a vertical force to the player.
 				m_Grounded = false;
 				m_Anim.SetBool ("Ground", false);
