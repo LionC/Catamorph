@@ -25,6 +25,7 @@ public class CatMintController : MonoBehaviour {
 		if (other.tag == "Player") {
 			player.GetComponent<PlatformerCharacter2D> ().setInversion (true);
 			catMintSmall.SetActive (true);
+			catMintSmall.transform.position = transform.position;
 			catMintWindow.SetActive (true);
 		} 
 	}

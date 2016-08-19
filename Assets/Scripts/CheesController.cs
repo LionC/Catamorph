@@ -6,6 +6,7 @@ public class CheesController : MonoBehaviour {
 
 	public Vector3 spawnPos;
 	public GameObject player;
+	public 
 
 
 	// Use this for initialization
@@ -20,15 +21,16 @@ public class CheesController : MonoBehaviour {
 
 	void FixedUpdate(){
 		
-		if (Vector3.Distance (spawnPos, transform.position) >= 7) {
+		if (Vector3.Distance (spawnPos, transform.position) >= 4) {
 			Destroy (gameObject);
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D other){
-		if (other.collider.tag == "Player") {
-			player.GetComponent<PlatformerCharacter2D> ().setInversion (true);
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.tag == "Player") {
+			Destroy (gameObject);
 		}
-		Destroy (gameObject);
+		if (other.tag != "Katzenminze" && other.tag != "Maus")
+			Destroy (gameObject);
 	}
 }

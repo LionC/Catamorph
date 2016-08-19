@@ -4,15 +4,15 @@ using System.Collections;
 public class EnemyControll : MonoBehaviour {
 
 	public GameObject player;
+	public EnemySpawner spawner;
 	public bool hindernis, hit;
 	public Vector3 posEnemy, posPlayer;
 	public float abs, timeLastHit, timeLastJump, jumpTry;
 	public float damageValue = 1f, delayHit, delayJump;
-	private bool nichtwichtig;	//test
 
 	// Use this for initialization
 	void Start () {
-
+		
 	}
 	
 	// Update is called once per frame
@@ -29,21 +29,21 @@ public class EnemyControll : MonoBehaviour {
 
 		if (abs < 3) {
 			transform.position += new Vector3 (((posPlayer.x - posEnemy.x) / 10), 0.0f, 0.0f);
-			if ((posPlayer.y - posEnemy.y > 0.5f || hindernis == true) && timeLastJump + delayJump<= Time.time) {
+			if ((posPlayer.y - posEnemy.y > 0.5f || hindernis == true) && timeLastJump + delayJump<= Time.time && tag != "Mouse") {
 					jumpTry += 0.1f;
 					transform.position += new Vector3 (0.0f, jumpTry, 0.0f);
 					timeLastJump =Time.time;
 				}
-				if (posEnemy.y - posPlayer.y > 0) {
+			if (posEnemy.y - posPlayer.y > 0 && tag != "Mouse") {
 					transform.position += new Vector3 (0.0f, jumpTry, 0.0f);
 				}
 				hindernis = false;
 			}
-		if (abs > 100) {
+		if (abs > 10) {
+			spawner.DestroyEnemy ();
 			Destroy (gameObject);
-			GetComponent<EnemySpawner> ().countEnemy--;
 		}
-		}
+	}
 
 
 		private void OnCollisionEnter2D(Collision2D coll){
