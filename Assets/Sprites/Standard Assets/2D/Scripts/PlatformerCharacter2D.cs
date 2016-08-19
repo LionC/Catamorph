@@ -42,6 +42,10 @@ namespace UnityStandardAssets._2D
 
         }
 
+		public bool isFacingRight(){
+			return m_FacingRight;
+		}
+
 
 		private void Update(){
 			

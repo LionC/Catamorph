@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Mirror : MonoBehaviour {
+public class MirrorController : MonoBehaviour {
 
-	public GameObject laser;
-
+	private bool mirror;
 	// Use this for initialization
 	void Start () {
 	
@@ -16,6 +15,16 @@ public class Mirror : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		laser.transform.position =Vector3.Reflect(transform.position, Vector3.right) ;
+		
+	}
+
+	void OnTriggerEnter2D(Collider2D coll){
+		if (coll.tag == "Player") {
+			mirror = true;
+		}
+	}
+
+	public bool isMirror(){
+		return mirror;
 	}
 }

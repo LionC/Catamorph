@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets._2D;
+
 
 public class EnemyControll : MonoBehaviour {
 
@@ -25,15 +27,14 @@ public class EnemyControll : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-
-		if (player.transform.rotation.x < 0) {
-			GetComponent<SpriteRenderer> ().flipX = true;
-		} else {
-			GetComponent<SpriteRenderer> ().flipX = false;
-		}
-
 		posEnemy = transform.position;
 		posPlayer = player.transform.position;
+
+		if (posEnemy.x < posPlayer.x) {
+			GetComponent<SpriteRenderer> ().flipX = true;
+		} else {
+			GetComponent<SpriteRenderer>().flipX = false;
+		}
 
 		abs = Vector3.Distance (posEnemy, posPlayer);
 
