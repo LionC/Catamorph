@@ -5,7 +5,7 @@ public class DamageWalls : MonoBehaviour {
 
 	public GameObject player;
 
-	public float damageValue = 1.5f;
+	public float damageValue = 1f;
 	private CatBehaviour catBehavior;
 	private MixerCatController mixerCatController;
 

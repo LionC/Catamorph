@@ -68,8 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0c9220dc89903499712521a026d251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerName: Catelyn
-  TimeLeftHit: 5
+  player: {fileID: 0}
+  damageValue: 1
 --- !u!114 &114000013657582434
 MonoBehaviour:
   m_ObjectHideFlags: 1
