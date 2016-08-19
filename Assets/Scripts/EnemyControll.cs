@@ -26,6 +26,12 @@ public class EnemyControll : MonoBehaviour {
 
 	void FixedUpdate(){
 
+		if (player.transform.rotation.x < 0) {
+			GetComponent<SpriteRenderer> ().flipX = true;
+		} else {
+			GetComponent<SpriteRenderer> ().flipX = false;
+		}
+
 		posEnemy = transform.position;
 		posPlayer = player.transform.position;
 
@@ -44,8 +50,12 @@ public class EnemyControll : MonoBehaviour {
 			}
 			hindernis = false;
 		} else {
-			if ( abs < 3 && tag == "Maus") {
-				transform.position += new Vector3 (((posEnemy.x - posPlayer.x) / 20), 0.0f, 0.0f);
+			if (abs < 6 && abs > 3.5f) {
+				transform.position += new Vector3 (((posPlayer.x - posEnemy.x) / 20), 0.0f, 0.0f);
+			} else {
+				if (abs < 3 && tag == "Maus") {
+					transform.position += new Vector3 (((posEnemy.x - posPlayer.x) / 20), 0.0f, 0.0f);
+				}
 			}
 		}
 		if (abs > 10) {

@@ -6,7 +6,8 @@ public class EnemySpawner : MonoBehaviour {
 	public GameObject enemy;
 	private GameObject player;
 	public int häufigkeit, anzEnemy;
-	public float delay, timeLastSpawn;
+	public float delay;
+	private float timeLastSpawn;
 	private int countEnemy;
 
 	// Use this for initialization
