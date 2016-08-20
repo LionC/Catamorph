@@ -211,12 +211,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720ffb25bbea54e86a6318a1d236e6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1000012337787870}
   invisibleTimeAfterHitInitialValue: 3
   invisibleTimeAfterHit: 0
   livesInitialValue: 9
   lives: 9
   currentAbility: {fileID: 0}
+  CatchedLives: 40
+  CatchedLivesDrain: 0.02
+  CatchedLivesAdd: 1
+  IsCatched: 0
+  DamageIfHumanCatched: 0
+  DamgeIfWiggeldFree: 0
 --- !u!114 &114000010729823958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,7 +233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ab771979b39ee499bd1b13570729cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1000012337787870}
+  speedAsFreezer: 2.5
+  speedAsDefault: 5
   freezerCatColor: {r: 0.051470585, g: 0.5732488, b: 0.875, a: 1}
 --- !u!114 &114000011551933826
 MonoBehaviour:
@@ -250,7 +256,7 @@ MonoBehaviour:
   direction: 1
   invertedMaxSpeedDenominator: 1
   invertedJumpForceDenominator: 1
-  m_MaxSpeed: 10
+  m_MaxSpeed: 1000
   m_JumpForce: 800
   m_CrouchSpeed: 0.25
   m_AirControl: 1
@@ -269,7 +275,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909249e1b8aea084eaa212b278fd5453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1000012337787870}
   batteryMax: 100
   batteryCurrent: 0
   batteryDrain: 5

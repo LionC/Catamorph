@@ -29,7 +29,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4000012495193272
 Transform:
   m_ObjectHideFlags: 1
@@ -82,9 +82,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1f6526d94003e4390b9121e76644be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catMintSmall: {fileID: 0}
+  catMintSmall: {fileID: 1000012773573198, guid: f916d63eb7aa67d4d9c9bbc303f1f003,
+    type: 2}
   catMintWindow: {fileID: 0}
-  player: {fileID: 0}
 --- !u!212 &212000011029711714
 SpriteRenderer:
   m_ObjectHideFlags: 1

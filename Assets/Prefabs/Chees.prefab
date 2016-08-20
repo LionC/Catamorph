@@ -30,7 +30,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4000010130883994
 Transform:
   m_ObjectHideFlags: 1
@@ -87,7 +87,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
 --- !u!114 &114000013284369684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,7 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   catMintSmall: {fileID: 0}
   catMintWindow: {fileID: 0}
-  player: {fileID: 0}
 --- !u!212 &212000012237987096
 SpriteRenderer:
   m_ObjectHideFlags: 1
