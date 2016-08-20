@@ -23,7 +23,10 @@ public class CatMintController : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		
+		if (catMintWindow.activeSelf == true) {
+			print ("test");
+			catMintWindow.transform.position = player.transform.position;
+		}
 	}
 
 	private void OnTriggerEnter2D(Collider2D other){
@@ -32,11 +35,12 @@ public class CatMintController : MonoBehaviour {
 			catMintSmall.SetActive (true);
 			catMintSmall.transform.position = transform.position;
 			catMintWindow.SetActive (true);
+
 		} 
+
 	}
 
 	private void OnTriggerExit2D (Collider2D other){
 		catMintSmall.SetActive (false);
-		catMintWindow.SetActive (false);
 	}
 }
