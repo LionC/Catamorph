@@ -13,13 +13,19 @@ public class CatBehaviour : MonoBehaviour {
 	public float livesInitialValue = 9f;
 	public float lives = 9f;
 	public MonoBehaviour currentAbility = null;
-
+	public float CatchedLives=40f;
+	public float CatchedLivesDrain=0.02f;
+	public float CatchedLivesAdd=1f;
+	private float catchedlivessave;
+	public bool IsCatched = false;
 	private PlatformerCharacter2D platformerCharacter2D;
 	private Rigidbody2D rigidBody;
 	private Scene currentScene;
+	public float DamageIfHumanCatched,DamgeIfWiggeldFree;
 
 	// Use this for initialization
 	void Start () {
+		catchedlivessave = CatchedLives;
 		if (PlayerPrefs.HasKey ("currentLives"))
 			lives = PlayerPrefs.GetFloat ("currentLives");
 		else
@@ -39,7 +45,29 @@ public class CatBehaviour : MonoBehaviour {
 		switchAbility (false, false, false, false, false);  // change if wished/implemented
 	}
 
-	void FixedUpdate() {
+	void FixedUpdate() 
+	{
+		if (IsCatched)
+		{
+			CatchedLives -= CatchedLivesDrain;
+			if (Input.GetKeyDown (KeyCode.Space)) 
+			{
+				CatchedLives += CatchedLivesAdd;
+			}
+			if (CatchedLives > 100) 
+			{
+				CatchedLives = catchedlivessave;
+				IsCatched = false;
+				takeDamage(0.5f);
+			}
+			else if (CatchedLives <= 0) 
+			{
+				CatchedLives = catchedlivessave;
+				IsCatched = false;
+				takeDamage (1f);
+			}
+
+		}
 		if (invisibleTimeAfterHit > 0)
 			invisibleTimeAfterHit -= Time.deltaTime;
 	}
