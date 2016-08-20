@@ -7,17 +7,10 @@ public class PositionListener : MonoBehaviour {
 	public KeyCode key;
 	private bool anSteckdose = false;
 
-	// Use this for initialization
 	void Awake () {
 		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 
-	void Start(){
-
-	}
-
-
-	// Update is called once per frame
 	void FixedUpdate () {
 		positionListener ();
 		if (anSteckdose == true) {
@@ -33,8 +26,6 @@ public class PositionListener : MonoBehaviour {
 					anSteckdose = true;
 				}
 			}
-			if (tag == "Katzenminze")
-				player.GetComponent<PlatformerCharacter2D> ().setInversion (true);
 		}
 	}
 }

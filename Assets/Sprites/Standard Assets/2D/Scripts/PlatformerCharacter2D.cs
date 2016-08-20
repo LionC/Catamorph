@@ -1,23 +1,23 @@
 using System;
 using UnityEngine;
 
-namespace UnityStandardAssets._2D
-{
+namespace UnityStandardAssets._2D {
 	
     public class PlatformerCharacter2D : MonoBehaviour
     {
+		private CatBehaviour catBehaviour;
 		public float timeLeftValue = 7f;
 		public float invertedMaxSpeedDenominatorInitialValue = 5f;
 		public float invertedJumpForceDenominatorInitialValue = 1.6f;
-
+		public GameObject player;
 		public float timeLeft = 0f;
 		public bool inverted = false;
 		public int direction = 1;
 		public float invertedMaxSpeedDenominator = 1f;
 		public float invertedJumpForceDenominator = 1f;
 
-        [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
-        [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
+        [SerializeField] private float m_MaxSpeed = 5f;                    // The fastest the player can travel in the x axis.
+        [SerializeField] private float m_JumpForce = 600f;                  // Amount of force added when the player jumps.
         [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
@@ -31,28 +31,17 @@ namespace UnityStandardAssets._2D
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
-        private void Awake()
-        {
+        private void Awake() {
             // Setting up references.
             m_GroundCheck = transform.Find("GroundCheck");
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
-
-
+			player = GameObject.FindGameObjectWithTag("Player");
+			catBehaviour = player.GetComponent<CatBehaviour> ();//TODO: player auf tag ändern
         }
 
-		public bool isFacingRight(){
-			return m_FacingRight;
-		}
-
-
-		private void Update(){
-			
-		}
-
-        private void FixedUpdate()
-        {
+        private void FixedUpdate() {
 			if(inverted)
 				timeLeft -= Time.deltaTime;
 
@@ -85,6 +74,22 @@ namespace UnityStandardAssets._2D
 				direction = 1;
 				timeLeft = timeLeftValue;
 			}
+		}
+
+		public bool isGrounded() {
+			return m_Grounded;
+		}
+
+		public bool isFacingRight() {
+			return m_FacingRight;
+		}
+
+		public void setMaxSpeed(float newValue) {
+			m_MaxSpeed = newValue;
+		}
+
+		public void setJumpForce(float newValue) {
+			m_JumpForce = newValue;
 		}
 			
         public void Move (float move, bool crouch, bool jump)
@@ -122,7 +127,7 @@ namespace UnityStandardAssets._2D
 				}
 			}
 			// If the player should jump...
-			if (m_Grounded && jump && m_Anim.GetBool ("Ground")) {
+			if (m_Grounded && jump && m_Anim.GetBool ("Ground")&& !catBehaviour.IsCatched) {
 				// Add a vertical force to the player.
 				m_Grounded = false;
 				m_Anim.SetBool ("Ground", false);

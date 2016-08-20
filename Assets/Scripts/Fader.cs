@@ -2,20 +2,17 @@
 using System.Collections;
 
 public class Fader : MonoBehaviour {
-	public int fadingTime = 120;
+	public int fadingTime = 90;
 
 	private bool fading = false;
 	private bool fadingIn = false;
 	private SpriteRenderer sprite;
 	private int fadingStep = 0;
 
-
-	// Use this for initialization
 	void Start () {
 		sprite = GetComponent<SpriteRenderer> ();
 	}
-	
-	// Update is called once per frame
+
 	void FixedUpdate () {
 		if (fading) {
 			if (fadingStep > fadingTime) {
@@ -46,9 +43,5 @@ public class Fader : MonoBehaviour {
 		fadingIn = true;
 		fadingStep = 0;
 		fading = true;
-	}
-
-	void OnTriggerEnter2D(Collider2D other) {
-		fadeIn ();
 	}
 }

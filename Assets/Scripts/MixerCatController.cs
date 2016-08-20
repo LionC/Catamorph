@@ -24,40 +24,48 @@ public class MixerCatController : MonoBehaviour {
 	void Start () {
 		rigidBody = GetComponent<Rigidbody2D> ();
 		platformerCharacter2D = GetComponent<PlatformerCharacter2D>();
+		batteryCurrent = batteryMax;	//Änderung
 	}
 
 	void Awake () {
 		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 	
-	// Update is called once per frame
 	void Update () {
+		if (batteryCurrent < 1)
+			crash ();
+
 		if (!crashed) {
-			if (Input.GetKey (KeyCode.F)) {
+			if (Input.GetKey (KeyCode.F) && batteryCurrent > 0) {
 				isFlying = true;
-			} else if (!Input.GetKey (KeyCode.F) && isFlying && !platformerCharacter2D.m_Grounded) {
+			} else if (!Input.GetKey (KeyCode.F) && isFlying && !platformerCharacter2D.isGrounded() && batteryCurrent > 0) {
 				isFlying = false;
 				isGliding = true;
-			} else if (isGliding && platformerCharacter2D.m_Grounded) {
+			} else if (isGliding && platformerCharacter2D.isGrounded()) {
 				isGliding = false;
 				resetGravity ();
 			}
 		} else {
-			if (platformerCharacter2D.m_Grounded)
+			if (platformerCharacter2D.isGrounded())
 				crashed = false;
 		}
 	}
 
 	void FixedUpdate() {
 		if (isFlying) {
+			batteryCurrent -= batteryDrain / 50;	//Änderung
 			resetGravity ();
 			rigidBody.AddForce(new Vector2(0f, flyForce));
 		}
 
-		if (isGliding && rigidBody.velocity.y <= glideVelocityDelay && !glideForceAddedOnce) {
-			rigidBody.gravityScale = 0;
-			rigidBody.AddForce (new Vector2 (0f, glideForce));
-			glideForceAddedOnce = true;
+		if (isGliding) {
+			batteryCurrent -= batteryDrain / 500;
+					//Änderung
+			if(rigidBody.velocity.y <= glideVelocityDelay && !glideForceAddedOnce) {
+				rigidBody.gravityScale = 0;
+				rigidBody.AddForce (new Vector2 (0f, glideForce));
+				glideForceAddedOnce = true;
+			}
 		}
 	}
 
