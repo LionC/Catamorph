@@ -38,13 +38,13 @@ GameObject:
   - 95: {fileID: 95000012069383758}
   - 58: {fileID: 58000013909681564}
   - 50: {fileID: 50000012318611282}
-  - 114: {fileID: 114000010424095954}
-  - 114: {fileID: 114000010597831758}
   - 61: {fileID: 61000012418283544}
   - 114: {fileID: 114000011360894760}
   - 114: {fileID: 114000012031885196}
   - 114: {fileID: 114000010838797582}
   - 114: {fileID: 114000014079594574}
+  - 114: {fileID: 114000010597831758}
+  - 114: {fileID: 114000010424095954}
   m_Layer: 0
   m_Name: Catelyn
   m_TagString: Player
@@ -184,6 +184,7 @@ MonoBehaviour:
   timeLeftValue: 10
   invertedMaxSpeedDenominatorInitialValue: 5
   invertedJumpForceDenominatorInitialValue: 1.6
+  player: {fileID: 0}
   timeLeft: 10
   inverted: 0
   direction: 1
@@ -241,7 +242,7 @@ MonoBehaviour:
   CatchedLives: 40
   CatchedLivesDrain: 0.02
   CatchedLivesAdd: 1
-  iscatched: 0
+  IsCatched: 0
   DamageIfHumanCatched: 0
   DamgeIfWiggeldFree: 0
 --- !u!114 &114000012031885196
