@@ -22,11 +22,10 @@ public class MouseThrowChees : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-
 		posEnemy = transform.position;
 		posPlayer = player.transform.position;
 		abs = Vector3.Distance (posEnemy, posPlayer);
-		if ((Vector2.Distance(player.transform.position, transform.position) < 5) && (timeLastShot +delay <= Time.time) && abs >3) {
+		if ((abs < 6) && (timeLastShot +delay <= Time.time) && abs >3) {
 			cheeseClone = Instantiate (cheese);
 			cheeseClone.SetActive (true);
 			cheeseClone.transform.position = transform.position;
