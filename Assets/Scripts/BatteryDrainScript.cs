@@ -34,14 +34,12 @@ public class BatteryDrainScript: MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) 
 	{
-		Debug.Log ("OnTriggerEnter2D");
 		if (other.gameObject.tag=="Player") {
 			drainActive = true;
 		}
 	}
 	void OnTriggerExit2D(Collider2D other) 
 	{
-		Debug.Log("OnTriggerExit2D");
 		if (other.gameObject.tag=="Player") {
 			drainActive = false;
 		}
