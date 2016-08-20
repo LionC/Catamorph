@@ -21,13 +21,13 @@ public class TimedDestroyButtonController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		transform = gameObject.GetComponent<Transform> ();
-		platformerCharacter2D = player.GetComponent<PlatformerCharacter2D> ();
 		timeAfterTrigger = timeAfterTriggerInitialValue;
 		timeUntilRebuild = timeUntilRebuildInitialValue;
 	}
 
 	void awake(){
 		player = GameObject.FindGameObjectWithTag ("Player");
+		platformerCharacter2D = player.GetComponent<PlatformerCharacter2D> ();
 	}
 
 	void FixedUpdate() {
