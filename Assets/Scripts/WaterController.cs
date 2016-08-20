@@ -4,9 +4,8 @@ using UnityStandardAssets._2D;
 
 public class WaterController : MonoBehaviour {
 
-	public GameObject player;
-	public float xScareForce;
-	public float yScareForce;
+	private GameObject player;
+	public Vector2 spawnPoint;
 	private bool triggered = false;
 	private int direction = -1;
 	private Rigidbody2D rigidBody2D;
@@ -18,6 +17,10 @@ public class WaterController : MonoBehaviour {
 		rigidBody2D = player.GetComponent<Rigidbody2D> ();
 		catBehavior = player.GetComponent<CatBehaviour> ();
 		platformerCharacter2D = GetComponent<PlatformerCharacter2D>();
+	}
+
+	void Awake () {
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 
 	// Update is called once per frame

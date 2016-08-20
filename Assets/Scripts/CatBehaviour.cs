@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class CatBehaviour : MonoBehaviour {
 
-	public GameObject player;
+	private GameObject player;
 	public float invisibleTimeAfterHitInitialValue = 3f;
 	public float invisibleTimeAfterHit = 0f;
 	public float livesInitialValue = 9f;
@@ -28,6 +28,10 @@ public class CatBehaviour : MonoBehaviour {
 		rigidBody = GetComponent<Rigidbody2D> ();
 		platformerCharacter2D = GetComponent<PlatformerCharacter2D>();
 		currentScene = SceneManager.GetActiveScene ();
+	}
+
+	void Awake () {
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 	
 	// Update is called once per frame

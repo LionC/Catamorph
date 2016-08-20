@@ -3,12 +3,16 @@ using System.Collections;
 using UnityStandardAssets._2D;
 
 public class PositionListener : MonoBehaviour {
-	public GameObject player;
+	private GameObject player;
 	public KeyCode key;
 	private bool anSteckdose = false;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+		player = GameObject.FindGameObjectWithTag ("Player");
+	}
+
+	void Start(){
 
 	}
 
