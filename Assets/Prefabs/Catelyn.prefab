@@ -244,6 +244,7 @@ MonoBehaviour:
   timeLeftValue: 7
   invertedMaxSpeedDenominatorInitialValue: 5
   invertedJumpForceDenominatorInitialValue: 1.6
+  player: {fileID: 0}
   timeLeft: 10
   inverted: 0
   direction: 1
