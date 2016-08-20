@@ -18,7 +18,6 @@ public class CatBehaviour : MonoBehaviour {
 	private Rigidbody2D rigidBody;
 	private Scene currentScene;
 
-	// Use this for initialization
 	void Start () {
 		if (PlayerPrefs.HasKey ("currentLives"))
 			lives = PlayerPrefs.GetFloat ("currentLives");
@@ -33,8 +32,7 @@ public class CatBehaviour : MonoBehaviour {
 	void Awake () {
 		player = GameObject.FindGameObjectWithTag ("Player");
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		switchAbility (false, false, false, false, false);  // change if wished/implemented
 	}
@@ -47,12 +45,12 @@ public class CatBehaviour : MonoBehaviour {
 	public float takeDamage(float damage) {
 		if (invisibleTimeAfterHit <= 0) {
 			lives -= damage;
-			if (lives == 0)
+			if (lives <= 0)
 				gameOver ();
 
 			invisibleTimeAfterHit = invisibleTimeAfterHitInitialValue;
 		}
-		
+
 		return lives;
 	}
 
@@ -96,10 +94,13 @@ public class CatBehaviour : MonoBehaviour {
 
 	public void fallOutOfLevel() {
 		PlayerPrefs.SetFloat ("currentLives", lives);
-		gameOver ();
+		SceneManager.LoadScene(currentScene.name);
 	}
 
 	public void gameOver() {
+		if (PlayerPrefs.HasKey ("currentLives"))
+			PlayerPrefs.DeleteKey ("currentLives");
+
 		SceneManager.LoadScene(currentScene.name);
 	}
 }

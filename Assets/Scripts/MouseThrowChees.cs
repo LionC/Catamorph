@@ -12,16 +12,11 @@ public class MouseThrowChees : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		timeLeftShoot = 1;
+		timeLastShot = 1;
 	}
 
 	void Awake () {
 		player = GameObject.FindGameObjectWithTag ("Player");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 
 	void FixedUpdate(){
@@ -29,7 +24,8 @@ public class MouseThrowChees : MonoBehaviour {
 		posEnemy = transform.position;
 		posPlayer = player.transform.position;
 		abs = Vector3.Distance (posEnemy, posPlayer);
-		dir = (player.transform.position - transform.position) + new Vector3 (0, 1,0);
+		//Änderung
+		dir = (player.transform.position - transform.position) + new Vector3 (dir.x, 1,0);
 
 		if ((Vector2.Distance(player.transform.position, transform.position) < 5) && (timeLastShot +delay <= Time.time) && abs >3) {
 			cheeseClone = Instantiate (cheese);
@@ -40,14 +36,5 @@ public class MouseThrowChees : MonoBehaviour {
 		}
 
 		dir = player.transform.position - transform.position;
-
-		if ((GetComponent<EnemyControll> ().abs < 5) && (timeLeftShoot <= 0)) {
-			Instantiate (chees);
-			chees.transform.position = transform.position;
-			chees.AddComponent<Rigidbody2D> ().AddForce (new Vector2 (dir.y*100, -100.0f));
-			timeLeftShoot = 1.0f;
-		}
-
-
 	}
 }

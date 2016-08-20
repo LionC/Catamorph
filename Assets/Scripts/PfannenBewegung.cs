@@ -9,16 +9,15 @@ public class PfannenBewegung : MonoBehaviour {
 	public int Time_until_Drop=1;
 	public int Time_until_disapear=3;
 	private Vector2 Move;
-	// Use this for initialization
+
 	void Start () {
 		Move = new Vector2 (0, -1.0f);
-		}
-
-	// Update is called once per frame
+		rigidbodyComponent = GetComponent<Rigidbody2D> ();
+	}
+		
 	void FixedUpdate () {
 		if (SetActive == true) {
 			timeLeft += Time.deltaTime;
-			rigidbodyComponent = GetComponent<Rigidbody2D> ();
 			rigidbodyComponent.rotation = Mathf.Sin ((timeLeft) * (Mathf.PI / 180) * 100) * 8;
 			StartCoroutine(Time_until_Dropfunc());
 		}
@@ -28,10 +27,10 @@ public class PfannenBewegung : MonoBehaviour {
 			StartCoroutine(Time_until_Dropfunc2());
 		}
 	}
+
 	IEnumerator Time_until_Dropfunc()
 	{
 		yield return new WaitForSeconds (Time_until_Drop);
-		Debug.Log ("TIme1");
 			SetActive = false;
 			SetActive2 = true;
 	}
@@ -39,7 +38,6 @@ public class PfannenBewegung : MonoBehaviour {
 	IEnumerator Time_until_Dropfunc2()
 	{
 		yield return new WaitForSeconds (Time_until_disapear);
-		Debug.Log ("TIme2");
 		Destroy (gameObject);
 	}
 }
