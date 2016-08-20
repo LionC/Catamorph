@@ -6,8 +6,8 @@ using UnityStandardAssets._2D;
 public class EnemyControll : MonoBehaviour {
 
 	private GameObject player;
-	//public ObjectSpawner spawner;
-	public bool hindernis, hit;
+	public ObjectSpawner spawner;
+	public bool hindernis;
 	public Vector3 posEnemy, posPlayer;
 	public float abs, timeLastHit, timeLastJump, jumpTry;
 	public float damageValue = 1f, delayHit, delayJump;
@@ -50,7 +50,7 @@ public class EnemyControll : MonoBehaviour {
 			}
 		}
 		if (abs > 10) {
-		//	spawner.DestroyEnemy ();
+			spawner.GetComponent<ObjectSpawner> ().reduceObjectsOnScreen ();
 			Destroy (gameObject);
 		}
 	}
@@ -61,7 +61,6 @@ public class EnemyControll : MonoBehaviour {
 			if (coll.collider.tag == "Player" && timeLastHit + delayHit <= Time.time) {
 				transform.position += new Vector3 (coll.collider.GetComponent<Rigidbody2D>().velocity.x*(-1),0.5f,0.0f); //naach hinten fliegen
 				timeLastHit = Time.time; //Timer Hit reset
-				hit = true;	//Spieler wurde getroffen
 				player.GetComponent<CatBehaviour>().takeDamage(damageValue);
 			}
 
