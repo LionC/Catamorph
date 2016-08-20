@@ -2,33 +2,21 @@
 using System.Collections;
 
 public class HealthScript : MonoBehaviour {
-	public int hp=1;
+	public float lives = 1;
 	public bool isdestroyable = true;
-	public string DestroyableBye="";
-	public void Damage(int damageCount)
-	{
-		hp -= damageCount;
-		if (hp <= 0)
+	public string destroyableBy;
+	public void damage(int damageCount) {
+		lives -= damageCount;
+		if (lives <= 0)
 			Destroy (gameObject);
 	}
-	void OnTriggerEnter2D(Collider2D otherCollider)
-	{
-		Bullet shot =
-			otherCollider.gameObject.GetComponent<Bullet> ();
-		if (otherCollider.CompareTag(DestroyableBye)) {
+	void OnCollisionEnter2D(Collision2D other) {
+		Bullet shot = other.collider.gameObject.GetComponent<Bullet> ();
+		if (other.collider.CompareTag(destroyableBy)) {
 			if (shot.isEnemyShot = isdestroyable) {
-				Damage (shot.damage);
+				damage (shot.damage);
 				Destroy (shot.gameObject);
 			}
 		}
-	}
-	
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }

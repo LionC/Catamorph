@@ -6,21 +6,11 @@ using UnityStandardAssets._2D;
 public class EnemyControll : MonoBehaviour {
 
 	private GameObject player;
-	public EnemySpawner spawner;
+	//public ObjectSpawner spawner;
 	public bool hindernis, hit;
 	public Vector3 posEnemy, posPlayer;
 	public float abs, timeLastHit, timeLastJump, jumpTry;
 	public float damageValue = 1f, delayHit, delayJump;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
 	void Awake () {
 		player = GameObject.FindGameObjectWithTag ("Player");
@@ -60,17 +50,17 @@ public class EnemyControll : MonoBehaviour {
 			}
 		}
 		if (abs > 10) {
-			spawner.DestroyEnemy ();
+		//	spawner.DestroyEnemy ();
 			Destroy (gameObject);
 		}
 	}
 
 
-		private void OnCollisionEnter2D(Collision2D coll){
-		if ((tag == "Dog") || (tag == "Human")){
-			if (coll.collider.tag == "Player" && timeLeftHit <= 0) {
+	private void OnCollisionEnter2D(Collision2D coll){
+		if ((tag == "Dog") || (tag == "Human")) {
+			if (coll.collider.tag == "Player" && timeLastHit + delayHit <= Time.time) {
 				transform.position += new Vector3 (coll.collider.GetComponent<Rigidbody2D>().velocity.x*(-1),0.5f,0.0f); //naach hinten fliegen
-				timeLeftHit = 5.0f; //Timer Hit reset
+				timeLastHit = Time.time; //Timer Hit reset
 				hit = true;	//Spieler wurde getroffen
 				player.GetComponent<CatBehaviour>().takeDamage(damageValue);
 			}

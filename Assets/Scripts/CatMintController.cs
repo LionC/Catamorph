@@ -7,7 +7,6 @@ public class CatMintController : MonoBehaviour {
 	public GameObject catMintSmall, catMintWindow;
 	private GameObject player;
 
-	// Use this for initialization
 	void Start () {
 		//player.GetComponent<PlatformerCharacter2D> ().setInversion (false);
 		catMintSmall.SetActive (false);
@@ -17,17 +16,10 @@ public class CatMintController : MonoBehaviour {
 	void Awake () {
 		player = GameObject.FindGameObjectWithTag ("Player");
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
 	void FixedUpdate(){
-		if (catMintWindow.activeSelf == true) {
-			print ("test");
+		if (catMintWindow.activeSelf == true) 
 			catMintWindow.transform.position = player.transform.position;
-		}
 	}
 
 	private void OnTriggerEnter2D(Collider2D other){
@@ -45,5 +37,6 @@ public class CatMintController : MonoBehaviour {
 
 	private void OnTriggerExit2D (Collider2D other){
 		catMintSmall.SetActive (false);
+		catMintWindow.SetActive (false);
 	}
 }
