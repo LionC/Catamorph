@@ -18,8 +18,8 @@ public class DamageWalls : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 
-	public void OnTriggerEnter2D(Collider2D other) {
-		if (other.gameObject.tag=="Player" ) {
+	public void OnCollisionEnter2D(Collision2D other) {
+		if (other.collider.tag == "Player" && catBehavior.currentAbility != null && catBehavior.currentAbility.ToString () == "MixerCat" && (mixerCatController.isFlying || mixerCatController.isGliding)) {
 			catBehavior.takeDamage (damageValue);
 			mixerCatController.crash ();
 		}

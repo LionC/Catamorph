@@ -81,27 +81,25 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010608800444}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7d507f870658584cb06388f8c92ac55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
 --- !u!114 &114000013284369684
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010608800444}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc1f6526d94003e4390b9121e76644be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   catMintSmall: {fileID: 0}
   catMintWindow: {fileID: 0}
-  player: {fileID: 0}
 --- !u!212 &212000012237987096
 SpriteRenderer:
   m_ObjectHideFlags: 1
