@@ -9,7 +9,7 @@ namespace UnityStandardAssets._2D {
 		public float timeLeftValue = 7f;
 		public float invertedMaxSpeedDenominatorInitialValue = 5f;
 		public float invertedJumpForceDenominatorInitialValue = 1.6f;
-		public GameObject player;
+		private GameObject player;
 		public float timeLeft = 0f;
 		public bool inverted = false;
 		public int direction = 1;
@@ -33,6 +33,8 @@ namespace UnityStandardAssets._2D {
 
         private void Awake() {
             // Setting up references.
+			player = GameObject.FindGameObjectWithTag ("Player");
+
             m_GroundCheck = transform.Find("GroundCheck");
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_Anim = GetComponent<Animator>();
