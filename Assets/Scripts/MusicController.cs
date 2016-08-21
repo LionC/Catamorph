@@ -5,6 +5,7 @@ using UnityEngine.Audio;
 using UnityStandardAssets._2D;
 using System;
 
+
 public class MusicController : MonoBehaviour {
     private static readonly long ticksToSeconds = TimeSpan.FromSeconds(1).Ticks;
     private static readonly string volumePostfix = "MusicVolume";
