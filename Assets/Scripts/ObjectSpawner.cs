@@ -20,11 +20,8 @@ public class ObjectSpawner : MonoBehaviour {
 	private Rigidbody2D rigidBody2D;
 	private PlatformerCharacter2D platformerCharacter2D;
 
-	void Awake() {
-		player = GameObject.FindGameObjectWithTag ("Player");
-	}
-
 	void Start() {
+		//player = 
 		platformerCharacter2D = player.GetComponent<PlatformerCharacter2D> ();
 		passedDelayTime = delay;
 	}
