@@ -20,7 +20,6 @@ public class CatBehaviour : MonoBehaviour {
 	public bool IsCatched = false;
 	private PlatformerCharacter2D platformerCharacter2D;
 	private Rigidbody2D rigidBody;
-	private ItemController itemController;
 	private Scene currentScene;
 	public float DamageIfHumanCatched,DamgeIfWiggeldFree;
 
@@ -38,7 +37,6 @@ public class CatBehaviour : MonoBehaviour {
 
 	void Awake () {
 		player = GameObject.FindGameObjectWithTag ("Player");
-		itemController = player.transform.Find ("KitchenItem").gameObject.GetComponent<ItemController>();
 	}
 
 	void Update () {
@@ -120,9 +118,6 @@ public class CatBehaviour : MonoBehaviour {
 			currentAbility = GetComponent<MixerCatController> ();
 			currentAbility.enabled = true;
 		}
-
-		if (currentAbility != null)
-			itemController.SwitchItem (currentAbility.ToString ());
 	}
 
 	public void fallOutOfLevel() {

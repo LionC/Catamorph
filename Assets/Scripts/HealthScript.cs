@@ -15,7 +15,7 @@ public class HealthScript : MonoBehaviour {
 		if (isDestroyable) {
 			if (other.collider.CompareTag(destroyableBy)) {
 				damage (shot.damage);
-				Destroy (shot.gameObject);
+				Destroy (gameObject);
 			}
 		}
 	}

@@ -13,7 +13,6 @@ TagManager:
   - CatHitBox
   - Rocket Destructable Wall
   - Maus
-  - RocketPack
   layers:
   - Default
   - TransparentFX
