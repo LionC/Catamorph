@@ -646,7 +646,7 @@ MonoBehaviour:
     type: 2}
   invertedAudio: {fileID: 245000013092834154, guid: 916e94bd11fc1be498274abee6486522,
     type: 2}
-  mixer: {fileID: 24100000, guid: 916e94bd11fc1be498274abee6486522, type: 2}
+  mainMixer: {fileID: 24100000, guid: 916e94bd11fc1be498274abee6486522, type: 2}
   player: {fileID: 586791927}
   muiscLowValue: -80
   musicHighValue: 0
@@ -654,7 +654,6 @@ MonoBehaviour:
   invertedTransisionIn: 0
   invertedTransisionOut: 0
   currentMusicType: 1
-  musicNames: []
 --- !u!1 &536468839
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +692,7 @@ AudioSource:
   m_GameObject: {fileID: 536468839}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243000010157076304, guid: 916e94bd11fc1be498274abee6486522,
+  OutputAudioMixerGroup: {fileID: 243000012772497474, guid: 916e94bd11fc1be498274abee6486522,
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
@@ -1159,7 +1158,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!114 &683385110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1261,46 +1260,6 @@ BoxCollider2D:
   m_Offset: {x: 0.00000024586916, y: -0.0016585886}
   serializedVersion: 2
   m_Size: {x: 0.07894616, y: 0.6295688}
---- !u!1 &955743072
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 955743074}
-  - 114: {fileID: 955743073}
-  m_Layer: 0
-  m_Name: SpwanerMouse
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &955743073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 955743072}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5288b3eeb54a20442a636a3c4d700967, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &955743074
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 955743072}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.97, y: -0.79, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
 --- !u!1001 &1008715278
 Prefab:
   m_ObjectHideFlags: 0
@@ -1310,11 +1269,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.16
+      value: 3.37
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.95
+      value: -0.55
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1594,7 +1553,7 @@ AudioSource:
   m_GameObject: {fileID: 1528114919}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243000012647623034, guid: 916e94bd11fc1be498274abee6486522,
+  OutputAudioMixerGroup: {fileID: 243000012450983644, guid: 916e94bd11fc1be498274abee6486522,
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
