@@ -19,14 +19,17 @@ public class FinalEnemyController : MonoBehaviour {
 	private void OnCollisionEnter2D(Collision2D coll){
 		if (coll.collider.tag == "Player") {
 			lives--;
-			GetComponent<MouseThrowChees> ().delay = lives;
+
 			angry ();
-			print ("angry");
 		}
 			
 		if (coll.collider.tag == "Boden")
 			isgrounded = true;
-		print ("Boden");
+
+		if (coll.collider.tag == "Rocket" || coll.collider.tag == "Laser") {
+			lives--;
+			GetComponent<MouseThrowChees> ().delay = 45 / lives;
+		}
 	}
 
 	private void angry(){

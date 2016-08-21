@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.Audio;
+/*
 public class CollideMusicChanger : MonoBehaviour {
 
     public List<string> tags;
-    public MusicController.MusicType targetType;
+	public MusicController.MusicType targetType;
     public MusicController controller;
 
     private MusicController.MusicType previousType;
@@ -43,4 +44,4 @@ public class CollideMusicChanger : MonoBehaviour {
     private bool VaildTag(string tag) {
         return tags.Contains(tag);
     }
-}
+}*/

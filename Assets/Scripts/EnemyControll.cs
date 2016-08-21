@@ -54,9 +54,10 @@ public class EnemyControll : MonoBehaviour {
 
 
 	private void OnCollisionEnter2D(Collision2D coll){
-		if (tag == "Dog") {
+		if (tag == "Hund") {
+			print ("damage");
 			if (coll.collider.tag == "Player" && timeLastHit + delayHit <= Time.time) {
-				transform.position += new Vector3 (coll.collider.GetComponent<Rigidbody2D>().velocity.x*(-1),0.5f,0.0f); //naach hinten fliegen
+				transform.position += new Vector3 (coll.collider.GetComponent<Rigidbody2D>().velocity.x*(-1),0.5f,0.0f); //nach hinten fliegen
 				timeLastHit = Time.time; //Timer Hit reset
 				player.GetComponent<CatBehaviour>().takeDamage(damageValue);
 			}
