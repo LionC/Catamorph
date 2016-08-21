@@ -17,17 +17,20 @@ public class FinalEnemyController : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter2D(Collision2D coll){
-		if (coll.collider.tag == "player") {
+		if (coll.collider.tag == "Player") {
 			lives--;
 			GetComponent<MouseThrowChees> ().delay = lives;
 			angry ();
+			print ("angry");
 		}
 			
 		if (coll.collider.tag == "Boden")
 			isgrounded = true;
+		print ("Boden");
 	}
 
 	private void angry(){
+		GetComponent<EnemyControll> ().enabled = false;
 		angryTimeStart = Time.time;
 		while (angryTimeStart + 5 <= Time.time) {
 			if (isgrounded) {
@@ -38,5 +41,6 @@ public class FinalEnemyController : MonoBehaviour {
 				enemyClone.SetActive (true);
 			}
 		}
+		GetComponent<EnemyControll> ().enabled = true;
 	}
 }

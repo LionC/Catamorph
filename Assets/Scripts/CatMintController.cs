@@ -25,15 +25,17 @@ public class CatMintController : MonoBehaviour {
 		if (other.tag == "Player") {
 			player.GetComponent<PlatformerCharacter2D> ().setInversion (true);
 			catMintSmall.SetActive (true);
-			catMintSmall.transform.position = transform.position;
+			catMintSmall.transform.position = player.transform.position;
 			catMintWindow.SetActive (true);
+			//System.Threading.Thread.Sleep(1000);
 
 		} 
 
 	}
 
 	private void OnTriggerExit2D (Collider2D other){
-		catMintSmall.SetActive (false);
-		catMintWindow.SetActive (false);
+		
+		//catMintSmall.SetActive (false);
+		//catMintWindow.SetActive (false);
 	}
 }
