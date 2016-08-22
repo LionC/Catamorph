@@ -1066,6 +1066,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b43fbb9049f626a44bfe786d9b80d5e7, type: 3}
   exitSounds:
   - {fileID: 0}
+  useTrigger: 0
+  useCollision: 1
 --- !u!1 &683385103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,7 +1078,6 @@ GameObject:
   - 4: {fileID: 683385109}
   - 212: {fileID: 683385108}
   - 61: {fileID: 683385107}
-  - 58: {fileID: 683385106}
   - 114: {fileID: 683385110}
   m_Layer: 0
   m_Name: Music Toggle
@@ -1085,20 +1086,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &683385106
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 683385103}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.3}
-  serializedVersion: 2
-  m_Radius: 0.12
 --- !u!61 &683385107
 BoxCollider2D:
   m_ObjectHideFlags: 0
