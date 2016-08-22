@@ -9,19 +9,35 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000011366089790}
+  m_RootGameObject: {fileID: 1000014112757142}
   m_IsPrefabParent: 1
---- !u!1 &1000011366089790
+--- !u!1 &1000012354711182
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000013306150732}
-  - 212: {fileID: 212000011460717424}
-  - 61: {fileID: 61000012248450528}
-  - 114: {fileID: 114000013510343624}
+  - 4: {fileID: 4000014207342320}
+  - 61: {fileID: 61000013874819386}
+  m_Layer: 0
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000014112757142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000011762016436}
+  - 212: {fileID: 212000010707494480}
+  - 114: {fileID: 114000014192245974}
+  - 61: {fileID: 61000011225616244}
   m_Layer: 0
   m_Name: Destructable Walls
   m_TagString: Untagged
@@ -29,53 +45,81 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000013306150732
+--- !u!4 &4000011762016436
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011366089790}
+  m_GameObject: {fileID: 1000014112757142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.78, y: -2.3, z: 0}
+  m_LocalPosition: {x: -0.5807984, y: -3.585082, z: 0}
   m_LocalScale: {x: 0.2, y: 3, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 4000014207342320}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &61000012248450528
+--- !u!4 &4000014207342320
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012354711182}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000011762016436}
+  m_RootOrder: 0
+--- !u!61 &61000011225616244
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011366089790}
+  m_GameObject: {fileID: 1000014112757142}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 1.25, y: 0.31249997}
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 0.62499994}
+--- !u!61 &61000013874819386
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012354711182}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 3626fe8e008014f6bbd19bb72937b311, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 1.25, y: 0.31249997}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
---- !u!114 &114000013510343624
+  m_Size: {x: 2.5, y: 0.62499994}
+--- !u!114 &114000014192245974
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011366089790}
+  m_GameObject: {fileID: 1000014112757142}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64eb2ed1fd177a446b0e5fc1fdb837bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1
+  lives: 1
   isdestroyable: 1
-  DestroyableBye: 
---- !u!212 &212000011460717424
+  destroyableBy: 
+--- !u!212 &212000010707494480
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011366089790}
+  m_GameObject: {fileID: 1000014112757142}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0

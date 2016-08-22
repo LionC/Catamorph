@@ -177,6 +177,7 @@ public class MusicController : MonoBehaviour {
         return TypeName(type) + volumePostfix;
     }
 
+	
     // diffenet music types (name beginnings of music sub-groups)
     public enum MusicType  {
         Default = 1,
