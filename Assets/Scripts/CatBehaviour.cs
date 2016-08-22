@@ -68,6 +68,8 @@ public class CatBehaviour : MonoBehaviour {
 		}
 		if (invisibleTimeAfterHit > 0)
 			invisibleTimeAfterHit -= Time.deltaTime;
+		else if (player.GetComponent<SpriteRenderer> ().color.a == 5f)
+			player.GetComponent<SpriteRenderer> ().color = new Color(1f, 1f, 1f, 1f);
 	}
 
 	public float takeDamage(float damage) {
@@ -77,6 +79,7 @@ public class CatBehaviour : MonoBehaviour {
 				gameOver ();
 
 			invisibleTimeAfterHit = invisibleTimeAfterHitInitialValue;
+			player.GetComponent<SpriteRenderer> ().color = new Color(1f, 1f, 1f, 5f);
 		}
 
 		return lives;
