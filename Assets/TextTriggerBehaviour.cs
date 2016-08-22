@@ -7,6 +7,7 @@ public class TextTriggerBehaviour : MonoBehaviour {
 	public string text;
 	public GameObject textBox;
 	public int readingTime;
+	public bool repeatable = false;
 
 	private bool triggered = false;
 	private bool disappeared = false;
@@ -35,7 +36,9 @@ public class TextTriggerBehaviour : MonoBehaviour {
 	public void Update() {
 		if (triggered && !disappeared && (Time.time - triggerTime) > readingTime) {
 			Destroy (box);
-			disappeared = true;
+
+			disappeared = !repeatable;
+			triggered = !repeatable;
 		}
 	}
 }
