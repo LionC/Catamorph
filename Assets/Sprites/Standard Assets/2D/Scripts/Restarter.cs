@@ -12,8 +12,7 @@ namespace UnityStandardAssets._2D {
 			if (other.tag == "Player") {
 				CatBehaviour catBehavior = other.gameObject.GetComponent<CatBehaviour> ();
 				catBehavior.takeDamage (damageValue);
-				if(catBehavior.lives > 0)
-					catBehavior.fallOutOfLevel ();
+				catBehavior.fallOutOfLevel ();
 			}
         }
     }

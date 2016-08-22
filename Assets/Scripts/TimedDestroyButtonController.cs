@@ -12,23 +12,22 @@ public class TimedDestroyButtonController : MonoBehaviour {
 	public float timeAfterTriggerInitialValue = 0f;
 	public float timeUntilRebuildInitialValue = 0f;
 
-	private GameObject player;
+	private  GameObject player;
 	public GameObject reactionObject;
 	public GameObject reactionObjectAnim;
 	public float timeAfterTrigger = 0f;
 	public float timeUntilRebuild = 0f;
 
-
-	void awake(){
-		player = GameObject.FindGameObjectWithTag ("Player");
-		platformerCharacter2D = player.GetComponent<PlatformerCharacter2D> ();
-	}
-
 	// Use this for initialization
 	void Start () {
 		transform = gameObject.GetComponent<Transform> ();
+		platformerCharacter2D = player.GetComponent<PlatformerCharacter2D> ();
 		timeAfterTrigger = timeAfterTriggerInitialValue;
 		timeUntilRebuild = timeUntilRebuildInitialValue;
+	}
+
+	void awake(){
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 
 	void FixedUpdate() {
@@ -41,7 +40,7 @@ public class TimedDestroyButtonController : MonoBehaviour {
 				if (timeUntilRebuild <= 0)
 					Destroy (reactionObject);
 				else
-					reactionObject.SetActive (false);
+					reactionObject.SetActive (true);
 				
 				reactionObjectAnim.SetActive(true);
 			}
