@@ -3,7 +3,7 @@ using System.Collections;
 
 public class HealthScript : MonoBehaviour {
 	public float lives = 1;
-	public bool isdestroyable = true;
+	public bool isDestroyable = true;
 	public string destroyableBy;
 	public void damage(int damageCount) {
 		lives -= damageCount;
@@ -12,10 +12,10 @@ public class HealthScript : MonoBehaviour {
 	}
 	void OnCollisionEnter2D(Collision2D other) {
 		Bullet shot = other.collider.gameObject.GetComponent<Bullet> ();
-		if (other.collider.CompareTag(destroyableBy)) {
-			if (shot.isEnemyShot = isdestroyable) {
+		if (isDestroyable) {
+			if (other.collider.CompareTag(destroyableBy)) {
 				damage (shot.damage);
-				Destroy (shot.gameObject);
+				Destroy (gameObject);
 			}
 		}
 	}

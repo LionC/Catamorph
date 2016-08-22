@@ -8,7 +8,6 @@ public class CatMintController : MonoBehaviour {
 	private GameObject player;
 
 	void Start () {
-		//player.GetComponent<PlatformerCharacter2D> ().setInversion (false);
 		catMintSmall.SetActive (false);
 		catMintWindow.SetActive(false);
 	}
@@ -23,20 +22,20 @@ public class CatMintController : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter2D(Collider2D other){
-		
 		if (other.tag == "Player") {
-			Debug.Log ("Triggered");
 			player.GetComponent<PlatformerCharacter2D> ().setInversion (true);
 			catMintSmall.SetActive (true);
-			catMintSmall.transform.position = transform.position;
+			catMintSmall.transform.position = player.transform.position;
 			catMintWindow.SetActive (true);
+			//System.Threading.Thread.Sleep(1000);
 
 		} 
 
 	}
 
 	private void OnTriggerExit2D (Collider2D other){
-		catMintSmall.SetActive (false);
-		catMintWindow.SetActive (false);
+		
+		//catMintSmall.SetActive (false);
+		//catMintWindow.SetActive (false);
 	}
 }
