@@ -32,7 +32,9 @@ public class EnemyControll : MonoBehaviour {
 			transform.position += new Vector3 (((posPlayer.x - posEnemy.x) *0.02f), 0.0f, 0.0f);
 			//Jump
 			if ((posPlayer.y - posEnemy.y > 2.0f || hindernis == true) && timeLastJump + delayJump <= Time.time) {
-				jumpTry += 0.1f;
+				if (jumpTry < 2) {
+					jumpTry += 0.1f;
+				}
 				transform.position += new Vector3 (0.0f, jumpTry, 0.0f);
 				timeLastJump = Time.time;
 			}
@@ -48,6 +50,7 @@ public class EnemyControll : MonoBehaviour {
 		}
 		if (abs > 10) {
 			spawner.GetComponent<ObjectSpawner> ().reduceObjectsOnScreen ();
+			print("zerstört");
 			Destroy (gameObject);
 		}
 	}
