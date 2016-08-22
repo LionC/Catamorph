@@ -9,18 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000013835383490}
+  m_RootGameObject: {fileID: 1000011603525124}
   m_IsPrefabParent: 1
---- !u!1 &1000013835383490
+--- !u!1 &1000011603525124
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000012985004092}
-  - 212: {fileID: 212000013022333350}
-  - 114: {fileID: 114000013349586832}
+  - 4: {fileID: 4000010480867154}
+  - 212: {fileID: 212000013922433290}
+  - 114: {fileID: 114000012916989190}
   m_Layer: 0
   m_Name: LaserPointer
   m_TagString: Untagged
@@ -28,12 +28,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000012985004092
+--- !u!4 &4000010480867154
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013835383490}
+  m_GameObject: {fileID: 1000011603525124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.58, y: -1.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,12 +41,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &114000013349586832
+--- !u!114 &114000012916989190
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013835383490}
+  m_GameObject: {fileID: 1000011603525124}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c87d5f2e924ffd4fb59d987879576bd, type: 3}
@@ -57,12 +57,12 @@ MonoBehaviour:
   ditherMaxRangeX: 40
   movingPerSecond: 100
   pixelOffsetX: 100
---- !u!212 &212000013022333350
+--- !u!212 &212000013922433290
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013835383490}
+  m_GameObject: {fileID: 1000011603525124}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
