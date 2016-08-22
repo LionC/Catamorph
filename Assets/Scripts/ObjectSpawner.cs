@@ -26,7 +26,7 @@ public class ObjectSpawner : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (Vector3.Distance(player.transform.position, transform.position) < 7 && (spawningObject.tag == "Maus" || spawningObject.tag =="Dog")){
+		if (Vector3.Distance(player.transform.position, transform.position) < 7 && (spawningObject.tag == "Maus" || spawningObject.tag =="Hund")){
 			isEnabled = true;
 		}else
 			isEnabled = false;
@@ -44,9 +44,11 @@ public class ObjectSpawner : MonoBehaviour {
 	}
 
 	public GameObject spawn() {
+		print ("spawn");
 		if (spawningObject != null && passedCoolDown >= coolDown && (objectsOnScreenCounter < maxCountOnScreen || maxCountOnScreen < 0)) {
 			clonedObject = Instantiate (spawningObject);
 			rigidBody2D = clonedObject.GetComponent<Rigidbody2D> ();
+			clonedObject.SetActive (true);
 			clonedObject.transform.localScale = new Vector3 (direction * clonedObject.transform.localScale.x, clonedObject.transform.localScale.y, 0);
 			clonedObject.transform.position = new Vector3 (player.transform.position.x + (direction * relativeSpawningPosition.x), player.transform.position.y + relativeSpawningPosition.y, 0);
 			rigidBody2D.AddForce (new Vector2 ((float)direction * throwForce.x, throwForce.y));

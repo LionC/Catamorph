@@ -22,6 +22,7 @@ public class CatBehaviour : MonoBehaviour {
 	private Rigidbody2D rigidBody;
 	private Scene currentScene;
 	public float DamageIfHumanCatched,DamgeIfWiggeldFree;
+	public Animator rocketCatAnimator;
 
 	void Start () {
 		catchedlivessave = CatchedLives;
@@ -91,6 +92,7 @@ public class CatBehaviour : MonoBehaviour {
 				currentAbility.enabled = false;
 
 			currentAbility = GetComponent<RocketCatController> ();
+			//player.GetComponent<Animator> ().runtimeAnimatorController.animationClips = rocketCatAnimator;
 			currentAbility.enabled = true;
 		}
 		else if (Input.GetKeyDown (KeyCode.Alpha2) && freezerIsAvailable) {

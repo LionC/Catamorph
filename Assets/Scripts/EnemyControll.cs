@@ -32,7 +32,9 @@ public class EnemyControll : MonoBehaviour {
 			transform.position += new Vector3 (((posPlayer.x - posEnemy.x) *0.02f), 0.0f, 0.0f);
 			//Jump
 			if ((posPlayer.y - posEnemy.y > 2.0f || hindernis == true) && timeLastJump + delayJump <= Time.time) {
-				jumpTry += 0.1f;
+				if (jumpTry < 2) {
+					jumpTry += 0.1f;
+				}
 				transform.position += new Vector3 (0.0f, jumpTry, 0.0f);
 				timeLastJump = Time.time;
 			}
@@ -48,15 +50,17 @@ public class EnemyControll : MonoBehaviour {
 		}
 		if (abs > 10) {
 			spawner.GetComponent<ObjectSpawner> ().reduceObjectsOnScreen ();
+			print("zerstört");
 			Destroy (gameObject);
 		}
 	}
 
 
 	private void OnCollisionEnter2D(Collision2D coll){
-		if (tag == "Dog") {
+		if (tag == "Hund") {
+			print ("damage");
 			if (coll.collider.tag == "Player" && timeLastHit + delayHit <= Time.time) {
-				transform.position += new Vector3 (coll.collider.GetComponent<Rigidbody2D>().velocity.x*(-1),0.5f,0.0f); //naach hinten fliegen
+				transform.position += new Vector3 (coll.collider.GetComponent<Rigidbody2D>().velocity.x*(-1),0.5f,0.0f); //nach hinten fliegen
 				timeLastHit = Time.time; //Timer Hit reset
 				player.GetComponent<CatBehaviour>().takeDamage(damageValue);
 			}
