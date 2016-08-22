@@ -2,6 +2,23 @@
 using System.Collections.Generic;
 using System;
 
+/// <summary>
+/// Plays a sound when a trigger with a given tag enters or exits.
+/// 
+/// <see cref="disable"/> is a flag storing wheter the <see cref="audioSource"/>
+/// is muted.
+/// 
+/// <see cref="cooldownSeconds"/> is the number of seconds that must pass after
+/// playing a sound before the next one is played.
+/// 
+/// <see cref="audioSource"/> is the <see cref="AudioSource"/> to use
+/// to play the music.
+/// 
+/// <see cref="targetTags"/> is a list of tags to trigger specific sounds.
+/// <see cref="enterSounds"/> and <see cref="exitSounds"/> are lists of 
+/// <see cref="AudioSource"/> to be played once a trigger enters
+/// or exit with the tag in the same position in <see cref="targetTags"/>
+/// </summary>
 public class SoundOnCollide : MonoBehaviour {
     private static readonly long cdToTicks = TimeSpan.FromSeconds(1).Ticks;
 
@@ -19,6 +36,7 @@ public class SoundOnCollide : MonoBehaviour {
     // list of clips for trigger exit (same order as tags)
     public List<AudioClip> exitSounds;
 
+    // long to store time of last start to enforce cooldown between sound effects
     private long lastStart;
 
     // Use this for initialization
@@ -46,7 +64,12 @@ public class SoundOnCollide : MonoBehaviour {
         if (clip != null) playClip(clip);
     }
 
-    // plays given clip and returns true, retruns false if track is not played
+    /// <summary>
+    /// Plays <paramref name="clip"/> on <see cref="audioSource"/> if the cooldown 
+    /// has passed.
+    /// </summary>
+    /// <param name="clip">The <see cref="AudioClip"/> to play (must not be null)</param>
+    /// <returns>Whether the clip was acutally played.</returns>
     private bool playClip(AudioClip clip) {
         // throw error if clip is null (easier error analysis
         if (clip == null) throw new ArgumentNullException("Clip must not be null!");
@@ -67,8 +90,13 @@ public class SoundOnCollide : MonoBehaviour {
         lastStart = now;
         return true;
     }
-
-    // get the position of the tag in the tags list (-1 if tag not in list)
+    
+    /// <summary>
+    /// Gets the position of <paramref name="tag"/> in <see cref="targetTags"/>
+    /// </summary>
+    /// <param name="tag">The tag to find</param>
+    /// <returns><paramref name="tag"/> position in <see cref="targetTags"/> or -1 if 
+    /// the tag is not included in <see cref="targetTags"/></returns>
     private int GetTagId(string tag) {
         return targetTags.IndexOf(tag);
     }
@@ -79,7 +107,10 @@ public class SoundOnCollide : MonoBehaviour {
         return targetTags.Contains(tag) ? clips[GetTagId(tag)] : null;
     }
 
-    // (un-)mute audio source and set disable tag accordingly
+    /// <summary>
+    /// (Un-)Mutes <see cref="audioSource"/> and sets the disable tag accordingly.
+    /// </summary>
+    /// <param name="disable">Whether to mute or unmute the <see cref="audioSource"/></param>
     void setDisable(bool disable) {
         audioSource.mute = disable;
         this.disable = disable;
