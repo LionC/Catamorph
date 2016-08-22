@@ -20,6 +20,8 @@ AudioMixerController:
     name: ActionMusicVolume
   - guid: b120226012c3a22438296bee16c927e7
     name: DefaultMusicVolume
+  - guid: b96a0ca740338f6459788fa166c95be9
+    name: MusicVolume
   m_AudioMixerGroupViews:
   - guids:
     - 7bd0ae8ea58bb7546bac5594a7a858bc

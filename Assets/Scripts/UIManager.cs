@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Audio;
 
 public class UIManager : MonoBehaviour {
 	
 	GameObject[] pauseObjects;
+	AudioMixer mixer;
 	GameObject pauseObject;
 	bool paused;
+	float SliderMusic;
+	public float musicVolume {get; set;}
 	public bool IsPaused {
 		get { return paused; }
 		set {
@@ -28,7 +31,6 @@ public class UIManager : MonoBehaviour {
 		else
 			Time.timeScale = 1;
 	}
-
 	void Start()
 	{
 		pauseObjects = GameObject.FindGameObjectsWithTag ("ShowOnPause");
