@@ -648,8 +648,8 @@ MonoBehaviour:
     type: 2}
   mainMixer: {fileID: 24100000, guid: 916e94bd11fc1be498274abee6486522, type: 2}
   player: {fileID: 586791927}
-  muiscLowValue: -80
   musicHighValue: 0
+  musicLowValue: -80
   defaultMusicTransisionTime: 10
   invertedTransisionIn: 0
   invertedTransisionOut: 0
@@ -1174,6 +1174,8 @@ MonoBehaviour:
   - Player
   targetType: 2
   controller: {fileID: 497992600}
+  useTrigger: 1
+  useCollision: 0
 --- !u!1001 &909759808
 Prefab:
   m_ObjectHideFlags: 0

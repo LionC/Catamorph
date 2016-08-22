@@ -71,7 +71,6 @@ public class MusicController : MonoBehaviour {
     private bool inTransition;
     private long transitionTicks;
 
-    // Use this for initialization
     void Start () {
         // ensure music is not inverted
         SetInvertedMusic(false);
@@ -90,7 +89,6 @@ public class MusicController : MonoBehaviour {
         TransitionToMusicType(currentMusicType, 0f);
     }
 	
-	// Update is called once per frame
 	void Update () {
         // if charecter movement and inverted music have different values, update inverted music
         if (character.inverted ^ isMusicInverted) SetInvertedMusic(character.inverted);

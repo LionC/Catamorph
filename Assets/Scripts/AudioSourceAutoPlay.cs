@@ -19,13 +19,7 @@ public class AudioSourceAutoPlay : MonoBehaviour {
     public AudioSource audioSource;
     // list of clips to loop through
     public List<AudioClip> clips;
-
-    // Use this for initialization
-    void Start () {
 	
-	}
-	
-	// Update is called once per frame
 	void Update () {
         // start a new song if the current song is at the end
         if (AtEndOfSong()) PlayRandomSong();

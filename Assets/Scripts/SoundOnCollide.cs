@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 
 /// <summary>
-/// Plays a sound when a trigger with a given tag enters or exits.
+/// Plays a sound when a trigger or collision with a given tag enters or exits.
 /// 
 /// <see cref="disable"/> is a flag storing wheter the <see cref="audioSource"/>
 /// is muted.
@@ -18,6 +18,9 @@ using System;
 /// <see cref="enterSounds"/> and <see cref="exitSounds"/> are lists of 
 /// <see cref="AudioSource"/> to be played once a trigger enters
 /// or exit with the tag in the same position in <see cref="targetTags"/>
+/// 
+/// <see cref="useTrigger"/> is a flag determinig if triggers are used.
+/// <see cref="useCollision"/> is a flag determinig if collisions are used.
 /// </summary>
 public class SoundOnCollide : MonoBehaviour {
     private static readonly long cdToTicks = TimeSpan.FromSeconds(1).Ticks;
@@ -36,21 +39,21 @@ public class SoundOnCollide : MonoBehaviour {
     // list of clips for trigger exit (same order as tags)
     public List<AudioClip> exitSounds;
 
+    // flags determining if triggering and/or collision is used
+    public bool useTrigger;
+    public bool useCollision;
+
     // long to store time of last start to enforce cooldown between sound effects
     private long lastStart;
 
-    // Use this for initialization
     void Start () {
         // initalize lastStart
         lastStart = 0;
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     void OnTriggerEnter2D(Collider2D other) {
+        //ensure triggers are used
+        if (!useTrigger) return;
         // get enter clip
         AudioClip clip = GetAudioClipForTag(enterSounds, other.tag);
         // play clip if tag is valid (meaning clip is not null)
@@ -58,8 +61,28 @@ public class SoundOnCollide : MonoBehaviour {
     }
 
     void OnTriggerExit2D(Collider2D other) {
-        // get enter clip
+        //ensure triggers are used
+        if (!useTrigger) return;
+        // get exit clip
         AudioClip clip = GetAudioClipForTag(exitSounds, other.tag);
+        // play clip if tag is valid (meaning clip is not null)
+        if (clip != null) playClip(clip);
+    }
+
+    void OnCollisionEnter2D(Collision2D other) {
+        //ensure collisions are used
+        if (!useTrigger) return;
+        // get enter clip
+        AudioClip clip = GetAudioClipForTag(exitSounds, other.gameObject.tag);
+        // play clip if tag is valid (meaning clip is not null)
+        if (clip != null) playClip(clip);
+    }
+
+    void OnCollisionExit2D(Collision2D other) {
+        //ensure collisions are used
+        if (!useTrigger) return;
+        // get exit clip
+        AudioClip clip = GetAudioClipForTag(exitSounds, other.gameObject.tag);
         // play clip if tag is valid (meaning clip is not null)
         if (clip != null) playClip(clip);
     }
