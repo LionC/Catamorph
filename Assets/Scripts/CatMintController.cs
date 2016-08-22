@@ -6,6 +6,7 @@ public class CatMintController : MonoBehaviour {
 
 	public GameObject catMintSmall, catMintWindow;
 	private GameObject player;
+	private float timeStart;
 
 	void Start () {
 		catMintSmall.SetActive (false);
@@ -19,6 +20,9 @@ public class CatMintController : MonoBehaviour {
 	void FixedUpdate(){
 		if (catMintWindow.activeSelf == true) 
 			catMintWindow.transform.position = player.transform.position;
+
+		if (timeStart + 12 < Time.time)
+			catMintWindow.SetActive (false);
 	}
 
 	private void OnTriggerEnter2D(Collider2D other){
@@ -27,7 +31,7 @@ public class CatMintController : MonoBehaviour {
 			catMintSmall.SetActive (true);
 			catMintSmall.transform.position = player.transform.position;
 			catMintWindow.SetActive (true);
-			//System.Threading.Thread.Sleep(1000);
+			timeStart = Time.time;
 
 		} 
 
@@ -35,7 +39,6 @@ public class CatMintController : MonoBehaviour {
 
 	private void OnTriggerExit2D (Collider2D other){
 		
-		//catMintSmall.SetActive (false);
-		//catMintWindow.SetActive (false);
+		catMintSmall.SetActive (false);
 	}
 }
