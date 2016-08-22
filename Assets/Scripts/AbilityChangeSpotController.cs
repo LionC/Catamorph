@@ -7,7 +7,6 @@ public class AbilityChangeSpotController : MonoBehaviour {
 	public bool rocketIsAvailable;
 	public bool freezerIsAvailable;
 	public bool burnerIsAvailable;
-	public bool laserIsAvailable;
 	public bool mixerIsAvailable;
 	private bool triggered = false;
 	private CatBehaviour catBehavior;
@@ -24,7 +23,7 @@ public class AbilityChangeSpotController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(triggered)
-			catBehavior.switchAbility (rocketIsAvailable, freezerIsAvailable, burnerIsAvailable, laserIsAvailable, mixerIsAvailable);
+			catBehavior.switchAbility (rocketIsAvailable, freezerIsAvailable, burnerIsAvailable, mixerIsAvailable);
 	}
 
 	public void OnTriggerEnter2D(Collider2D other) {

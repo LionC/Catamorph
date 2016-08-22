@@ -40,7 +40,7 @@ public class CatBehaviour : MonoBehaviour {
 	}
 
 	void Update () {
-		switchAbility (false, false, false, false, false);  // change if wished/implemented
+		switchAbility (false, false, false, false);  // change if wished/implemented
 	}
 
 	void FixedUpdate() 
@@ -82,7 +82,7 @@ public class CatBehaviour : MonoBehaviour {
 		return lives;
 	}
 
-	public void switchAbility(bool rocketIsAvailable, bool freezerIsAvailable, bool burnerIsAvailable, bool laserIsAvailable, bool mixerIsAvailable) {
+	public void switchAbility(bool rocketIsAvailable, bool freezerIsAvailable, bool burnerIsAvailable, bool mixerIsAvailable) {
 		if (Input.GetKeyDown (KeyCode.Alpha1) && rocketIsAvailable) {
 			if(currentAbility != null)
 				currentAbility.enabled = false;
@@ -104,14 +104,7 @@ public class CatBehaviour : MonoBehaviour {
 			currentAbility = GetComponent<BurnerCatController> ();
 			currentAbility.enabled = true;
 		}
-		else if (Input.GetKeyDown (KeyCode.Alpha4) && laserIsAvailable) {
-			if(currentAbility != null)
-				currentAbility.enabled = false;
-
-			currentAbility = GetComponent<LaserCatController> ();
-			currentAbility.enabled = true;
-		}
-		else if (Input.GetKeyDown (KeyCode.Alpha5) && mixerIsAvailable) {
+		else if (Input.GetKeyDown (KeyCode.Alpha4) && mixerIsAvailable) {
 			if(currentAbility != null)
 				currentAbility.enabled = false;
 

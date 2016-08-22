@@ -4,7 +4,7 @@ using System.Collections;
 public class HealthScript : MonoBehaviour {
 	public float lives = 1;
 	public bool isDestroyable = true;
-	public string destroyableBy;
+	public string destroyableBy = "";
 	public void damage(int damageCount) {
 		lives -= damageCount;
 		if (lives <= 0)
