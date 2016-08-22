@@ -86,13 +86,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc0b75ca507f4c4cb5dda1d5267522c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   spawner: {fileID: 0}
   hindernis: 0
+  hit: 0
   posEnemy: {x: 0, y: 0, z: 0}
   posPlayer: {x: 0, y: 0, z: 0}
   abs: 0
-  timeLastHit: 0
-  timeLastJump: 0
+  timeLeftHit: 5
+  timeLeftJump: 0.2
   jumpTry: 0
   damageValue: 1
   delayHit: 5
@@ -108,8 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed817cfa3a6f894fae239eb632da5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   cheese: {fileID: 0}
-  delay: 0.1
+  delay: 1
+  forceUp: 2
 --- !u!212 &212000010792613498
 SpriteRenderer:
   m_ObjectHideFlags: 1
