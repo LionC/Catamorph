@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.Audio;
+/*
 public class CollideMusicChanger : MonoBehaviour {
 
     // list of tags to change music
@@ -53,4 +54,4 @@ public class CollideMusicChanger : MonoBehaviour {
     private bool VaildTag(string tag) {
         return tags.Contains(tag);
     }
-}
+}*/
