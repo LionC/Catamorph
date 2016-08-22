@@ -36,9 +36,10 @@ public class TimedDestroyButtonController : MonoBehaviour {
 
 			if (timeAfterTrigger <= 0 && !triggered) {
 				triggered = true;
-
-				if (timeUntilRebuild <= 0)
-					Destroy (reactionObject);
+				if (timeAfterTrigger <= 0) {
+					reactionObject.SetActive (false);
+					print ("destroyed");
+				}
 				else
 					reactionObject.SetActive (true);
 				
@@ -48,7 +49,7 @@ public class TimedDestroyButtonController : MonoBehaviour {
 
 		if (timeUntilRebuild > 0 && triggered) {
 			timeUntilRebuild -= Time.fixedDeltaTime;
-
+		}
 			if (timeUntilRebuild <= 0) {
 				reactionObject.SetActive (true);
 				reactionObjectAnim.SetActive(false);
@@ -59,7 +60,7 @@ public class TimedDestroyButtonController : MonoBehaviour {
 				transform.localScale += new Vector3 (0, 0.5f, 0);
 				transform.localPosition += new Vector3 (0, 0.12f, 0);
 			}
-		}
+
 	}
 
 	public void OnTriggerEnter2D() {
