@@ -20,6 +20,8 @@ AudioMixerController:
     name: ActionMusicVolume
   - guid: b120226012c3a22438296bee16c927e7
     name: DefaultMusicVolume
+  - guid: b96a0ca740338f6459788fa166c95be9
+    name: MusicVolume
   m_AudioMixerGroupViews:
   - guids:
     - 7bd0ae8ea58bb7546bac5594a7a858bc
@@ -45,7 +47,7 @@ AudioMixerGroupController:
   m_Pitch: d26975b16fb5d8b478d5613076fe5423
   m_Effects:
   - {fileID: 24400002}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 7
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -95,7 +97,7 @@ AudioMixerGroupController:
   m_Pitch: 9378fb61fdedba843b89ecae5b5924a8
   m_Effects:
   - {fileID: 244000010933195748}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 2
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -217,7 +219,7 @@ AudioMixerSnapshotController:
     203d8a15d03add244a741e6bf77ed0a9: 0
     7ea106166c8c8ed43a15d61560ef8cbc: 750
     2f18f33639ee1aa4a90c1cb79d32c426: 0
-    b96a0ca740338f6459788fa166c95be9: 0
+    b96a0ca740338f6459788fa166c95be9: -10
     bc04f6b7a9a1f754983c953ea6c55b3a: 80
     11000d4b50cc14748aaf4f81df3f8fe1: 0.01
     c80cee7bfeba2004599337fe0af59cca: 0.3
@@ -235,5 +237,5 @@ AudioMixerSnapshotController:
   m_FloatValues:
     d26975b16fb5d8b478d5613076fe5423: 1
     7ea106166c8c8ed43a15d61560ef8cbc: 22000
-    b96a0ca740338f6459788fa166c95be9: 0
+    b96a0ca740338f6459788fa166c95be9: -10
   m_TransitionOverrides: {}

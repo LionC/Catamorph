@@ -2,6 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// Takes a list of <see cref="AudioClip"/> in <see cref="clips"/> 
+/// and plays them in a random ordere using the given <see cref="AudioSource"/>.
+/// 
+/// <see cref="endPrecision"/> is the maximum number of seconds the position in the song is allowed to 
+/// be from its length before the next one will be started.
+/// </summary>
 public class AudioSourceAutoPlay : MonoBehaviour {
     // how close the track position has to be to the track length to
     // consider a track as at its end
@@ -11,18 +18,15 @@ public class AudioSourceAutoPlay : MonoBehaviour {
     public AudioSource audioSource;
     // list of clips to loop through
     public List<AudioClip> clips;
-
-    // Use this for initialization
-    void Start () {
 	
-	}
-	
-	// Update is called once per frame
 	void Update () {
         // start a new song if the current song is at the end
         if (AtEndOfSong()) PlayRandomSong();
     }
 
+    /// <summary>
+    /// Plays a random clip from <see cref="clips"/> using <see cref="audioSource"/>
+    /// </summary>
     void PlayRandomSong() {
         // get a random index for the clip list
         int clipId = Random.Range(0, clips.Count);
@@ -30,8 +34,10 @@ public class AudioSourceAutoPlay : MonoBehaviour {
         audioSource.clip = clips[clipId];
         audioSource.Play();
     }
-
-    // check if audioSource is at the end of a song
+    /// <summary>
+    /// Checks if the current song is at its end
+    /// </summary>
+    /// <returns>Whether the end of the current song was reached</returns>
     private bool AtEndOfSong() {
         // check if audio source is playing
         if (audioSource.isPlaying) return false;

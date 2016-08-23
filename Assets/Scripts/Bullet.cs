@@ -3,11 +3,11 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour {
 
-	public int damage = 1;
+	public float damage = 1.0f;
 	public bool isEnemyShot = false;
 
-	void OnCollisionEnter2D(Collision2D col) {
-			Destroy (gameObject);
+	void OnCollisionEnter2D(Collision2D other) {
+
 	}
 		
 	void Start () {
