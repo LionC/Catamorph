@@ -12591,8 +12591,8 @@ Prefab:
       propertyPath: text
       value: 'ROCKY: Sieht ganz schoen hoch aus, ne? Ja, mit deinem mickrigen Koerper
         kommst du so auch nicht drueber, Stubentiger. Geh zum Koffer zurueck, druecke
-        1 und schon hast du ''ne Rakete! Versuch dann, mit einem ROCKET JUMP hier
-        drueberzukommen.'
+        1 und schon hast du ''ne Rakete! Versuch dann, mit einem ROCKET JUMP (Space)
+        hier drueberzukommen.'
       objectReference: {fileID: 0}
     - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
