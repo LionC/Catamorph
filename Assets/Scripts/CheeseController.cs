@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityStandardAssets._2D;
 
-public class CheesController : MonoBehaviour {
+public class CheeseController : MonoBehaviour {
 
 	private Vector3 spawnPos;
 	private GameObject player;

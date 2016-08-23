@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed817cfa3a6f894fae239eb632da5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cheese: {fileID: 0}
+  cheese: {fileID: 1000010157144130, guid: 653b2e69156a2474897bb5feae2f64ec, type: 2}
   delay: 1
 --- !u!212 &212000010792613498
 SpriteRenderer:
