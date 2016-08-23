@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011767142782}
   - 212: {fileID: 212000011814283806}
+  - 95: {fileID: 95000013132998068}
   - 61: {fileID: 61000011445303440}
   - 50: {fileID: 50000010181043450}
   - 114: {fileID: 114000011866238528}
@@ -74,6 +75,23 @@ BoxCollider2D:
   m_Offset: {x: -0.24463654, y: -0.071950555}
   serializedVersion: 2
   m_Size: {x: 1.2892563, y: 1.1741418}
+--- !u!95 &95000013132998068
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010157144130}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d40acce4886b75f4ab37b10d80c51f77, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000011866238528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -85,7 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d507f870658584cb06388f8c92ac55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPos: {x: 0, y: 0, z: 0}
 --- !u!212 &212000011814283806
 SpriteRenderer:
   m_ObjectHideFlags: 1

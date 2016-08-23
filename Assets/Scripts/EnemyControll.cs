@@ -54,7 +54,6 @@ public class EnemyControll : MonoBehaviour {
 			//del Enemy 
 			if (spawner != null && spawner.GetComponent<ObjectSpawner> () != null) {
 				spawner.GetComponent<ObjectSpawner> ().reduceObjectsOnScreen ();
-				print ("zerstört");
 				Destroy (gameObject);
 			}
 		}
@@ -64,7 +63,6 @@ public class EnemyControll : MonoBehaviour {
 	private void OnCollisionEnter2D(Collision2D coll){
 		//dog mages damge to cateline
 		if (tag == "Hund") {
-			print ("damage");
 			if (coll.collider.tag == "Player" && timeLastHit + delayHit <= Time.time) {
 				transform.position += new Vector3 (coll.collider.GetComponent<Rigidbody2D>().velocity.x*(-1),0.5f,0.0f); //nach hinten fliegen
 				timeLastHit = Time.time; //Timer Hit reset
