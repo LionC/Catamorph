@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityStandardAssets._2D;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class RocketCatController : MonoBehaviour {
 
@@ -31,17 +32,18 @@ public class RocketCatController : MonoBehaviour {
 	}
 		
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Mouse0)) {
+		if (CrossPlatformInputManager.GetButtonDown("Fire")) {
             if (rocketSpawner.spawn() != null) { 
-                platformerCharacter2D.catEffectAudioSource.clip = rocketStartSound;
-                platformerCharacter2D.catEffectAudioSource.Play();
+                //platformerCharacter2D.catEffectAudioSource.clip = rocketStartSound;
+                //platformerCharacter2D.catEffectAudioSource.Play();
             }
         }
 
         // TODO: only play sound / take damage if jump really occures (not while pressing jump mid-air)
-		if (Input.GetButtonDown("Jump")) {
-            platformerCharacter2D.catEffectAudioSource.clip = rocketJumpSound;
-            platformerCharacter2D.catEffectAudioSource.Play();
+		if (CrossPlatformInputManager.GetButtonDown("Jump")) {
+			Debug.Log ("Jump");
+            //platformerCharacter2D.catEffectAudioSource.clip = rocketJumpSound;
+            //platformerCharacter2D.catEffectAudioSource.Play();
             catBehavior.takeDamage(1f);
         }
     }

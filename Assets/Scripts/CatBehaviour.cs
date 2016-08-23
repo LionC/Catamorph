@@ -4,6 +4,7 @@ using System.Collections;
 using System;
 using UnityStandardAssets._2D;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class CatBehaviour : MonoBehaviour {
 
@@ -23,6 +24,8 @@ public class CatBehaviour : MonoBehaviour {
 	private Scene currentScene;
 	public float DamageIfHumanCatched,DamgeIfWiggeldFree;
 	public Animator rocketCatAnimator;
+
+	private int currentAbilityNum = 0;
 
 	void Start () {
 		catchedlivessave = CatchedLives;
@@ -49,7 +52,7 @@ public class CatBehaviour : MonoBehaviour {
 		if (IsCatched)
 		{
 			CatchedLives -= CatchedLivesDrain;
-			if (Input.GetKeyDown (KeyCode.Space)) 
+			if (Input.GetKeyDown ("Jump")) 
 			{
 				CatchedLives += CatchedLivesAdd;
 			}
@@ -87,35 +90,65 @@ public class CatBehaviour : MonoBehaviour {
 	}
 
 	public void switchAbility(bool rocketIsAvailable, bool freezerIsAvailable, bool burnerIsAvailable, bool mixerIsAvailable) {
-		if (Input.GetKeyDown (KeyCode.Alpha1) && rocketIsAvailable) {
-			if(currentAbility != null)
-				currentAbility.enabled = false;
+		int oldAbilityNum = currentAbilityNum;
+		if (CrossPlatformInputManager.GetButtonDown ("SwitchAbility")) {
+			currentAbilityNum++;
+		}
+		if (Input.GetKeyDown (KeyCode.Alpha1)) {
+			currentAbilityNum = 0;
+		}
+		if (Input.GetKeyDown (KeyCode.Alpha2)) {
+			currentAbilityNum = 1;
+		}
+		if (Input.GetKeyDown (KeyCode.Alpha3)) {
+			currentAbilityNum = 2;
+		}
+		if (Input.GetKeyDown (KeyCode.Alpha4)) {
+			currentAbilityNum = 3;
+		}
+		if (Input.GetKeyDown (KeyCode.Alpha5)) {
+			currentAbilityNum = 4;
+		}
 
+		currentAbilityNum %= 5;
+
+		if (!rocketIsAvailable && currentAbilityNum == 1)
+			currentAbilityNum++;
+
+		if (!freezerIsAvailable && currentAbilityNum == 2)
+			currentAbilityNum++;
+
+		if (!burnerIsAvailable && currentAbilityNum == 3)
+			currentAbilityNum++;
+
+		if (!mixerIsAvailable && currentAbilityNum == 4)
+			currentAbilityNum++;
+
+		currentAbilityNum %= 5;
+
+
+		if (currentAbilityNum == oldAbilityNum)
+			return;
+
+		if (currentAbility != null)
+			currentAbility.enabled = false;
+		
+		if (currentAbilityNum == 0) {
+			currentAbility = null;
+
+			player.GetComponent<SpriteRenderer> ().color = new Color(1f, 1f, 1f, 1f);
+		}
+		if (currentAbilityNum == 1)
 			currentAbility = GetComponent<RocketCatController> ();
-			//player.GetComponent<Animator> ().runtimeAnimatorController.animationClips = rocketCatAnimator;
-			currentAbility.enabled = true;
-		}
-		else if (Input.GetKeyDown (KeyCode.Alpha2) && freezerIsAvailable) {
-			if(currentAbility != null)
-				currentAbility.enabled = false;
-
+		if (currentAbilityNum == 2)
 			currentAbility = GetComponent<FreezerCatController> ();
-			currentAbility.enabled = true;
-		}
-		else if (Input.GetKeyDown (KeyCode.Alpha3) && burnerIsAvailable) {
-			if(currentAbility != null)
-				currentAbility.enabled = false;
-
+		if (currentAbilityNum == 3)
 			currentAbility = GetComponent<BurnerCatController> ();
-			currentAbility.enabled = true;
-		}
-		else if (Input.GetKeyDown (KeyCode.Alpha4) && mixerIsAvailable) {
-			if(currentAbility != null)
-				currentAbility.enabled = false;
-
+		if (currentAbilityNum == 4)
 			currentAbility = GetComponent<MixerCatController> ();
+
+		if(currentAbility != null)
 			currentAbility.enabled = true;
-		}
 	}
 
 	public void fallOutOfLevel() {
