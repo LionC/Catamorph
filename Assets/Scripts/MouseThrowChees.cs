@@ -14,7 +14,7 @@ public class MouseThrowChees : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		timeLastShot = 1;
-		forceUp = 180;
+		forceUp = 150;
 	}
 
 	void Awake () {

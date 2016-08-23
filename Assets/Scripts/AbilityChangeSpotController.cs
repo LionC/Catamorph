@@ -3,36 +3,33 @@ using System.Collections;
 
 public class AbilityChangeSpotController : MonoBehaviour {
 
-	private GameObject player;
-	public bool rocketIsAvailable;
-	public bool freezerIsAvailable;
-	public bool burnerIsAvailable;
-	public bool mixerIsAvailable;
-	private bool triggered = false;
-	private CatBehaviour catBehavior;
+	private GameObject player;  //Reference to Cat GameObject
+	public bool rocketIsAvailable;  //Enables switch to RocketCat
+	public bool freezerIsAvailable;  //Enables switch to FreezerCat
+	public bool burnerIsAvailable;  //Enables switch to BurnerCat
+	public bool mixerIsAvailable;  //Enables switch to MixerCat
+	private bool triggered = false;  //Player triggered AbilitySpot by moving through
+	private CatBehaviour catBehavior;  //Reference to CatBehavior
 
-	// Use this for initialization
+
 	void Start () {
-		catBehavior = player.GetComponent<CatBehaviour> ();
+		player = GameObject.FindGameObjectWithTag ("Player");  //Initalization of Cat GameObject
+		catBehavior = player.GetComponent<CatBehaviour> ();  //Initialization of CatBehavior
 	}
-
-	void Awake () {
-		player = GameObject.FindGameObjectWithTag ("Player");
-	}
-
-	// Update is called once per frame
+		
 	void Update () {
-		if(triggered)
-			catBehavior.switchAbility (rocketIsAvailable, freezerIsAvailable, burnerIsAvailable, mixerIsAvailable);
+		if(triggered)  //AbilitySpot is triggered
+			catBehavior.switchAbility (rocketIsAvailable, freezerIsAvailable, burnerIsAvailable, mixerIsAvailable);  //Enable ability switch
 	}
 
 	public void OnTriggerEnter2D(Collider2D other) {
-		if (other.tag == "Player" && !triggered) {
-			triggered = true;
-		}
+		if (other.tag == "Player")  //Triggering object must be Cat
+			triggered = true;  //AbilitySpot is triggered
 	}
 
 	public void OnTriggerExit2D(Collider2D other) {
-		triggered = false;
+		if (other.tag == "Player") {  //Triggering object must be Cat
+			triggered = false;  //AbilitySpot isn't triggered any more after leaving it
+		}
 	}
 }
