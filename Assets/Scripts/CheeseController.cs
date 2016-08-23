@@ -4,26 +4,31 @@ using UnityStandardAssets._2D;
 
 public class CheeseController : MonoBehaviour {
 
-	public float damage = 1f;  //Damage caused by cheese
-	public float destroyDistance = 7f;  //Distance from spawningPosition, at which the object should be destroyed
-	private Vector3 spawningPosition;  //Position of spawing cheese
-	private GameObject player;  //Reference to Cat GameObject
+	private Vector3 spawnPos;
+	private GameObject player;
 
 	void Start () {
-		player = GameObject.FindGameObjectWithTag ("Player");  //Initialization of Cat GameObject
-		spawningPosition = transform.position;  //Initialization of spawningPosition
+		spawnPos = transform.position;
+	}
+
+	void Awake () {
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 
 	void FixedUpdate() {
-		if (Vector3.Distance (spawningPosition, transform.position) >= destroyDistance)  //Cheese is farther away from spawningPosition than intended
-			Destroy (gameObject);  //Destroy cheese
+		
+		if (Vector3.Distance (spawnPos, transform.position) >= 7)
+			Destroy (gameObject);
 	}
 
-	void OnCollisionEnter2D(Collision2D other) {
-		if (other.collider.tag == "Player") {  //Colliding object must be Cat
-			player.GetComponent<CatBehaviour> ().takeDamage (damage);  //Cat takes damage from cheese
-			Destroy (gameObject);  //Destroy cheese
+	void OnTriggerEnter2D(Collider2D other){
+		//on contact with player
+		if (other.tag == "Player") {
+			player.GetComponent<CatBehaviour> ().takeDamage (1.0f);
+			GetComponent<Animator> ().SetBool ("Hit",true);
+			Destroy (gameObject);
 		}
+
 	}
 
 }

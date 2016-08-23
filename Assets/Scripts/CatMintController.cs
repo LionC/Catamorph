@@ -4,6 +4,7 @@ using UnityStandardAssets._2D;
 
 public class CatMintController : MonoBehaviour {
 
+	//public Animator catMintSmall, catMintWindow;
 	private GameObject player;
 
 	void Start () {
