@@ -156,8 +156,10 @@ namespace UnityStandardAssets._2D {
 		private void OnCollisionEnter2D(Collision2D coll){
 			if (coll.collider.tag == "Ground")
 				m_Grounded = true;
-			m_Grounded = false ;
-		}
+			else {
+				//m_Grounded = false;
+			}
+			}
 
 	}
 }
