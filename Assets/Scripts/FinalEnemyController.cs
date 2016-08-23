@@ -58,7 +58,5 @@ public class FinalEnemyController : MonoBehaviour {
 		if (coll.collider.tag == "Player" && isAngry == false) {
 			player.GetComponent<CatBehaviour> ().takeDamage (1.0f);
 		}
-
-
 	}
 }

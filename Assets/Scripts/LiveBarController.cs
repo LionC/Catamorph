@@ -34,7 +34,7 @@ public class LiveBarController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		int lives = (int) player.lives;
+		int lives = (int) player.getLives();
 		int i = 0;
 		foreach (GameObject live in displayLives) {
 			Image image = live.GetComponent<Image> ();

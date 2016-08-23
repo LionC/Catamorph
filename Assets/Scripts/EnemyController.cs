@@ -2,18 +2,23 @@
 using System.Collections;
 using UnityStandardAssets._2D;
 
+public class EnemyController : MonoBehaviour {
 
-public class EnemyControll : MonoBehaviour {
+	private GameObject player;  //Reference to Cat GameObject
+	public ObjectSpawner spawner;  //Reference to ObjectSpawner
+	public float damage = 1f;  //Damage caused by enemy
+	public float delayHit;
+	public float delayJump;
+	private bool obstracle = true;
+	private Vector3 posEnemy;
+	private Vector3 posPlayer;
+	private float abs;
+	private float timeLastHit;
+	private float timeLastJump;
+	private float jumpTry;
 
-	private GameObject player;
-	public ObjectSpawner spawner;
-	public bool hindernis;
-	public Vector3 posEnemy, posPlayer;
-	public float abs, timeLastHit, timeLastJump, jumpTry;
-	public float damageValue = 1f, delayHit, delayJump;
-
-	void Awake () {
-		player = GameObject.FindGameObjectWithTag ("Player");
+	void Start () {
+		player = GameObject.FindGameObjectWithTag ("Player");  //Initializing Cat GameObject
 	}
 
 	void FixedUpdate(){
@@ -31,14 +36,14 @@ public class EnemyControll : MonoBehaviour {
 		if (abs < 3 && tag != "Maus") {
 			transform.position += new Vector3 (((posPlayer.x - posEnemy.x) *0.02f), 0.0f, 0.0f);
 			//Jump
-			if ((posPlayer.y - posEnemy.y > 2.0f || hindernis == true) && timeLastJump + delayJump <= Time.time) {
+			if ((posPlayer.y - posEnemy.y > 2.0f || obstracle == true) && timeLastJump + delayJump <= Time.time) {
 				if (jumpTry < 2) {
 					jumpTry += 0.1f;
 				}
 				transform.position += new Vector3 (0.0f, jumpTry, 0.0f);
 				timeLastJump = Time.time;
 			}
-			hindernis = false;
+			obstracle = false;
 		} else {
 			if (abs < 6 && abs > 3.5f) {
 				transform.position += new Vector3 (((posPlayer.x - posEnemy.x) * 0.02f), 0.0f, 0.0f);
@@ -66,12 +71,12 @@ public class EnemyControll : MonoBehaviour {
 			if (coll.collider.tag == "Player" && timeLastHit + delayHit <= Time.time) {
 				transform.position += new Vector3 (coll.collider.GetComponent<Rigidbody2D>().velocity.x*(-1),0.5f,0.0f); //nach hinten fliegen
 				timeLastHit = Time.time; //Timer Hit reset
-				player.GetComponent<CatBehaviour>().takeDamage(damageValue);
+				player.GetComponent<CatBehaviour>().takeDamage(damage);
 			}
 
 			//obstacle
 			if (coll.collider.tag != "Player" && coll.collider.tag != "Ground") {
-				hindernis = true;
+				obstracle = true;
 			}
 		}
 	}
