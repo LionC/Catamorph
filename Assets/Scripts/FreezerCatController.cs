@@ -10,7 +10,7 @@ public class FreezerCatController : MonoBehaviour {
 	public Color freezerCatColor = new Color(98, 181, 229);  //Skin color
 	private PlatformerCharacter2D platformerCharacter2D;  //Reference to PlatformerCharacter2D
 
-	void Start() {
+	void Awake() {
 		player = GameObject.FindGameObjectWithTag ("Player");  //Initialization of Cat GameObject
 		platformerCharacter2D = GetComponent<PlatformerCharacter2D> ();  //Initialization of PlatformerCharacter2D
 	}
@@ -20,6 +20,7 @@ public class FreezerCatController : MonoBehaviour {
 		player.GetComponent<Animator> ().SetBool ("Freezer", true);  //Enabled animation
 		platformerCharacter2D.setMaxSpeed (speedAsFreezer);  //Decrease Cat's maximum moving pace
 	}
+
 	void OnDisable() {
 		player.GetComponent<Animator> ().SetBool ("Freezer", false);  //Disabled animation
 		platformerCharacter2D.setMaxSpeed (speedAsDefault);  //Increase Cat's maximum moving pace

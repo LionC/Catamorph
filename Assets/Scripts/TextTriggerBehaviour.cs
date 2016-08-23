@@ -24,7 +24,12 @@ public class TextTriggerBehaviour : MonoBehaviour {
 
 		Canvas canvas = FindObjectOfType<Canvas> ();
 
+		GameObject currentTextBox = GameObject.FindGameObjectWithTag ("Text");
+		if (currentTextBox != null)
+			Destroy (currentTextBox);
+
 		box = Instantiate (textBox);
+		box.tag = "Text";
 		box.transform.parent = canvas.transform;
 		box.GetComponent<RectTransform> ().anchoredPosition = new Vector3 (0, 0, 0);
 
@@ -35,10 +40,12 @@ public class TextTriggerBehaviour : MonoBehaviour {
 
 	public void Update() {
 		if (triggered && !disappeared && (Time.time - triggerTime) > readingTime) {
-			Destroy (box);
+			if ((Time.time - triggerTime) > readingTime) {
+				Destroy (box);
 
-			disappeared = !repeatable;
-			triggered = !repeatable;
+				disappeared = !repeatable;
+				triggered = !repeatable;
+			}
 		}
 	}
 }

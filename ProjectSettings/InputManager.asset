@@ -8,10 +8,10 @@ InputManager:
   - serializedVersion: 3
     m_Name: Jump
     descriptiveName: Jump
-    descriptiveNegativeName: 
-    negativeButton: 
+    descriptiveNegativeName:
+    negativeButton:
     positiveButton: space
-    altNegativeButton: 
+    altNegativeButton:
     altPositiveButton: joystick button 3
     gravity: 1000
     dead: 0.001
@@ -24,11 +24,11 @@ InputManager:
   - serializedVersion: 3
     m_Name: Horizontal
     descriptiveName: Horizontal
-    descriptiveNegativeName: 
+    descriptiveNegativeName:
     negativeButton: a
     positiveButton: d
-    altNegativeButton: 
-    altPositiveButton: 
+    altNegativeButton:
+    altPositiveButton:
     gravity: 6
     dead: 0.001
     sensitivity: 3
@@ -88,10 +88,10 @@ InputManager:
   - serializedVersion: 3
     m_Name: SwitchAbility
     descriptiveName: Switch Cat
-    descriptiveNegativeName: 
-    negativeButton: 
+    descriptiveNegativeName:
+    negativeButton:
     positiveButton: tab
-    altNegativeButton: 
+    altNegativeButton:
     altPositiveButton: joystick button 8
     gravity: 0
     dead: 0
@@ -104,10 +104,10 @@ InputManager:
   - serializedVersion: 3
     m_Name: Fire
     descriptiveName: Use ability
-    descriptiveNegativeName: 
-    negativeButton: 
+    descriptiveNegativeName:
+    negativeButton:
     positiveButton: f
-    altNegativeButton: 
+    altNegativeButton:
     altPositiveButton: joystick button 5
     gravity: 0
     dead: 0

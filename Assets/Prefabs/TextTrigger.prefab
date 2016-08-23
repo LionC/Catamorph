@@ -23,7 +23,7 @@ GameObject:
   - 114: {fileID: 114000013939519698}
   m_Layer: 0
   m_Name: TextTrigger
-  m_TagString: Untagged
+  m_TagString: Text
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,3 +69,4 @@ MonoBehaviour:
   text: My heart goes shalalalalala *clap clap clap*
   textBox: {fileID: 1000012938744832, guid: 7111059e718d6442cbf54d175d2d1f36, type: 2}
   readingTime: 5
+  repeatable: 0

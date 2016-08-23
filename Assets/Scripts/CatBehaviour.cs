@@ -12,10 +12,10 @@ public class CatBehaviour : MonoBehaviour {
 	public float invisibleTimeAfterHitInitialValue = 3f;  //Initial time to be invisible after being damaged
 	private float invisibleTimeAfterHit = 0f;  //Current time to be invisible after being damaged
 	public float livesInitialValue = 9f;  //Initial amount of lives
-	public bool rocketIsAlwaysAvailable = false;  //Can always switch to RocketCat
-	public bool freezerIsAlwaysAvailable = false;  //Can always switch to FreezerCat
-	public bool burnerIsAlwaysAvailable = false;  //Can always switch to BurnerCat
-	public bool mixerIsAlwaysAvailable = false;  //Can always switch to MixerCat
+	public bool rocketIsAvailable = false;  //Can always switch to RocketCat
+	public bool freezerIsAvailable = false;  //Can always switch to FreezerCat
+	public bool burnerIsAvailable = false;  //Can always switch to BurnerCat
+	public bool mixerIsAvailable = false;  //Can always switch to MixerCat
 	private float lives = 9f;  //Current amount of lives
 	public MonoBehaviour currentAbility = null;  //Reference to Cat's currentAbility
 	private PlatformerCharacter2D platformerCharacter2D;  //Reference to PlatformerCharacter2D
@@ -37,7 +37,7 @@ public class CatBehaviour : MonoBehaviour {
 	}
 
 	void Update () {
-		switchAbility (rocketIsAlwaysAvailable, freezerIsAlwaysAvailable, burnerIsAlwaysAvailable, mixerIsAlwaysAvailable);  //Ability switch at any time
+		switchAbility (rocketIsAvailable, freezerIsAvailable, burnerIsAvailable, mixerIsAvailable);  //Ability switch at any time
 	}
 
 	void FixedUpdate() {
@@ -87,6 +87,9 @@ public class CatBehaviour : MonoBehaviour {
 
 		currentAbilityNum %= 5;
 
+		if (currentAbilityNum == oldAbilityNum)
+			return;
+
 		if (!rocketIsAvailable && currentAbilityNum == 1)
 			currentAbilityNum++;
 
@@ -101,9 +104,9 @@ public class CatBehaviour : MonoBehaviour {
 
 		currentAbilityNum %= 5;
 
-
 		if (currentAbilityNum == oldAbilityNum)
 			return;
+
 
 		if (currentAbility != null)
 			currentAbility.enabled = false;

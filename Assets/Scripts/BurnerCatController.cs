@@ -13,10 +13,11 @@ public class BurnerCatController : MonoBehaviour {
 	private GameObject kitchenItem;  //Reference to KitchenItem GameObject
 	private PlatformerCharacter2D platformerCharacter2D;  //Reference to PlatformerCharacter2D
 
-	void Start() {
+	void Awake() {
+		print ("start");
 		player = GameObject.FindGameObjectWithTag ("Player");  //Initialization of Cat GameObject
 		kitchenItem = player.transform.Find ("KitchenItem").gameObject;  //Initialization of KitchenItem GameObject
-		platformerCharacter2D = GetComponent<PlatformerCharacter2D> ();  //Initialization of PlatformerCharacter2D
+		platformerCharacter2D = player.GetComponent<PlatformerCharacter2D> ();  //Initialization of PlatformerCharacter2D
 	}
 
 	void OnEnable() {

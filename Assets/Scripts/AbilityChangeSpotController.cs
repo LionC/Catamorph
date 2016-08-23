@@ -18,18 +18,23 @@ public class AbilityChangeSpotController : MonoBehaviour {
 	}
 		
 	void Update () {
-		if(triggered)  //AbilitySpot is triggered
-			catBehavior.switchAbility (rocketIsAvailable, freezerIsAvailable, burnerIsAvailable, mixerIsAvailable);  //Enable ability switch
 	}
 
 	public void OnTriggerEnter2D(Collider2D other) {
-		if (other.tag == "Player")  //Triggering object must be Cat
-			triggered = true;  //AbilitySpot is triggered
+		if (other.tag == "Player") {  //Triggering object must be Cat
+			catBehavior.burnerIsAvailable = burnerIsAvailable;
+			catBehavior.mixerIsAvailable = mixerIsAvailable;
+			catBehavior.freezerIsAvailable = freezerIsAvailable;
+			catBehavior.rocketIsAvailable = rocketIsAvailable;
+		}
 	}
 
 	public void OnTriggerExit2D(Collider2D other) {
 		if (other.tag == "Player") {  //Triggering object must be Cat
-			triggered = false;  //AbilitySpot isn't triggered any more after leaving it
+			catBehavior.burnerIsAvailable = false;
+			catBehavior.mixerIsAvailable = false;
+			catBehavior.freezerIsAvailable = false;
+			catBehavior.rocketIsAvailable = false;
 		}
 	}
 }
