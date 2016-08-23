@@ -40,7 +40,6 @@ public class EnemyControll : MonoBehaviour {
 			}
 			hindernis = false;
 		} else {
-			//movement mouse attack
 			if (abs < 6 && abs > 3.5f) {
 				transform.position += new Vector3 (((posPlayer.x - posEnemy.x) * 0.02f), 0.0f, 0.0f);
 			} else {

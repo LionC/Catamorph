@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
 /// <summary>
 /// Changes the music type to <see cref="targetType"/> while at least one 
 /// element with one of <see cref="tags"/> as tag is inside the trigger or collision

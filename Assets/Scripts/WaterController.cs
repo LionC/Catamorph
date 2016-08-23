@@ -26,12 +26,14 @@ public class WaterController : MonoBehaviour {
 	public void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Player" && !triggered && (catBehavior.currentAbility == null || catBehavior.currentAbility.ToString() != "FreezerCat")) {
 			triggered = true;
+			spawnPoint = new Vector2 (transform.position.x-11, transform.position.y);
 			scareOutOfWater ();
 		}
 	}
 
 	private void scareOutOfWater() {
 		fader.fadeIn ();
+		print ("scared");
 		player.transform.position = new Vector3 (spawnPoint.x, spawnPoint.y, 0.0f);
 		triggered = false;
 	}

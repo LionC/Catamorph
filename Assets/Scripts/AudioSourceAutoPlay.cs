@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 
-
 /// <summary>
 /// Takes a list of <see cref="AudioClip"/> in <see cref="clips"/> 
 /// and plays them in a random ordere using the given <see cref="AudioSource"/>.
@@ -35,7 +34,6 @@ public class AudioSourceAutoPlay : MonoBehaviour {
         audioSource.clip = clips[clipId];
         audioSource.Play();
     }
-
     /// <summary>
     /// Checks if the current song is at its end
     /// </summary>

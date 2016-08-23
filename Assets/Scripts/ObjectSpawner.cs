@@ -26,7 +26,7 @@ public class ObjectSpawner : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (Vector3.Distance(player.transform.position, transform.position) < 7 && (spawningObject.tag == "Maus" || spawningObject.tag =="Hund")){
+		if (Vector3.Distance(player.transform.position, transform.position) < 16 && (spawningObject.tag == "Maus" || spawningObject.tag =="Hund")){
 			isEnabled = true;
 		}else
 			isEnabled = false;
