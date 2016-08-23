@@ -19,16 +19,13 @@ public class BurnerCatController : MonoBehaviour {
 	}
 
 	void OnEnable() {
-		player.GetComponent<SpriteRenderer> ().color = burnerCatColor; 
-		kitchenItem.GetComponent<SpriteRenderer> ().sprite = burner;
-		kitchenItem.transform.localPosition += new Vector3 (-0.5f, -0.2f, 0);
 		platformerCharacter2D.setMaxSpeed (speedAsBurner);
+		player.GetComponent<Animator> ().SetBool ("Burner",true);
 	}
 
 	void OnDisable() {
 		platformerCharacter2D.setMaxSpeed (speedAsDefault);
-		kitchenItem.GetComponent<SpriteRenderer> ().sprite = null;
-		kitchenItem.transform.localPosition += new Vector3 (0.5f, 0.2f, 0);
+		player.GetComponent<Animator> ().SetBool ("Burner",false);
 	}
 
 	public override string ToString() {

@@ -72,14 +72,13 @@ public class MixerCatController : MonoBehaviour {
 	}
 
 	void OnEnable() {
-		player.GetComponent<SpriteRenderer> ().color = mixerCatColor; 
-		kitchenItem.GetComponent<SpriteRenderer> ().sprite = mixer;
 		kitchenItem.transform.localPosition += new Vector3 (0.5f, 0, 0);
+		player.GetComponent<Animator> ().SetBool ("Mixer",true);
 	}
 
 	void OnDisable() {
-		kitchenItem.GetComponent<SpriteRenderer> ().sprite = null;
 		kitchenItem.transform.localPosition += new Vector3 (-0.5f, 0, 0);
+		player.GetComponent<Animator> ().SetBool ("Mixer",false);
 	}
 
 	private void resetGravity() {

@@ -16,11 +16,12 @@ public class FreezerCatController : MonoBehaviour {
 	}
 
 	void OnEnable() {
-		player.GetComponent<SpriteRenderer> ().color = freezerCatColor; 
 		platformerCharacter2D.setMaxSpeed (speedAsFreezer);
+		player.GetComponent<Animator> ().SetBool ("Freezer",true);
 	}
 	void OnDisable() {
 		platformerCharacter2D.setMaxSpeed (speedAsDefault);
+		player.GetComponent<Animator> ().SetBool ("Freezer",false);
 	}
 
 	public override string ToString() {
