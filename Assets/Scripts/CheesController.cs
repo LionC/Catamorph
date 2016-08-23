@@ -20,4 +20,18 @@ public class CheesController : MonoBehaviour {
 		if (Vector3.Distance (spawnPos, transform.position) >= 7)
 			Destroy (gameObject);
 	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		//on contact with player
+		if (other.tag == "Player") {
+			player.GetComponent<CatBehaviour> ().lives--;
+			Destroy (gameObject);
+		} else {
+			if (other.tag !="Katzenminze"){
+				Destroy (gameObject);
+			}
+		}
+
+	}
+
 }

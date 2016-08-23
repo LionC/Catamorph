@@ -22,6 +22,7 @@ public class CatBehaviour : MonoBehaviour {
 	private Rigidbody2D rigidBody;
 	private Scene currentScene;
 	public float DamageIfHumanCatched,DamgeIfWiggeldFree;
+	public Animator rocketCatAnimator;
 
 	void Start () {
 		catchedlivessave = CatchedLives;
@@ -40,7 +41,7 @@ public class CatBehaviour : MonoBehaviour {
 	}
 
 	void Update () {
-		switchAbility (false, false, false, false, false);  // change if wished/implemented
+		switchAbility (false, false, false, false);  // change if wished/implemented
 	}
 
 	void FixedUpdate() 
@@ -68,6 +69,8 @@ public class CatBehaviour : MonoBehaviour {
 		}
 		if (invisibleTimeAfterHit > 0)
 			invisibleTimeAfterHit -= Time.deltaTime;
+		else if (player.GetComponent<SpriteRenderer> ().color.a == 5f)
+			player.GetComponent<SpriteRenderer> ().color = new Color(1f, 1f, 1f, 1f);
 	}
 
 	public float takeDamage(float damage) {
@@ -77,17 +80,19 @@ public class CatBehaviour : MonoBehaviour {
 				gameOver ();
 
 			invisibleTimeAfterHit = invisibleTimeAfterHitInitialValue;
+			player.GetComponent<SpriteRenderer> ().color = new Color(1f, 1f, 1f, 5f);
 		}
 
 		return lives;
 	}
 
-	public void switchAbility(bool rocketIsAvailable, bool freezerIsAvailable, bool burnerIsAvailable, bool laserIsAvailable, bool mixerIsAvailable) {
+	public void switchAbility(bool rocketIsAvailable, bool freezerIsAvailable, bool burnerIsAvailable, bool mixerIsAvailable) {
 		if (Input.GetKeyDown (KeyCode.Alpha1) && rocketIsAvailable) {
 			if(currentAbility != null)
 				currentAbility.enabled = false;
 
 			currentAbility = GetComponent<RocketCatController> ();
+			//player.GetComponent<Animator> ().runtimeAnimatorController.animationClips = rocketCatAnimator;
 			currentAbility.enabled = true;
 		}
 		else if (Input.GetKeyDown (KeyCode.Alpha2) && freezerIsAvailable) {
@@ -104,14 +109,7 @@ public class CatBehaviour : MonoBehaviour {
 			currentAbility = GetComponent<BurnerCatController> ();
 			currentAbility.enabled = true;
 		}
-		else if (Input.GetKeyDown (KeyCode.Alpha4) && laserIsAvailable) {
-			if(currentAbility != null)
-				currentAbility.enabled = false;
-
-			currentAbility = GetComponent<LaserCatController> ();
-			currentAbility.enabled = true;
-		}
-		else if (Input.GetKeyDown (KeyCode.Alpha5) && mixerIsAvailable) {
+		else if (Input.GetKeyDown (KeyCode.Alpha4) && mixerIsAvailable) {
 			if(currentAbility != null)
 				currentAbility.enabled = false;
 

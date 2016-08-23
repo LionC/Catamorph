@@ -38,6 +38,7 @@ public class RocketCatController : MonoBehaviour {
 	void OnEnable() {
 		player.GetComponent<SpriteRenderer> ().color = rocketCatColor; 
 		kitchenItem.GetComponent<SpriteRenderer> ().sprite = rocketPack;
+		kitchenItem.transform.localPosition += new Vector3 (0.5f, 0, 0);
 		rocketSpawner = kitchenItem.GetComponent<ObjectSpawner> ();
 		platformerCharacter2D.setJumpForce (jumpForceAsRocket);
 	}
@@ -45,6 +46,7 @@ public class RocketCatController : MonoBehaviour {
 	void OnDisable() {
 		platformerCharacter2D.setJumpForce (jumpForceAsDefault);
 		kitchenItem.GetComponent<SpriteRenderer> ().sprite = null;
+		kitchenItem.transform.localPosition += new Vector3 (-0.5f, 0, 0);
 	}
 
 	public override string ToString() {

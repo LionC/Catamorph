@@ -14,7 +14,7 @@ public class MouseThrowChees : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		timeLastShot = 1;
-		forceUp = 200;
+		forceUp = 180;
 	}
 
 	void Awake () {
@@ -22,13 +22,14 @@ public class MouseThrowChees : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+		//generates and add chees and add a force
 		posEnemy = transform.position;
 		posPlayer = player.transform.position;
 		abs = Vector3.Distance (posEnemy, posPlayer);
 		if ((abs < 6) && (timeLastShot +delay <= Time.time) && abs >3) {
 			cheeseClone = Instantiate (cheese);
+			cheeseClone.transform.position = new Vector3(transform.position.x, transform.position.y+0.5f, 0.0f);
 			cheeseClone.SetActive (true);
-			cheeseClone.transform.position = transform.position;
 			cheeseClone.GetComponent<Rigidbody2D> ().AddForce (new Vector2(((player.transform.position.x-transform.position.x)*forceUp/2), forceUp));
 			timeLastShot = Time.time;
 		}
