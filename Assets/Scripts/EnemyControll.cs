@@ -48,10 +48,13 @@ public class EnemyControll : MonoBehaviour {
 				}
 			}
 		}
+
 		if (abs > 10) {
-			spawner.GetComponent<ObjectSpawner> ().reduceObjectsOnScreen ();
-			print("zerstört");
-			Destroy (gameObject);
+			if (spawner != null && spawner.GetComponent<ObjectSpawner> () != null) {
+				spawner.GetComponent<ObjectSpawner> ().reduceObjectsOnScreen ();
+				print ("zerstört");
+				Destroy (gameObject);
+			}
 		}
 	}
 

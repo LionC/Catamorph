@@ -4,46 +4,59 @@ using System.Collections;
 public class FinalEnemyController : MonoBehaviour {
 
 	public int lives = 15;
-	private GameObject player;
-	private float angryTimeStart;
-	private bool isgrounded;
-	private GameObject enemyClone, enemy;
+	public GameObject throwEnemy,hitBoxHead;
 
-	void Awake () {
-		enemy = GameObject.FindGameObjectWithTag ("Maus");
+
+	private GameObject player;
+	private float angryTime,lastHitTime;
+	private bool isgrounded, isAngry;
+	private GameObject enemyClone;
+
+	void start (){
+		GetComponent<MouseThrowChees> ().delay = 3;
 	}
 
-	void FixedUpdate(){
+	void Awake () {
+		player = GameObject.FindGameObjectWithTag ("Player");
+	}
+
+	void FixedUpdate(){  
+		if (hitBoxHead.GetComponent<finalEnemyhitTrigger>().hit() == true && lastHitTime +  2 <= Time.time){
+			print (lives);
+			lives--;
+			lastHitTime = Time.time;
+			print ("hit");
+			isAngry = true;
+		}
+
+		if (isgrounded && isAngry == true ) {
+			print ("angry");
+			GetComponent<EnemyControll> ().enabled = false;
+			GetComponent<Rigidbody2D>().AddForce (new Vector2((player.transform.position.x-transform.position.x),0.0f));
+			if (lives % 3 == 0) {
+				isgrounded = false;
+				enemyClone = Instantiate (throwEnemy);
+				enemyClone.transform.position = transform.position + (new Vector3 (1.0f, 1.0f, 0.0f));
+				enemyClone.SetActive (true);
+			}
+			isAngry = false;
+			GetComponent<EnemyControll> ().enabled = true;
+		}
+		if (lives <= 0) {
+			Destroy (gameObject);
+		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D coll){
-		if (coll.collider.tag == "Player") {
-			lives--;
-
-			angry ();
-		}
 			
-		if (coll.collider.tag == "Boden")
+		if (coll.collider.tag == "Ground")
 			isgrounded = true;
 
 		if (coll.collider.tag == "Rocket" || coll.collider.tag == "Laser") {
 			lives--;
-			GetComponent<MouseThrowChees> ().delay = 45 / lives;
+			GetComponent<MouseThrowChees> ().delay = lives / 5;
 		}
-	}
 
-	private void angry(){
-		GetComponent<EnemyControll> ().enabled = false;
-		angryTimeStart = Time.time;
-		while (angryTimeStart + 5 <= Time.time) {
-			if (isgrounded) {
-				isgrounded = false;
-				GetComponent<Rigidbody2D> ().AddForce (new Vector2(0.0f, 100.0f));
-				enemyClone = Instantiate (enemy);
-				enemyClone.transform.position += transform.position +(new Vector3 (1.0f, 1.0f,0.0f));
-				enemyClone.SetActive (true);
-			}
-		}
-		GetComponent<EnemyControll> ().enabled = true;
+
 	}
 }

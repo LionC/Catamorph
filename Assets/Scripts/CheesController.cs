@@ -21,10 +21,16 @@ public class CheesController : MonoBehaviour {
 			Destroy (gameObject);
 	}
 
-	void OnCollisionEnter2D(Collision2D other){
-		if (other.collider.tag == "Player") {
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.tag == "Player") {
+			player.GetComponent<CatBehaviour> ().lives--;
 			Destroy (gameObject);
+		} else {
+			if (other.tag !="Katzenminze"){
+				Destroy (gameObject);
+			}
 		}
+
 	}
 
 }
