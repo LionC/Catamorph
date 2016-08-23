@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012448216512}
-  - 114: {fileID: 114000011773866694}
+  - 114: {fileID: 114000014088268990}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Respawn
@@ -40,7 +40,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &114000011773866694
+--- !u!114 &114000014088268990
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -48,12 +48,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000013090004006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5288b3eeb54a20442a636a3c4d700967, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ed76c4e062a361419a03428e3f12cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  player: {fileID: 0}
-  "h\xE4ufigkeit": 10
-  anzEnemy: 2
-  delay: 2
-  timeLastSpawn: 0
+  spawningObject: {fileID: 0}
+  maxCountOnScreen: 1
+  delay: 1
+  takeDirectionOfPlayer: 1
+  throwForce: {x: 0, y: 0}
+  relativeSpawningPosition: {x: 0, y: 0}

@@ -12,22 +12,23 @@ public class TimedDestroyButtonController : MonoBehaviour {
 	public float timeAfterTriggerInitialValue = 0f;
 	public float timeUntilRebuildInitialValue = 0f;
 
-	private  GameObject player;
+	private GameObject player;
 	public GameObject reactionObject;
 	public GameObject reactionObjectAnim;
 	public float timeAfterTrigger = 0f;
 	public float timeUntilRebuild = 0f;
 
-	// Use this for initialization
-	void Start () {
-		transform = gameObject.GetComponent<Transform> ();
-		platformerCharacter2D = player.GetComponent<PlatformerCharacter2D> ();
-		timeAfterTrigger = timeAfterTriggerInitialValue;
-		timeUntilRebuild = timeUntilRebuildInitialValue;
-	}
 
 	void awake(){
 		player = GameObject.FindGameObjectWithTag ("Player");
+		platformerCharacter2D = player.GetComponent<PlatformerCharacter2D> ();
+	}
+
+	// Use this for initialization
+	void Start () {
+		transform = gameObject.GetComponent<Transform> ();
+		timeAfterTrigger = timeAfterTriggerInitialValue;
+		timeUntilRebuild = timeUntilRebuildInitialValue;
 	}
 
 	void FixedUpdate() {
@@ -36,11 +37,12 @@ public class TimedDestroyButtonController : MonoBehaviour {
 
 			if (timeAfterTrigger <= 0 && !triggered) {
 				triggered = true;
-
-				if (timeUntilRebuild <= 0)
-					Destroy (reactionObject);
+				if (timeAfterTrigger <= 0) {
+					reactionObject.SetActive (false);
+					print ("destroyed");
+				}
 				else
-					reactionObject.SetActive (true);
+					reactionObject.SetActive (false);
 				
 				reactionObjectAnim.SetActive(true);
 			}
@@ -48,7 +50,7 @@ public class TimedDestroyButtonController : MonoBehaviour {
 
 		if (timeUntilRebuild > 0 && triggered) {
 			timeUntilRebuild -= Time.fixedDeltaTime;
-
+		}
 			if (timeUntilRebuild <= 0) {
 				reactionObject.SetActive (true);
 				reactionObjectAnim.SetActive(false);
@@ -59,7 +61,7 @@ public class TimedDestroyButtonController : MonoBehaviour {
 				transform.localScale += new Vector3 (0, 0.5f, 0);
 				transform.localPosition += new Vector3 (0, 0.12f, 0);
 			}
-		}
+
 	}
 
 	public void OnTriggerEnter2D() {

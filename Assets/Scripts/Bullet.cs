@@ -1,20 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bullet: MonoBehaviour {
+public class Bullet : MonoBehaviour {
 
-	public int damage = 1;
+	public float damage = 1.0f;
 	public bool isEnemyShot = false;
 
-	void OnCollisionenter(Collision col) {
-			Destroy (col.gameObject);
+	void OnCollisionEnter2D(Collision2D other) {
+
 	}
 		
 	void Start () {
 		Destroy (gameObject, 20);
-	}
-
-	void Update () {
-	
 	}
 }

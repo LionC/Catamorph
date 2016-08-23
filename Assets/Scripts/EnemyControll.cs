@@ -28,26 +28,49 @@ public class EnemyControll : MonoBehaviour {
 
 		abs = Vector3.Distance (posEnemy, posPlayer);
 
+<<<<<<< HEAD
 		if (abs < 10 && tag != "Maus") {
 			transform.position += new Vector3 (((posPlayer.x - posEnemy.x) *0.02f), 0.0f, 0.0f);
 			//Jump
 			if ((posPlayer.y - posEnemy.y > 2.0f || hindernis == true) && timeLastJump + delayJump <= Time.time) {
 				jumpTry += 0.1f;
+=======
+		if (abs < 3 && tag != "Maus") {
+			transform.position += new Vector3 (((posPlayer.x - posEnemy.x) *0.02f), 0.0f, 0.0f);
+			//Jump
+			if ((posPlayer.y - posEnemy.y > 2.0f || hindernis == true) && timeLastJump + delayJump <= Time.time) {
+				if (jumpTry < 2) {
+					jumpTry += 0.1f;
+				}
+>>>>>>> c4b6f7b3077f7b0320ec97e808faf486ba11cd01
 				transform.position += new Vector3 (0.0f, jumpTry, 0.0f);
 				timeLastJump = Time.time;
 			}
 			hindernis = false;
 		} else {
+<<<<<<< HEAD
 			if (abs < 15 && abs > 3.5f) {
 				transform.position += new Vector3 (((posPlayer.x - posEnemy.x) * 0.02f), 0.0f, 0.0f);
 			} else {
 				if (abs < 10 && tag == "Maus") {
+=======
+			if (abs < 6 && abs > 3.5f) {
+				transform.position += new Vector3 (((posPlayer.x - posEnemy.x) * 0.02f), 0.0f, 0.0f);
+			} else {
+				if (abs < 3 && tag == "Maus") {
+>>>>>>> c4b6f7b3077f7b0320ec97e808faf486ba11cd01
 					transform.position += new Vector3 (((posEnemy.x - posPlayer.x) * 0.02f), 0.0f, 0.0f);
 				}
 			}
 		}
+<<<<<<< HEAD
 		if (abs > 20) {
 			spawner.GetComponent<ObjectSpawner> ().reduceObjectsOnScreen ();
+=======
+		if (abs > 10) {
+			spawner.GetComponent<ObjectSpawner> ().reduceObjectsOnScreen ();
+			print("zerstört");
+>>>>>>> c4b6f7b3077f7b0320ec97e808faf486ba11cd01
 			Destroy (gameObject);
 		}
 	}
