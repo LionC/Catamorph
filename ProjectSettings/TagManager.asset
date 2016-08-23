@@ -8,11 +8,11 @@ TagManager:
   - Katzenminze
   - Hund
   - Rocket
-  - Laser
   - Ground
   - CatHitBox
   - Rocket Destructable Wall
   - Maus
+  - ShowOnPause
   layers:
   - Default
   - TransparentFX

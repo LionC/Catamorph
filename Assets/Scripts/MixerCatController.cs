@@ -22,7 +22,6 @@ public class MixerCatController : MonoBehaviour {
 	private bool glideForceAddedOnce = false;
 	private bool crashed = false;
 
-	// Use this for initialization
 	void Start () {
 		rigidBody = GetComponent<Rigidbody2D> ();
 		platformerCharacter2D = GetComponent<PlatformerCharacter2D>();
