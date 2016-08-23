@@ -14,6 +14,8 @@ public class FinalEnemyController : MonoBehaviour {
 
 	void start (){
 		GetComponent<MouseThrowChees> ().delay = 3;
+		//movement by normal enemycontoll
+		GetComponent<EnemyControll> ().enabled = true;
 	}
 
 	void Awake () {
@@ -21,16 +23,16 @@ public class FinalEnemyController : MonoBehaviour {
 	}
 
 	void FixedUpdate(){  
+		//hit by player
 		if (hitBoxHead.GetComponent<finalEnemyhitTrigger>().hit() == true && lastHitTime +  2 <= Time.time){
-			print (lives);
 			lives--;
+			GetComponent<MouseThrowChees> ().delay = lives / 5;
 			lastHitTime = Time.time;
-			print ("hit");
 			isAngry = true;
 		}
 
 		if (isgrounded && isAngry == true ) {
-			print ("angry");
+			//movement angry
 			GetComponent<EnemyControll> ().enabled = false;
 			GetComponent<Rigidbody2D>().AddForce (new Vector2((player.transform.position.x-transform.position.x),0.0f));
 			if (lives % 3 == 0) {
@@ -55,6 +57,7 @@ public class FinalEnemyController : MonoBehaviour {
 		if (coll.collider.tag == "Rocket" || coll.collider.tag == "Laser") {
 			lives--;
 			GetComponent<MouseThrowChees> ().delay = lives / 5;
+			isAngry = true;
 		}
 
 

@@ -22,6 +22,7 @@ public class CheesController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
+		//on contact with player
 		if (other.tag == "Player") {
 			player.GetComponent<CatBehaviour> ().lives--;
 			Destroy (gameObject);
