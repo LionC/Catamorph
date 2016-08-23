@@ -19,6 +19,8 @@ namespace UnityStandardAssets._2D {
         [SerializeField] private float m_JumpForce = 600f;                  // Amount of force added when the player jumps.
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
+        public MusicController musicController;                             // Reference to the music controller to set music inversion
+        public AudioSource catEffectAudioSource;                            // Audio source to play sound effects from
 
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -64,7 +66,7 @@ namespace UnityStandardAssets._2D {
 		public void setInversion(bool isInverted) {
 			inverted = isInverted;
 
-			if (isInverted) {
+            if (isInverted) {
 				invertedMaxSpeedDenominator = invertedMaxSpeedDenominatorInitialValue;
 				invertedJumpForceDenominator = invertedJumpForceDenominatorInitialValue;
 				direction = -1;
@@ -74,6 +76,9 @@ namespace UnityStandardAssets._2D {
 				direction = 1;
 				timeLeft = timeLeftValue;
 			}
+
+            // ensure musik is (un-)inverted as well
+            musicController.SetInvertedMusic(isInverted);
 		}
 
 		public bool isGrounded() {

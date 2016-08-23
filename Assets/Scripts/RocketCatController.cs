@@ -9,8 +9,10 @@ public class RocketCatController : MonoBehaviour {
 	public float jumpForceAsDefault = 600f;
 	public Color rocketCatColor = new Color(60, 179, 113);
 	public Sprite rocketPack;
+    public AudioClip rocketStartSound;
+    public AudioClip rocketJumpSound;
 
-	private GameObject kitchenItem;
+    private GameObject kitchenItem;
 	private ObjectSpawner rocketSpawner;
 	private CatBehaviour catBehavior;
 	private PlatformerCharacter2D platformerCharacter2D;
@@ -29,11 +31,20 @@ public class RocketCatController : MonoBehaviour {
 	}
 		
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Mouse0))
-			rocketSpawner.spawn ();
-		if (Input.GetButtonDown("Jump"))
-			catBehavior.takeDamage(1f);
-	}
+        if (Input.GetKeyDown(KeyCode.Mouse0)) {
+            if (rocketSpawner.spawn() != null) { 
+                platformerCharacter2D.catEffectAudioSource.clip = rocketStartSound;
+                platformerCharacter2D.catEffectAudioSource.Play();
+            }
+        }
+
+        // TODO: only play sound / take damage if jump really occures (not while pressing jump mid-air)
+		if (Input.GetButtonDown("Jump")) {
+            platformerCharacter2D.catEffectAudioSource.clip = rocketJumpSound;
+            platformerCharacter2D.catEffectAudioSource.Play();
+            catBehavior.takeDamage(1f);
+        }
+    }
 
 	void OnEnable() {
 		player.GetComponent<SpriteRenderer> ().color = rocketCatColor; 
