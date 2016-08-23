@@ -1492,7 +1492,7 @@ Prefab:
     - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
       propertyPath: text
-      value: '! Miau! Roter Punkt! Dich kriege ich noch...'
+      value: 'FOXY: ! Miau! Roter Punkt! Dich kriege ich noch...'
       objectReference: {fileID: 0}
     - target: {fileID: 61000013208578244, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
