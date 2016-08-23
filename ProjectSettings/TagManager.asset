@@ -13,6 +13,7 @@ TagManager:
   - Rocket Destructable Wall
   - Maus
   - ShowOnPause
+  - finalEnemy
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityStandardAssets._2D;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class MixerCatController : MonoBehaviour {
 
@@ -13,7 +14,6 @@ public class MixerCatController : MonoBehaviour {
 	public float glideVelocityDelay = -2.5f; //Lower value => faster glide-down
 	public Color mixerCatColor = new Color(255, 170, 77);
 	public Sprite mixer;
-    public AudioClip mixerLoop;
 
 	private PlatformerCharacter2D platformerCharacter2D;
 	private GameObject kitchenItem;
@@ -39,7 +39,7 @@ public class MixerCatController : MonoBehaviour {
 			crash ();
 
 		if (!crashed) {
-            if (Input.GetKey (KeyCode.F) && batteryCurrent > 0) {
+			if (CrossPlatformInputManager.GetButtonDown("Fire") && batteryCurrent > 0) {
 				isFlying = true;
 			} else if (!Input.GetKey (KeyCode.F) && isFlying && !platformerCharacter2D.isGrounded() && batteryCurrent > 0) {
 				isFlying = false;
@@ -48,11 +48,7 @@ public class MixerCatController : MonoBehaviour {
 				isGliding = false;
 				resetGravity ();
 			}
-
-            // start mixer loop if player is flying or gliding
-            if ((isFlying || isGliding) && !platformerCharacter2D.catEffectAudioSource.isPlaying)
-                platformerCharacter2D.catEffectAudioSource.Play();
-        } else {
+		} else {
 			if (platformerCharacter2D.isGrounded())
 				crashed = false;
 		}
@@ -77,31 +73,19 @@ public class MixerCatController : MonoBehaviour {
 	}
 
 	void OnEnable() {
-		player.GetComponent<SpriteRenderer> ().color = mixerCatColor; 
-		kitchenItem.GetComponent<SpriteRenderer> ().sprite = mixer;
 		kitchenItem.transform.localPosition += new Vector3 (0.5f, 0, 0);
-
-        // load mixer loop
-        platformerCharacter2D.catEffectAudioSource.clip = mixerLoop;
-        // enable looping while mixer cat is active
-        platformerCharacter2D.catEffectAudioSource.loop = true;
-    }
+		player.GetComponent<Animator> ().SetBool ("Mixer",true);
+	}
 
 	void OnDisable() {
-		kitchenItem.GetComponent<SpriteRenderer> ().sprite = null;
 		kitchenItem.transform.localPosition += new Vector3 (-0.5f, 0, 0);
-
-        // enable looping while mixer cat is active
-        platformerCharacter2D.catEffectAudioSource.loop = false;
-    }
+		player.GetComponent<Animator> ().SetBool ("Mixer",false);
+	}
 
 	private void resetGravity() {
 		rigidBody.gravityScale = 3;
 		glideForceAddedOnce = false;
-
-        // stop mixer sound loop
-        platformerCharacter2D.catEffectAudioSource.Stop();
-    }
+	}
 
 	public void batteryLoad () {
 		batteryCurrent = batteryMax;

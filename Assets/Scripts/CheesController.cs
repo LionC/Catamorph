@@ -4,7 +4,7 @@ using UnityStandardAssets._2D;
 
 public class CheesController : MonoBehaviour {
 
-	public Vector3 spawnPos;
+	private Vector3 spawnPos;
 	private GameObject player;
 
 	void Start () {
@@ -24,12 +24,9 @@ public class CheesController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		//on contact with player
 		if (other.tag == "Player") {
-			player.GetComponent<CatBehaviour> ().lives--;
+			player.GetComponent<CatBehaviour> ().takeDamage (1.0f);
+			GetComponent<Animator> ().SetBool ("Hit",true);
 			Destroy (gameObject);
-		} else {
-			if (other.tag !="Katzenminze"){
-				Destroy (gameObject);
-			}
 		}
 
 	}

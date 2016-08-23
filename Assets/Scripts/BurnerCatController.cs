@@ -20,27 +20,14 @@ public class BurnerCatController : MonoBehaviour {
 	}
 
 	void OnEnable() {
-		player.GetComponent<SpriteRenderer> ().color = burnerCatColor; 
-		kitchenItem.GetComponent<SpriteRenderer> ().sprite = burner;
-		kitchenItem.transform.localPosition += new Vector3 (-0.5f, -0.2f, 0);
 		platformerCharacter2D.setMaxSpeed (speedAsBurner);
-
-        // start looping burn loop
-        platformerCharacter2D.catEffectAudioSource.clip = burnLoop;
-        platformerCharacter2D.catEffectAudioSource.loop = true;
-        platformerCharacter2D.catEffectAudioSource.Play();
-    }
+		player.GetComponent<Animator> ().SetBool ("Burner",true);
+	}
 
 	void OnDisable() {
 		platformerCharacter2D.setMaxSpeed (speedAsDefault);
-		kitchenItem.GetComponent<SpriteRenderer> ().sprite = null;
-		kitchenItem.transform.localPosition += new Vector3 (0.5f, 0.2f, 0);
-
-        // stop looping burn loop
-        platformerCharacter2D.catEffectAudioSource.Stop();
-        platformerCharacter2D.catEffectAudioSource.clip = null;
-        platformerCharacter2D.catEffectAudioSource.loop = false;
-    }
+		player.GetComponent<Animator> ().SetBool ("Burner",false);
+	}
 
 	public override string ToString() {
 		return "BurnerCat";
