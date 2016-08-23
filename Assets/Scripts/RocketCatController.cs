@@ -40,6 +40,7 @@ public class RocketCatController : MonoBehaviour {
 
         // TODO: only play sound / take damage if jump really occures (not while pressing jump mid-air)
 		if (Input.GetButtonDown("Jump")) {
+            // load and play rocket jump sound
             platformerCharacter2D.catEffectAudioSource.clip = rocketJumpSound;
             platformerCharacter2D.catEffectAudioSource.Play();
             catBehavior.takeDamage(1f);
