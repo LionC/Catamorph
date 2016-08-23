@@ -21,16 +21,18 @@ public class BackgroundTiles : MonoBehaviour {
 		childSprite.sortingOrder = sprite.sortingOrder;
 		childSprite.sortingLayerID = sprite.sortingLayerID;
 		childSprite.sortingLayerName = sprite.sortingLayerName;
+		//childSprite.transform.localScale = new Vector3 (0.5f, 0.5f, 0);
 		childPrefab.transform.position = transform.position;
 		childSprite.sprite = sprite.sprite;
 
 		// Loop through and spit out repeated tiles
 		GameObject child;
-		for (int x = 1, w = (int)Mathf.Round (sprite.bounds.size.x); x < w; x++) {
-			
-			for (int y = 1, l = (int)Mathf.Round (sprite.bounds.size.y); y < l; y++) {
+		float tilesX = sprite.bounds.size.x / spriteSize.x;
+		float tilesY = sprite.bounds.size.y / spriteSize.y;
+		for (float x = 0; x < tilesX; x+=0.5f) {
+			for (float y = 0; y < tilesY; y+=0.5f) {
 				child = Instantiate (childPrefab) as GameObject;
-				child.transform.position = transform.position + (new Vector3 (spriteSize.x * x , spriteSize.y * y, 0));
+				child.transform.position = transform.position + (new Vector3 (spriteSize.x * ( x - (tilesX / 2)) , spriteSize.y * (y - (tilesY / 2)), 0));
 				child.transform.parent = transform;
 			}
 
