@@ -19,7 +19,7 @@ public class TimedDestroyButtonController : MonoBehaviour {
 	public float timeUntilRebuild = 0f;
 
 
-	void awake(){
+	void Awake(){
 		player = GameObject.FindGameObjectWithTag ("Player");
 		platformerCharacter2D = player.GetComponent<PlatformerCharacter2D> ();
 	}

@@ -40,23 +40,30 @@ public class EnemyControll : MonoBehaviour {
 			}
 			hindernis = false;
 		} else {
+			//movement mouse attack
 			if (abs < 6 && abs > 3.5f) {
 				transform.position += new Vector3 (((posPlayer.x - posEnemy.x) * 0.02f), 0.0f, 0.0f);
 			} else {
+				//movement mouse flight
 				if (abs < 3 && tag == "Maus") {
 					transform.position += new Vector3 (((posEnemy.x - posPlayer.x) * 0.02f), 0.0f, 0.0f);
 				}
 			}
 		}
+
 		if (abs > 10) {
-			spawner.GetComponent<ObjectSpawner> ().reduceObjectsOnScreen ();
-			print("zerstört");
-			Destroy (gameObject);
+			//del Enemy 
+			if (spawner != null && spawner.GetComponent<ObjectSpawner> () != null) {
+				spawner.GetComponent<ObjectSpawner> ().reduceObjectsOnScreen ();
+				print ("zerstört");
+				Destroy (gameObject);
+			}
 		}
 	}
 
 
 	private void OnCollisionEnter2D(Collision2D coll){
+		//dog mages damge to cateline
 		if (tag == "Hund") {
 			print ("damage");
 			if (coll.collider.tag == "Player" && timeLastHit + delayHit <= Time.time) {
@@ -65,6 +72,7 @@ public class EnemyControll : MonoBehaviour {
 				player.GetComponent<CatBehaviour>().takeDamage(damageValue);
 			}
 
+			//obstacle
 			if (coll.collider.tag != "Player" && coll.collider.tag != "Ground") {
 				hindernis = true;
 			}

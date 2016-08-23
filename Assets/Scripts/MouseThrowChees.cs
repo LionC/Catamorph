@@ -22,6 +22,7 @@ public class MouseThrowChees : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+		//generates and add chees and add a force
 		posEnemy = transform.position;
 		posPlayer = player.transform.position;
 		abs = Vector3.Distance (posEnemy, posPlayer);
