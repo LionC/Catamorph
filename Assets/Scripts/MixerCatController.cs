@@ -49,9 +49,9 @@ public class MixerCatController : MonoBehaviour {
 				resetGravity ();
 			}
 
-            // start mixer loop if player is flying or gliding
+            // start mixer loop if player is flying or gliding and music isn't playing already
             if ((isFlying || isGliding) && !platformerCharacter2D.catEffectAudioSource.isPlaying)
-                platformerCharacter2D.catEffectAudioSource.Play();
+                platformerCharacter2D.catEffectAudioSource.UnPause();
         } else {
 			if (platformerCharacter2D.isGrounded())
 				crashed = false;
@@ -81,10 +81,15 @@ public class MixerCatController : MonoBehaviour {
 		kitchenItem.GetComponent<SpriteRenderer> ().sprite = mixer;
 		kitchenItem.transform.localPosition += new Vector3 (0.5f, 0, 0);
 
+        if (platformerCharacter2D == null) platformerCharacter2D = GetComponent<PlatformerCharacter2D>();
+
         // load mixer loop
         platformerCharacter2D.catEffectAudioSource.clip = mixerLoop;
         // enable looping while mixer cat is active
         platformerCharacter2D.catEffectAudioSource.loop = true;
+        // start music and pause it instantly (to unpause later)
+        platformerCharacter2D.catEffectAudioSource.Play();
+        platformerCharacter2D.catEffectAudioSource.Pause();
     }
 
 	void OnDisable() {
@@ -99,8 +104,8 @@ public class MixerCatController : MonoBehaviour {
 		rigidBody.gravityScale = 3;
 		glideForceAddedOnce = false;
 
-        // stop mixer sound loop
-        platformerCharacter2D.catEffectAudioSource.Stop();
+        // pause mixer sound loop again
+        platformerCharacter2D.catEffectAudioSource.Pause();
     }
 
 	public void batteryLoad () {
