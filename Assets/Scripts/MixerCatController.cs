@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityStandardAssets._2D;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class MixerCatController : MonoBehaviour {
 
@@ -39,7 +40,7 @@ public class MixerCatController : MonoBehaviour {
 			crash ();
 
 		if (!crashed) {
-			if (Input.GetKey (KeyCode.F) && batteryCurrent > 0) {
+			if (CrossPlatformInputManager.GetButtonDown("Fire") && batteryCurrent > 0) {
 				isFlying = true;
 			} else if (!Input.GetKey (KeyCode.F) && isFlying && !platformerCharacter2D.isGrounded() && batteryCurrent > 0) {
 				isFlying = false;

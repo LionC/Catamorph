@@ -4,6 +4,7 @@ using System.Collections;
 using System;
 using UnityStandardAssets._2D;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class CatBehaviour : MonoBehaviour {
 
@@ -20,6 +21,8 @@ public class CatBehaviour : MonoBehaviour {
 	private PlatformerCharacter2D platformerCharacter2D;  //Reference to PlatformerCharacter2D
 	private Rigidbody2D rigidBody;  //Reference to Rigidbody2D
 	private Scene currentScene;  //Reference to currentScene
+
+	private int currentAbilityNum = 0;
 
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");  //Initialization of Cat GameObject
@@ -62,34 +65,65 @@ public class CatBehaviour : MonoBehaviour {
 	}
 
 	public void switchAbility(bool rocketIsAvailable, bool freezerIsAvailable, bool burnerIsAvailable, bool mixerIsAvailable) {
-		if (Input.GetKeyDown (KeyCode.Alpha1) && rocketIsAvailable) {  //Switch to RockatCat when '1' is pressed
-			if(currentAbility != null)  //Check if there was a former ability (otherwise => NullPointerException)
-				currentAbility.enabled = false;  //Disable former ability
-
-			currentAbility = GetComponent<RocketCatController> ();  //Set currentAbility to RocketCat
-			currentAbility.enabled = true;  //Enable new ability
+		int oldAbilityNum = currentAbilityNum;
+		if (CrossPlatformInputManager.GetButtonDown ("SwitchAbility")) {
+			currentAbilityNum++;
 		}
-		else if (Input.GetKeyDown (KeyCode.Alpha2) && freezerIsAvailable) { //Switch to FreezerCat when '2' is pressed
-			if(currentAbility != null)  //Check if there was a former ability (otherwise => NullPointerException)
-				currentAbility.enabled = false;  //Disable former ability
-
-			currentAbility = GetComponent<FreezerCatController> ();  //Set currentAbility to FreezerCat
-			currentAbility.enabled = true;  //Enable new ability
+		if (Input.GetKeyDown (KeyCode.Alpha1)) {
+			currentAbilityNum = 0;
 		}
-		else if (Input.GetKeyDown (KeyCode.Alpha3) && burnerIsAvailable) { //Switch to BurnerCat when '3' is pressed
-			if(currentAbility != null)  //Check if there was a former ability (otherwise => NullPointerException)
-				currentAbility.enabled = false;  //Disable former ability
-
-			currentAbility = GetComponent<BurnerCatController> ();  //Set currentAbility to BurnerCat
-			currentAbility.enabled = true;  //Enable new ability
+		if (Input.GetKeyDown (KeyCode.Alpha2)) {
+			currentAbilityNum = 1;
 		}
-		else if (Input.GetKeyDown (KeyCode.Alpha4) && mixerIsAvailable) { //Switch to MixerCat when '4' is pressed
-			if(currentAbility != null)  //Check if there was a former ability (otherwise => NullPointerException)
-				currentAbility.enabled = false;  //Disable former ability
-
-			currentAbility = GetComponent<MixerCatController> ();  //Set currentAbility to MixerCat
-			currentAbility.enabled = true;  //Enable new ability
+		if (Input.GetKeyDown (KeyCode.Alpha3)) {
+			currentAbilityNum = 2;
 		}
+		if (Input.GetKeyDown (KeyCode.Alpha4)) {
+			currentAbilityNum = 3;
+		}
+		if (Input.GetKeyDown (KeyCode.Alpha5)) {
+			currentAbilityNum = 4;
+		}
+
+		currentAbilityNum %= 5;
+
+		if (!rocketIsAvailable && currentAbilityNum == 1)
+			currentAbilityNum++;
+
+		if (!freezerIsAvailable && currentAbilityNum == 2)
+			currentAbilityNum++;
+
+		if (!burnerIsAvailable && currentAbilityNum == 3)
+			currentAbilityNum++;
+
+		if (!mixerIsAvailable && currentAbilityNum == 4)
+			currentAbilityNum++;
+
+		currentAbilityNum %= 5;
+
+
+		if (currentAbilityNum == oldAbilityNum)
+			return;
+
+		if (currentAbility != null)
+			currentAbility.enabled = false;
+		
+		if (currentAbilityNum == 0) {
+			currentAbility = null;
+
+			player.GetComponent<SpriteRenderer> ().color = new Color(1f, 1f, 1f, 1f);
+		}
+		if (currentAbilityNum == 1)
+			currentAbility = GetComponent<RocketCatController> ();
+		if (currentAbilityNum == 2)
+			currentAbility = GetComponent<FreezerCatController> ();
+		if (currentAbilityNum == 3)
+			currentAbility = GetComponent<BurnerCatController> ();
+		if (currentAbilityNum == 4)
+			currentAbility = GetComponent<MixerCatController> ();
+
+		if(currentAbility != null)
+			currentAbility.enabled = true;
 	}
 
 	public void fallOutOfLevel() {
