@@ -17,9 +17,6 @@ using System;
 /// 
 /// <see cref="mainMixer"/> is the <see cref="AudioMixer"/> to control.
 /// 
-/// <see cref="player"/> is the <see cref="GameObject"/> representing the player. Used
-/// to detect whether the controls are inverted.
-/// 
 /// <see cref="musicLowValue"/> and <see cref="musicHighValue"/> are the volumes
 /// to set en- and disabled <see cref="MusicType"/> to.
 /// 
@@ -43,7 +40,6 @@ public class MusicController : MonoBehaviour {
 
     // main audio mixer
     public AudioMixer mainMixer;
-    public GameObject player;
 
     // music volumes for music sub-groups while en- and disabled
     public float musicHighValue = 0f;
