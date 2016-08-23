@@ -61,8 +61,6 @@ public class MusicController : MonoBehaviour {
 
     // flag to keep track whether music is inverted
     private bool isMusicInverted;
-    // character to check whether controles are inverted
-    private PlatformerCharacter2D character;
 
     // variables to store data about music type transitions
     private Dictionary<MusicType, float> transisionSpeed;
@@ -72,11 +70,6 @@ public class MusicController : MonoBehaviour {
     private long transitionTicks;
 
     void Start () {
-        // ensure music is not inverted
-        SetInvertedMusic(false);
-        // find character to check if controles are inverted
-        character = player.GetComponent<PlatformerCharacter2D>();
-
         // setup music transition variables
         transitionStart = 0;
         inTransition = false;
@@ -90,9 +83,6 @@ public class MusicController : MonoBehaviour {
     }
 	
 	void Update () {
-        // if charecter movement and inverted music have different values, update inverted music
-        if (character.inverted ^ isMusicInverted) SetInvertedMusic(character.inverted);
-
         if (inTransition) {
             // calculate transition progress
             long ticks = currentTicks();

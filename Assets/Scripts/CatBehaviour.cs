@@ -41,7 +41,7 @@ public class CatBehaviour : MonoBehaviour {
 	}
 
 	void Update () {
-		switchAbility (false, false, false, false);  // change if wished/implemented
+		switchAbility (true, true, true, true);  // change if wished/implemented
 	}
 
 	void FixedUpdate() 
