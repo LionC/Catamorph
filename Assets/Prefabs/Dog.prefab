@@ -30,7 +30,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4000012001724644
 Transform:
   m_ObjectHideFlags: 1
@@ -102,12 +102,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawner: {fileID: 0}
   hindernis: 0
-  hit: 0
   posEnemy: {x: 0, y: 0, z: 0}
   posPlayer: {x: 0, y: 0, z: 0}
   abs: 0
-  timeLeftHit: 5
-  timeLeftJump: 0.2
+  timeLastHit: 0
+  timeLastJump: 0
   jumpTry: 0
   damageValue: 1
   delayHit: 0

@@ -30,6 +30,11 @@ public class ObjectSpawner : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		if (Vector3.Distance(player.transform.position, transform.position) < 16 && (spawningObject.tag == "Maus" || spawningObject.tag =="Hund")){
+			isEnabled = true;
+		}else
+			isEnabled = false;
+			
 		if (platformerCharacter2D.isFacingRight() || !takeDirectionOfPlayer)
 			direction = 1;
 		else
@@ -47,8 +52,10 @@ public class ObjectSpawner : MonoBehaviour {
 		}
 	}
 
-	public GameObject spawn() {
+	public GameObject  spawn() {
+		print (spawningObject);
 		clonedObject = Instantiate (spawningObject);
+		clonedObject.SetActive (true);
 		rigidBody2D = clonedObject.GetComponent<Rigidbody2D> ();
 		clonedObject.transform.position = new Vector3 (direction * (player.transform.position.x + relativeSpawningPosition.x), player.transform.position.y + relativeSpawningPosition.y, 0);
 		rigidBody2D.AddForce (new Vector2((float) direction * throwForce.x, throwForce.y));
@@ -58,5 +65,10 @@ public class ObjectSpawner : MonoBehaviour {
 
 	public void setEnabled(bool enabled) {
 		isEnabled = enabled;
+	}
+
+	public void reduceObjectsOnScreen(){
+		print ("test");
+		objectsOnScreenCounter -= 1;
 	}
 }

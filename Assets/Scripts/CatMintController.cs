@@ -6,6 +6,7 @@ public class CatMintController : MonoBehaviour {
 
 	public GameObject catMintSmall, catMintWindow;
 	private GameObject player;
+	private float timeStart;
 
 	void Start () {
 		catMintSmall.SetActive (false);
@@ -19,21 +20,25 @@ public class CatMintController : MonoBehaviour {
 	void FixedUpdate(){
 		if (catMintWindow.activeSelf == true) 
 			catMintWindow.transform.position = player.transform.position;
+
+		if (timeStart + 12 < Time.time)
+			catMintWindow.SetActive (false);
 	}
 
 	private void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Player") {
 			player.GetComponent<PlatformerCharacter2D> ().setInversion (true);
 			catMintSmall.SetActive (true);
-			catMintSmall.transform.position = transform.position;
+			catMintSmall.transform.position = player.transform.position;
 			catMintWindow.SetActive (true);
+			timeStart = Time.time;
 
 		} 
 
 	}
 
 	private void OnTriggerExit2D (Collider2D other){
+		
 		catMintSmall.SetActive (false);
-		catMintWindow.SetActive (false);
 	}
 }

@@ -20,11 +20,4 @@ public class CheesController : MonoBehaviour {
 		if (Vector3.Distance (spawnPos, transform.position) >= 7)
 			Destroy (gameObject);
 	}
-
-	void OnCollisionEnter2D(Collision2D other) {
-		if (other.collider.tag == "Player")
-			player.GetComponent<PlatformerCharacter2D> ().setInversion (true);
-		
-		Destroy (gameObject);
-	}
 }
