@@ -4,41 +4,38 @@ using UnityStandardAssets._2D;
 
 public class CatMintController : MonoBehaviour {
 
-	public GameObject catMintSmall, catMintWindow;
-	private GameObject player;
-	private float timeStart;
+	public GameObject catMintSmall;  //Small animation
+	public GameObject catMintWindow;  //Window-sized animation
+	private GameObject player;  //Reference to Cat GameObject
+	public float windowAnimationDuration = 12f;  //Duration, at which the window-sized animation is shown
+	private float windowAnimationTimeCounter = 0f;  //Time counter in order to manage the duration, at which the window-sized animation is shown
 
 	void Start () {
-		catMintSmall.SetActive (false);
-		catMintWindow.SetActive(false);
-	}
-
-	void Awake () {
-		player = GameObject.FindGameObjectWithTag ("Player");
+		player = GameObject.FindGameObjectWithTag ("Player");  //Ininialization of Cat GameObject
+		catMintSmall.SetActive (false);  //Disable small animation by default
+		catMintWindow.SetActive(false);  //Disbale window-sized animation by default
 	}
 
 	void FixedUpdate(){
-		if (catMintWindow.activeSelf == true) 
-			catMintWindow.transform.position = player.transform.position;
+		if (catMintWindow.activeSelf) {  //Window-sized animation is enabled
+			windowAnimationTimeCounter += Time.fixedDeltaTime;  //Add 0.02 sec per FixedUpdateCycle
+			catMintWindow.transform.position = player.transform.position;  //Animation follows Cat's movement
 
-		if (timeStart + 12 < Time.time)
-			catMintWindow.SetActive (false);
+			if(windowAnimationTimeCounter >= windowAnimationDuration)  //Time counter has overtaken the intended duration, at which the window-sized animation is shown
+				catMintWindow.SetActive (false);  //Disable window-sized animation
+		}
 	}
 
-	private void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "Player") {
-			player.GetComponent<PlatformerCharacter2D> ().setInversion (true);
-			catMintSmall.SetActive (true);
-			catMintSmall.transform.position = player.transform.position;
-			catMintWindow.SetActive (true);
-			timeStart = Time.time;
-
+	private void OnTriggerEnter2D(Collider2D other) {
+		if (other.tag == "Player") {  //Triggering object must be Cat
+			player.GetComponent<PlatformerCharacter2D> ().setInversion (true);  //Inverse the movement controls
+			catMintSmall.SetActive (true);  //Enable small animation
+			catMintSmall.transform.position = player.transform.position;  //Animation is located at Cat
+			catMintWindow.SetActive (true);  //Enable window-sized animation
 		} 
-
 	}
 
-	private void OnTriggerExit2D (Collider2D other){
-		
-		catMintSmall.SetActive (false);
+	private void OnTriggerExit2D (Collider2D other) {
+		catMintSmall.SetActive (false);  //Disable small animation
 	}
 }

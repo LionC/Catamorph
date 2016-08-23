@@ -33,7 +33,7 @@ public class FinalEnemyController : MonoBehaviour {
 	}
 
 	private void angry(){
-		GetComponent<EnemyControll> ().enabled = false;
+		GetComponent<EnemyController> ().enabled = false;
 		angryTimeStart = Time.time;
 		while (angryTimeStart + 5 <= Time.time) {
 			if (isgrounded) {
@@ -44,6 +44,6 @@ public class FinalEnemyController : MonoBehaviour {
 				enemyClone.SetActive (true);
 			}
 		}
-		GetComponent<EnemyControll> ().enabled = true;
+		GetComponent<EnemyController> ().enabled = true;
 	}
 }

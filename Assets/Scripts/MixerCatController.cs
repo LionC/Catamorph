@@ -11,6 +11,7 @@ public class MixerCatController : MonoBehaviour {
 	public float flyForce = 35f;
 	public float glideForce = -1f;
 	public float glideVelocityDelay = -2.5f; //Lower value => faster glide-down
+	public float maxFlyPace = 30f;
 	public Color mixerCatColor = new Color(255, 170, 77);
 	public Sprite mixer;
 
@@ -55,9 +56,12 @@ public class MixerCatController : MonoBehaviour {
 
 	void FixedUpdate() {
 		if (isFlying) {
-			batteryCurrent -= batteryDrain / 50;	//Änderung
+			batteryCurrent -= batteryDrain / 50f;	//Änderung
 			resetGravity ();
-			rigidBody.AddForce(new Vector2(0f, flyForce));
+			if(rigidBody.velocity.y < maxFlyPace)
+				rigidBody.AddForce(new Vector2(0f, flyForce));
+
+			Debug.Log (rigidBody.velocity.y);
 		}
 
 		if (isGliding) {
