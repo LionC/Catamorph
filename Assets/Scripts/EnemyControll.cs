@@ -6,7 +6,7 @@ using UnityStandardAssets._2D;
 public class EnemyControll : MonoBehaviour {
 
 	private GameObject player;
-	public ObjectSpawner spawner;
+	public MonoBehaviour spawner;
 	public bool hindernis;
 	public Vector3 posEnemy, posPlayer;
 	public float abs, timeLastHit, timeLastJump, jumpTry;
@@ -47,8 +47,8 @@ public class EnemyControll : MonoBehaviour {
 			}
 		}
 		if (abs > 10) {
-			spawner.GetComponent<ObjectSpawner> ().reduceObjectsOnScreen ();
-			Destroy (gameObject);
+			//spawner.GetComponent<ObjectSpawner> ().reduceObjectsOnScreen ();
+			//Destroy (gameObject);
 		}
 	}
 

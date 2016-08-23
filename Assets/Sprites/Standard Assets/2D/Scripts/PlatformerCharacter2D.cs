@@ -129,8 +129,9 @@ namespace UnityStandardAssets._2D {
 				}
 			}
 			// If the player should jump...
-			if (m_Grounded && jump && m_Anim.GetBool ("Ground")&& !catBehaviour.IsCatched) {
+			if (m_Grounded && jump && m_Anim.GetBool ("Ground")&& !catBehaviour.IsCatched && Mathf.Abs(m_Rigidbody2D.velocity.y)-Mathf.Abs(m_Rigidbody2D.velocity.x) < 3) {
 				// Add a vertical force to the player.
+				print("jump");
 				m_Grounded = false;
 				m_Anim.SetBool ("Ground", false);
 				m_Rigidbody2D.AddForce (new Vector2 (0f, m_JumpForce / invertedJumpForceDenominator));
@@ -141,8 +142,7 @@ namespace UnityStandardAssets._2D {
 			}
 		}
 
-        private void Flip()
-        {
+        private void Flip(){
             // Switch the way the player is labelled as facing.
             m_FacingRight = !m_FacingRight;
 
@@ -151,5 +151,13 @@ namespace UnityStandardAssets._2D {
             theScale.x *= -1;
             transform.localScale = theScale;
         }
+
+
+		private void OnCollisionEnter2D(Collision2D coll){
+			if (coll.collider.tag == "Ground")
+				m_Grounded = true;
+			m_Grounded = false ;
+		}
+
 	}
 }
