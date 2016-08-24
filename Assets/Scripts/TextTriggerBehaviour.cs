@@ -12,12 +12,13 @@ public class TextTriggerBehaviour : MonoBehaviour {
 	public bool repeatable = false;
 	public bool freezesCharacter = false;
 
+	public string[] dialog;
+
 	private bool triggered = false;
-
 	private float triggerTime = 0;
-
 	private GameObject box = null;
 	private Platformer2DUserControl playerControl = null;
+	private int dialogIndex = 0;
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (triggered || other.gameObject.tag != "Player")
@@ -37,9 +38,9 @@ public class TextTriggerBehaviour : MonoBehaviour {
 		box.transform.parent = canvas.transform;
 		box.GetComponent<RectTransform> ().anchoredPosition = new Vector3 (0, 0, 0);
 
-		box.GetComponentInChildren<Text>().text = text;
+		box.GetComponentInChildren<Text>().text = isDialog() ? dialog[0] : text;
 
-		if (freezesCharacter) {
+		if (shouldFreeze()) {
 			playerControl = other.gameObject.GetComponent<Platformer2DUserControl> ();
 			playerControl.enabled = false;
 		}
@@ -49,14 +50,36 @@ public class TextTriggerBehaviour : MonoBehaviour {
 
 	public void Update() {
 		if (triggered) {
-			if((Time.time - triggerTime) > readingTime || (!freezesCharacter && CrossPlatformInputManager.GetButtonDown ("Cancel"))) {
+			if((Time.time - triggerTime) > readingTime || (CrossPlatformInputManager.GetButtonDown ("Cancel") && !(shouldFreeze() && !isDialog()))) {
+				if (isDialog () && continueDialog()) {
+					triggerTime = Time.time;
+					return;
+				}
+
 				Destroy (box);
 
 				triggered = !repeatable;
 
-				if (freezesCharacter)
+				if (shouldFreeze())
 					playerControl.enabled = true;
 			}
 		}
+	}
+
+	private bool isDialog() {
+		return dialog.Length > 0;
+	}
+
+	private bool continueDialog() {
+		if (dialogIndex == dialog.Length - 1) {
+			return false;
+		}
+
+		box.GetComponentInChildren<Text> ().text = dialog [++dialogIndex];
+		return true;
+	}
+
+	private bool shouldFreeze() {
+		return freezesCharacter || isDialog ();
 	}
 }
