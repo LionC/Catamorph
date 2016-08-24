@@ -16068,6 +16068,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
+        type: 2}
+      propertyPath: dialog.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4000010133356600, guid: 43cf5d72495014760bcd6b2e59c078d2, type: 2}
       propertyPath: m_LocalPosition.x
       value: 34.338528
@@ -16136,6 +16141,31 @@ Prefab:
         type: 2}
       propertyPath: readingTime
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
+        type: 2}
+      propertyPath: dialog.Array.data[0]
+      value: 'Rocky: Lala'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
+        type: 2}
+      propertyPath: dialog.Array.data[1]
+      value: 'Me: BLublub'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
+        type: 2}
+      propertyPath: dialog.Array.data[2]
+      value: 'Rocky: RLy dude???'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
+        type: 2}
+      propertyPath: dialog.Array.data[3]
+      value: 'Me: Oh yes....'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
+        type: 2}
+      propertyPath: dialog.Array.data[4]
+      value: 'Rocky: Sigh...'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43cf5d72495014760bcd6b2e59c078d2, type: 2}
