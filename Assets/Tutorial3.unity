@@ -20676,7 +20676,7 @@ Prefab:
     - target: {fileID: 114000014047053860, guid: 2089ced371a506144bd1d333acaf0e2a,
         type: 2}
       propertyPath: freezerIsAvailable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000014047053860, guid: 2089ced371a506144bd1d333acaf0e2a,
         type: 2}
