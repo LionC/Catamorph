@@ -1147,12 +1147,12 @@ Prefab:
     - target: {fileID: 61000011225616244, guid: b92990b321447fd45a7bdb5cb6bb698d,
         type: 2}
       propertyPath: m_Offset.y
-      value: -0.019624652
+      value: 0.007978046
       objectReference: {fileID: 0}
     - target: {fileID: 61000011225616244, guid: b92990b321447fd45a7bdb5cb6bb698d,
         type: 2}
       propertyPath: m_Size.y
-      value: 2.0266244
+      value: 2.0818295
       objectReference: {fileID: 0}
     - target: {fileID: 4000011762016436, guid: b92990b321447fd45a7bdb5cb6bb698d, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1208,12 +1208,12 @@ Prefab:
     - target: {fileID: 61000013874819386, guid: b92990b321447fd45a7bdb5cb6bb698d,
         type: 2}
       propertyPath: m_Offset.y
-      value: -0.012812894
+      value: 0.0124894865
       objectReference: {fileID: 0}
     - target: {fileID: 61000013874819386, guid: b92990b321447fd45a7bdb5cb6bb698d,
         type: 2}
       propertyPath: m_Size.y
-      value: 2.03469
+      value: 2.0852945
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b92990b321447fd45a7bdb5cb6bb698d, type: 2}
@@ -1915,6 +1915,10 @@ Prefab:
     - target: {fileID: 1000010582075654, guid: 47755ec4606792f439bba54cad0d35b4, type: 2}
       propertyPath: m_Name
       value: CanvasCatNip (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010582075654, guid: 47755ec4606792f439bba54cad0d35b4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47755ec4606792f439bba54cad0d35b4, type: 2}
@@ -6350,7 +6354,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000010152373908, guid: 811cc8380887ec844b1f9a445b5d68dc, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 811cc8380887ec844b1f9a445b5d68dc, type: 2}
