@@ -44,7 +44,6 @@ public class ObjectSpawner : MonoBehaviour {
 	}
 
 	public GameObject spawn() {
-		print ("spawn");
 		if (spawningObject != null && passedCoolDown >= coolDown && (objectsOnScreenCounter < maxCountOnScreen || maxCountOnScreen < 0)) {
 			clonedObject = Instantiate (spawningObject);
 			rigidBody2D = clonedObject.GetComponent<Rigidbody2D> ();

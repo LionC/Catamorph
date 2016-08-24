@@ -21,6 +21,10 @@ namespace UnityStandardAssets._2D {
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
         public MusicController musicController;                             // Reference to the music controller to set music inversion
         public AudioSource catEffectAudioSource;                            // Audio source to play sound effects from
+		public int jumpBufferFrames = 10;
+		public int jumpBuffered = 0;
+		public int jumpCooldownFrames = 3;
+		public int jumpCooldown = 0;
 
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -78,7 +82,7 @@ namespace UnityStandardAssets._2D {
 			}
 
             // ensure musik is (un-)inverted as well
-            musicController.SetInvertedMusic(isInverted);
+            //musicController.SetInvertedMusic(isInverted);
 		}
 
 		public bool isGrounded() {
@@ -95,6 +99,15 @@ namespace UnityStandardAssets._2D {
 
 		public void setJumpForce(float newValue) {
 			m_JumpForce = newValue;
+		}
+
+		public void Update() {
+			if (jumpBuffered > 0)
+				jumpBuffered--;
+			if (jumpBuffered < 0)
+				jumpBuffered++;
+			if (jumpCooldown > 0)
+				jumpCooldown--;
 		}
 			
         public void Move (float move, bool jump)
@@ -118,12 +131,21 @@ namespace UnityStandardAssets._2D {
 					Flip ();
 				}
 			}
+
+			if ((!m_Grounded || !m_Anim.GetBool ("Ground")) && jump) {
+				jumpBuffered = jumpBufferFrames;
+			}
+
+			jump = (jump || (jumpBuffered > 0)) && jumpCooldown == 0;
+
 			// If the player should jump...
 			if (m_Grounded && jump && m_Anim.GetBool ("Ground")) {
 				// Add a vertical force to the player.
 				m_Grounded = false;
 				m_Anim.SetBool ("Ground", false);
 				m_Rigidbody2D.AddForce (new Vector2 (0f, m_JumpForce / invertedJumpForceDenominator));
+				jumpBuffered = -(jumpBufferFrames * 2);
+				jumpCooldown = jumpCooldownFrames;
 			}
 
 			if (inverted && timeLeft < 0) {
