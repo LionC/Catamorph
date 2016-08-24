@@ -332,7 +332,7 @@ MonoBehaviour:
   coolDown: 0.75
   takeDirectionOfPlayer: 1
   throwForce: {x: 400, y: 0}
-  relativeSpawningPosition: {x: 1.2, y: 0}
+  relativeSpawningPosition: {x: 1.2, y: 0.4}
 --- !u!114 &114000013206929722
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -33,13 +33,13 @@ public class BurnerCatController : MonoBehaviour {
 
 	void OnDisable() {
 		platformerCharacter2D.setMaxSpeed (speedAsDefault);
-		player.GetComponent<Animator> ().SetBool ("Burner", false);
 		kitchenItem.transform.localPosition += new Vector3(1.35f, -0.2f, 0f);
-        
         platformerCharacter2D.catEffectAudioSource.Stop();
         platformerCharacter2D.catEffectAudioSource.loop = false;
         platformerCharacter2D.catEffectAudioSource.clip = null;
-    }
+		kitchenItem.GetComponent<SpriteRenderer>().sprite = null;
+		player.GetComponent<Animator> ().SetBool ("Burner", false);
+	}
 
 	public override string ToString() {
 		return "BurnerCat";  //Authentification of BurnerCat
