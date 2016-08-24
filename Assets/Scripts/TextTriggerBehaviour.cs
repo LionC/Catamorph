@@ -39,7 +39,6 @@ public class TextTriggerBehaviour : MonoBehaviour {
 
 	public void Update() {
 		if (triggered && (Time.time - triggerTime) > readingTime) {
-			Debug.Log ("Got it");
 			Destroy (box);
 
 			triggered = !repeatable;
