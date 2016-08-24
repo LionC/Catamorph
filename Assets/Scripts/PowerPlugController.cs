@@ -17,7 +17,7 @@ public class PowerPlugController : MonoBehaviour {
 	}
 
 	void Update () {
-		if (triggered && Input.GetKeyDown (key) && catBehavior.currentAbility.ToString () == "MixerCat")
+		if (triggered && catBehavior.currentAbility.ToString () == "MixerCat")
 			player.GetComponent<MixerCatController> ().batteryLoad ();
 	}
 
