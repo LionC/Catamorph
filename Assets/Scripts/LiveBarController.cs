@@ -21,10 +21,6 @@ public class LiveBarController : MonoBehaviour {
 		displayLives.Sort (delegate(GameObject a, GameObject b) {
 			return a.transform.position.x.CompareTo (b.transform.position.x);
 		});
-
-		foreach (GameObject live in displayLives) {
-			Debug.Log (live.transform.position.x);
-		}
 	}
 
 	// Use this for initialization
