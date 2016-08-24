@@ -10,7 +10,6 @@ public class TextTriggerBehaviour : MonoBehaviour {
 	public bool repeatable = false;
 
 	private bool triggered = false;
-	private bool disappeared = false;
 
 	private float triggerTime = 0;
 
@@ -39,13 +38,11 @@ public class TextTriggerBehaviour : MonoBehaviour {
 	}
 
 	public void Update() {
-		if (triggered && !disappeared && (Time.time - triggerTime) > readingTime) {
-			if ((Time.time - triggerTime) > readingTime) {
-				Destroy (box);
+		if (triggered && (Time.time - triggerTime) > readingTime) {
+			Debug.Log ("Got it");
+			Destroy (box);
 
-				disappeared = !repeatable;
-				triggered = !repeatable;
-			}
+			triggered = !repeatable;
 		}
 	}
 }
