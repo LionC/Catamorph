@@ -1069,7 +1069,7 @@ Prefab:
     - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
       propertyPath: dialog.Array.data[2]
-      value: "Phoenix: Ich wusste, dass du mich finden w\xFCrdest."
+      value: 'Phoenix: Ich wusste, dass du mich finden wuerdest.'
       objectReference: {fileID: 0}
     - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
@@ -1080,27 +1080,27 @@ Prefab:
         type: 2}
       propertyPath: dialog.Array.data[4]
       value: "Phoenix: Dann hast du das also mitbekommen\u2026 Entschuldigung, Schwesterherz.
-        Diese T\xE4uschung war eine Notwendigkeit."
+        Diese Taeuschung war eine Notwendigkeit."
       objectReference: {fileID: 0}
     - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
       propertyPath: dialog.Array.data[5]
-      value: "Foxy: T\xE4uschung?!?"
+      value: 'Foxy: Taeuschung?!?'
       objectReference: {fileID: 0}
     - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
       propertyPath: dialog.Array.data[6]
-      value: "Phoenix: Beruhig dich, sonst w\xFCrgst du noch einen Haarball heraus.
-        Ich habe mich nat\xFCrlich nicht von einem Auto \xFCberfahren lassen. Der
-        Grabstein wurde f\xFCr einen k\xFCnstlichen Katzenk\xF6rper, der genauso wie
-        ich aussieht und \xFCberfahren wurde, aufgestellt. Menschen k\xF6nnen so einfach
-        get\xE4uscht werden, Schwesterherz. "
+      value: "Phoenix: Beruhig dich, sonst wuergst du noch einen Haarball heraus.
+        Ich habe mich natuerlich nicht von einem Auto ueberfahren lassen. Der Grabstein
+        wurde f\xFCr einen kuenstlichen Katzenkoerper, der genauso wie ich aussieht
+        und ueberfahren wurde, aufgestellt. Menschen koennen so einfach getaeuscht
+        werden, Schwesterherz. "
       objectReference: {fileID: 0}
     - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
       propertyPath: dialog.Array.data[7]
-      value: "Foxy: ...Du hast deinen Tod nur vorget\xE4uscht? Wieso? Wei\xDFt du,
-        wie ich mich gef\xFChlt habe-"
+      value: "Foxy: ...Du hast deinen Tod nur vorgetaeuscht? Wieso? Wei\xDFt du, wie
+        ich mich gefuehlt habe-"
       objectReference: {fileID: 0}
     - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
@@ -1117,8 +1117,8 @@ Prefab:
         type: 2}
       propertyPath: dialog.Array.data[10]
       value: "Phoenix: Mahaha, Schwesterherz. Ich musste \u201Csterben\u201D, damit
-        unser l\xE4stiges Herrchen nicht mehr nach mir sucht. Das h\xE4tte meine Pl\xE4ne
-        beeintr\xE4chtigt. "
+        unser laestiges Herrchen nicht mehr nach mir sucht. Das haette meine Pl\xE4ne
+        beeintraechtigt. "
       objectReference: {fileID: 0}
     - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
@@ -1130,21 +1130,21 @@ Prefab:
       propertyPath: dialog.Array.data[12]
       value: "Phoenix: Gegen diese hundserb\xE4rmlichen Menschen, Schwesterherz. Noch
         ist sie klein, aber sie wird wachsen. Wir brauchen nur noch ein paar mehr
-        Katzen und Kater. Da du jetzt aus diesem scheu\xDFlichen Haus raus bist, geh\xF6rst
+        Katzen und Kater. Da du jetzt aus diesem scheu\xDFlichen Haus raus bist, gehoerst
         du zu uns. "
       objectReference: {fileID: 0}
     - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
       propertyPath: dialog.Array.data[13]
       value: "Foxy: Stopp. Warte, warte, warte! Phoenix, nur weil du dich selbst zum
-        Anf\xFChrer ernannt hast, hei\xDFt das noch lange nicht, dass du irgendeine
-        Autorit\xE4t \xFCber mich hast. Ich bin immer noch deine gro\xDFe Schwester. "
+        Anfuehrer ernannt hast, heisst das noch lange nicht, dass du irgendeine Autoritaet
+        \xFCber mich hast. Ich bin immer noch deine gro\xDFe Schwester. "
       objectReference: {fileID: 0}
     - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
       propertyPath: dialog.Array.data[14]
-      value: "Phoenix: Gro\xDF hei\xDFt nicht weise. Es hei\xDFt blo\xDF alt. Sagst
-        du mir gerade, du willst nicht mitmachen?"
+      value: 'Phoenix: Gross heisst nicht weise. Es heisst bloss alt. Sagst du mir
+        gerade, du willst nicht mitmachen?'
       objectReference: {fileID: 0}
     - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
@@ -1155,13 +1155,13 @@ Prefab:
         type: 2}
       propertyPath: dialog.Array.data[16]
       value: "Phoenix: \u201CWas hast du gegen Menschen?\u201D Das sind die bescheuertsten
-        Worte, die ich je aus deinem Mund geh\xF6rt habe. Was kann man nicht gegen
-        Menschen haben? Sie kaufen uns wie billige Supermarktware und geben uns die
-        miserabelsten Namen. Phoenix? Ich bitte dich - auch, wenn es gut zu meiner
-        pers\xF6nlichen Symbolik passt\u2026 DAS TUT JETZT ABER NICHTS ZUR SACHE!
-        Wir sind alle Lebewesen, aber nur, weil wir nicht menschlich sind, hei\xDFt
-        das nicht, dass wir kein Herz haben! Ich pers\xF6nlich habe es satt, als zweitrangig
-        angesehen zu werden. Du nicht auch? "
+        Worte, die ich je aus deinem Mund gehoert habe. Was kann man nicht gegen Menschen
+        haben? Sie kaufen uns wie billige Supermarktware und geben uns die miserabelsten
+        Namen. Phoenix? Ich bitte dich - auch, wenn es gut zu meiner pers\xF6nlichen
+        Symbolik passt\u2026 DAS TUT JETZT ABER NICHTS ZUR SACHE! Wir sind alle Lebewesen,
+        aber nur, weil wir nicht menschlich sind, hei\xDFt das nicht, dass wir kein
+        Herz haben! Ich pers\xF6nlich habe es satt, als zweitrangig angesehen zu werden.
+        Du nicht auch? "
       objectReference: {fileID: 0}
     - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
@@ -1171,8 +1171,8 @@ Prefab:
     - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
       propertyPath: dialog.Array.data[18]
-      value: "Phoenix: Nat\xFCrlich nicht. Aber genug von ihnen sind so und zu wenige
-        versuchen, etwas wirklich dagegen zu unternehmen "
+      value: 'Phoenix: Natuerlich nicht. Aber genug von ihnen sind so und zu wenige
+        versuchen, etwas wirklich dagegen zu unternehmen '
       objectReference: {fileID: 0}
     - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
