@@ -467,7 +467,7 @@ MonoBehaviour:
   hitBoxHead: {fileID: 1000011382020014}
   bark: {fileID: 82000011294915166}
   growl: {fileID: 82000011137711530}
-  sceneName: 
+  sceneName: Credits
 --- !u!114 &114000014229928114
 MonoBehaviour:
   m_ObjectHideFlags: 1
