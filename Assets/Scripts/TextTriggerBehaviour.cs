@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class TextTriggerBehaviour : MonoBehaviour {
 
@@ -38,10 +39,12 @@ public class TextTriggerBehaviour : MonoBehaviour {
 	}
 
 	public void Update() {
-		if (triggered && (Time.time - triggerTime) > readingTime) {
-			Destroy (box);
+		if (triggered) {
+			if((Time.time - triggerTime) > readingTime || CrossPlatformInputManager.GetButtonDown ("Cancel")) {
+				Destroy (box);
 
-			triggered = !repeatable;
+				triggered = !repeatable;	
+			}
 		}
 	}
 }
