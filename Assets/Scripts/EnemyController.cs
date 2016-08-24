@@ -67,7 +67,7 @@ public class EnemyController : MonoBehaviour {
 
 	private void OnCollisionEnter2D(Collision2D coll){
 		//dog mages damge to cateline
-		if (tag == "Hund") {
+		if (tag != "Maus") {
 			if (coll.collider.tag == "Player" && timeLastHit + delayHit <= Time.time) {
 				transform.position += new Vector3 (coll.collider.GetComponent<Rigidbody2D>().velocity.x*(-1),0.5f,0.0f); //nach hinten fliegen
 				timeLastHit = Time.time; //Timer Hit reset
