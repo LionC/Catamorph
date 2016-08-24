@@ -59,6 +59,7 @@ GameObject:
   - 50: {fileID: 50000012237475888}
   - 61: {fileID: 61000013945591366}
   - 82: {fileID: 82000013111002438}
+  - 114: {fileID: 114000013327704166}
   m_Layer: 0
   m_Name: FinalEnemy
   m_TagString: finalEnemy
@@ -438,6 +439,18 @@ MonoBehaviour:
   damage: 1
   delayHit: 3
   delayJump: 1
+--- !u!114 &114000013327704166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013726857288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e552dfa0e0d4013a51f9cfb1ba4b78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadingTimeInSeconds: 2
 --- !u!114 &114000013601366452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -449,12 +462,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337fe84cca87d2146b075aa06ba7b3f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 15
+  lives: 10
   throwEnemy: {fileID: 1000011914510638, guid: 949cfbdc94cf9d247af81819e9438438, type: 2}
   hitBoxHead: {fileID: 1000011382020014}
   bark: {fileID: 82000011294915166}
   growl: {fileID: 82000011137711530}
-  sceneName: 
+  sceneName: Credits
 --- !u!114 &114000014229928114
 MonoBehaviour:
   m_ObjectHideFlags: 1
