@@ -38,6 +38,13 @@ public class UIManager : MonoBehaviour {
 		IsPaused = false;
 
 	}
+
+	public void StartGame()
+	{
+		PlayerPrefs.DeleteAll ();
+		SceneManager.LoadScene ("Hannah");
+	}
+
 	public void LevelSelect()
 	{
 		SceneManager.LoadScene("Level Select");
