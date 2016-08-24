@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour {
 
 		abs = Vector3.Distance (posEnemy, posPlayer);
 
-		if (abs < 3 && tag != "Maus") {
+		if (abs < 8 && tag != "Maus") {
 			transform.position += new Vector3 (((posPlayer.x - posEnemy.x) *0.02f), 0.0f, 0.0f);
 			//Jump
 			if ((posPlayer.y - posEnemy.y > 2.0f || obstracle == true) && timeLastJump + delayJump <= Time.time) {
@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour {
 			}
 			obstracle = false;
 		} else {
-			if (abs < 6 && abs > 3.5f) {
+			if (abs < 15 && abs > 5f) {
 				transform.position += new Vector3 (((posPlayer.x - posEnemy.x) * 0.02f), 0.0f, 0.0f);
 			} else {
 				//movement mouse flight
@@ -55,7 +55,7 @@ public class EnemyController : MonoBehaviour {
 			}
 		}
 
-		if (abs > 10) {
+		if (abs > 20) {
 			//del Enemy 
 			if (spawner != null && spawner.GetComponent<ObjectSpawner> () != null) {
 				spawner.GetComponent<ObjectSpawner> ().reduceObjectsOnScreen ();

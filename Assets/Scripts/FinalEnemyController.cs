@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class FinalEnemyController : MonoBehaviour {
 
 	public int lives = 15;
 	public GameObject throwEnemy,hitBoxHead;
+	public AudioSource bark, growl;
+	public string sceneName;
 
 
 	private GameObject player;
@@ -24,9 +27,8 @@ public class FinalEnemyController : MonoBehaviour {
 
 	void FixedUpdate(){  
 		//hit by player
-		if (hitBoxHead.GetComponent<finalEnemyhitTrigger>().hit() == true && lastHitTime +  2 <= Time.time){
+		if (hitBoxHead.GetComponent<finalEnemyhitTrigger>().hit() == true && lastHitTime +  3 <= Time.time){
 			lives--;
-			GetComponent<MouseThrowChees> ().delay = lives / 5;
 			lastHitTime = Time.time;
 			isAngry = true;
 		}
@@ -34,17 +36,20 @@ public class FinalEnemyController : MonoBehaviour {
 		if (isAngry == true ) {
 			//movement angry
 			GetComponent<EnemyController> ().enabled = false;
-			GetComponent<Rigidbody2D>().AddForce (new Vector2((player.transform.position.x-transform.position.x)*200,0.0f));
+			GetComponent<Rigidbody2D>().AddForce (new Vector2((player.transform.position.x-transform.position.x)*2000,0.0f));
 			if (lives % 3 == 0) {
+				
 				enemyClone = Instantiate (throwEnemy);
-				enemyClone.transform.position = transform.position + (new Vector3 (1.0f, 1.0f, 0.0f));
+				enemyClone.transform.position = transform.position + (new Vector3 (1.0f, 0.0f, 0.0f));
 				enemyClone.SetActive (true);
+				bark.Play();
 			}
 			isAngry = false;
 			GetComponent<EnemyController> ().enabled = true;
 		}
 		if (lives <= 0) {
 			Destroy (gameObject);
+			SceneManager.LoadScene (sceneName, LoadSceneMode.Single);
 		}
 	}
 
@@ -53,10 +58,12 @@ public class FinalEnemyController : MonoBehaviour {
 			lives--;
 			GetComponent<MouseThrowChees> ().delay = lives / 5;
 			isAngry = true;
+
 		}
 
 		if (coll.collider.tag == "Player" && isAngry == false) {
 			player.GetComponent<CatBehaviour> ().takeDamage (1.0f);
+			growl.Play();
 		}
 	}
 }
