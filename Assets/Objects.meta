@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: de80183cb7c3043b49c56d22a893ed0b
 folderAsset: yes
 timeCreated: 1472029407
+=======
+guid: 3d747eaaafa3e4a4fb9c4285962b79fc
+folderAsset: yes
+timeCreated: 1472028470
+>>>>>>> refs/remotes/origin/Alex
 licenseType: Free
 DefaultImporter:
   userData: 

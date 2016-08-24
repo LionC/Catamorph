@@ -6,9 +6,13 @@ public class CheeseController : MonoBehaviour {
 
 	private Vector3 spawnPos;
 	private GameObject player;
+	private float startTime;
+	private bool hit;
 
 	void Start () {
 		spawnPos = transform.position;
+		GetComponent<Animator> ().SetBool ("Hit",false);
+		hit = false;
 	}
 
 	void Awake () {
@@ -19,14 +23,25 @@ public class CheeseController : MonoBehaviour {
 		
 		if (Vector3.Distance (spawnPos, transform.position) >= 7)
 			Destroy (gameObject);
+		if (hit == true && startTime + 1 > Time.time) {
+			GetComponent<Animator> ().SetBool ("Hit", true);
+		} else {
+			if (hit == true)
+			Destroy (gameObject);
+		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other){
+	void OnCollisionEnter2D(Collision2D other){
 		//on contact with player
-		if (other.tag == "Player") {
+		if (other.collider.tag == "Player") {
 			player.GetComponent<CatBehaviour> ().takeDamage (1.0f);
-			GetComponent<Animator> ().SetBool ("Hit",true);
-			Destroy (gameObject);
+			print ("Hit");
+			hit = true;
+			startTime = Time.time;
+
+
+
+
 		}
 
 	}
