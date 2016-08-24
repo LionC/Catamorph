@@ -34,7 +34,7 @@ public class CheeseController : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other){
 		//on contact with player
 		if (other.collider.tag == "Player") {
-			player.GetComponent<CatBehaviour> ().takeDamage (1.0f);
+			other.collider.GetComponent<CatBehaviour> ().takeDamage (1.0f);
 			print ("Hit");
 			hit = true;
 			startTime = Time.time;
