@@ -11,7 +11,7 @@ public class FinalEnemyController : MonoBehaviour {
 
 
 	private GameObject player;
-	private float angryTime,lastHitTime;
+	private float angryTime,lastHitTime, trefferTimer;
 	private bool isAngry;
 	private GameObject enemyClone;
 
@@ -27,7 +27,7 @@ public class FinalEnemyController : MonoBehaviour {
 
 	void FixedUpdate(){  
 		//hit by player
-		if (hitBoxHead.GetComponent<finalEnemyhitTrigger>().hit() == true && lastHitTime +  3 <= Time.time){
+		if (hitBoxHead.GetComponent<finalEnemyhitTrigger>().hit() == true && lastHitTime +  1.5f < Time.time){
 			lives--;
 			lastHitTime = Time.time;
 			isAngry = true;
@@ -35,6 +35,7 @@ public class FinalEnemyController : MonoBehaviour {
 
 		if (isAngry == true ) {
 			//movement angry
+			GetComponent<Fader>().fadeIn();
 			GetComponent<EnemyController> ().enabled = false;
 			GetComponent<Rigidbody2D>().AddForce (new Vector2((player.transform.position.x-transform.position.x)*2000,0.0f));
 			if (lives % 3 == 0) {
@@ -56,13 +57,14 @@ public class FinalEnemyController : MonoBehaviour {
 	private void OnCollisionEnter2D(Collision2D coll){
 		if (coll.collider.tag == "Rocket" || coll.collider.tag == "Laser") {
 			lives--;
+			GetComponent<Fader> ().fadeOut();
 			GetComponent<MouseThrowChees> ().delay = lives / 5;
 			isAngry = true;
 
 		}
 
-		if (coll.collider.tag == "Player" && isAngry == false) {
-			player.GetComponent<CatBehaviour> ().takeDamage (1.0f);
+		if (coll.collider.tag == "Player" && isAngry == false && trefferTimer + 3 < Time.time) {
+			trefferTimer = Time.time;
 			growl.Play();
 		}
 	}
