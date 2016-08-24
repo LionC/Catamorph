@@ -40,9 +40,9 @@ public class MixerCatController : MonoBehaviour {
 			crash ();
 
 		if (!crashed) {
-			if (CrossPlatformInputManager.GetButtonDown("Fire") && batteryCurrent > 0) {
+			if (CrossPlatformInputManager.GetButton("Fire") && batteryCurrent > 0) {
 				isFlying = true;
-			} else if (!Input.GetKey (KeyCode.F) && isFlying && !platformerCharacter2D.isGrounded() && batteryCurrent > 0) {
+			} else if (!CrossPlatformInputManager.GetButton("Fire") && isFlying && !platformerCharacter2D.isGrounded() && batteryCurrent > 0) {
 				isFlying = false;
 				isGliding = true;
 			} else if (isGliding && platformerCharacter2D.isGrounded()) {
