@@ -78,7 +78,7 @@ namespace UnityStandardAssets._2D {
 			}
 
             // ensure musik is (un-)inverted as well
-            musicController.SetInvertedMusic(isInverted);
+            //musicController.SetInvertedMusic(isInverted);
 		}
 
 		public bool isGrounded() {

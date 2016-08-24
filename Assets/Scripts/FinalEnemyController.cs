@@ -15,7 +15,7 @@ public class FinalEnemyController : MonoBehaviour {
 	void start (){
 		GetComponent<MouseThrowChees> ().delay = 3;
 		//movement by normal enemycontoll
-		GetComponent<EnemyControll> ().enabled = true;
+		GetComponent<EnemyController> ().enabled = true;
 	}
 
 	void Awake () {
@@ -33,7 +33,7 @@ public class FinalEnemyController : MonoBehaviour {
 
 		if (isAngry == true ) {
 			//movement angry
-			GetComponent<EnemyControll> ().enabled = false;
+			GetComponent<EnemyController> ().enabled = false;
 			GetComponent<Rigidbody2D>().AddForce (new Vector2((player.transform.position.x-transform.position.x)*200,0.0f));
 			if (lives % 3 == 0) {
 				enemyClone = Instantiate (throwEnemy);
@@ -41,7 +41,7 @@ public class FinalEnemyController : MonoBehaviour {
 				enemyClone.SetActive (true);
 			}
 			isAngry = false;
-			GetComponent<EnemyControll> ().enabled = true;
+			GetComponent<EnemyController> ().enabled = true;
 		}
 		if (lives <= 0) {
 			Destroy (gameObject);
