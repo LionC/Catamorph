@@ -129,6 +129,13 @@ public class CatBehaviour : MonoBehaviour {
 			currentAbility.enabled = true;
 	}
 
+	public void switchToNormalCat() {
+		if (currentAbility != null) {
+			currentAbility.enabled = false;
+			currentAbility = null;
+		}
+	}
+
 	public void fallOutOfLevel() {
 		PlayerPrefs.SetFloat ("currentLives", lives);  //Save currentLives if falling out of the level
 		SceneManager.LoadScene(currentScene.name);  //Reload currentScene
