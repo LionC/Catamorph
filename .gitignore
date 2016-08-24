@@ -29,5 +29,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-
-Assets/Scripts/CatBehaviour.cs
+*.exe
+*.app/
+*_data/
