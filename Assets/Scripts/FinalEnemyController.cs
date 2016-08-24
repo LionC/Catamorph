@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class FinalEnemyController : MonoBehaviour {
 
 	public int lives = 15;
 	public GameObject throwEnemy,hitBoxHead;
 	public AudioSource bark, growl;
+	public string sceneName;
 
 
 	private GameObject player;
@@ -47,6 +49,7 @@ public class FinalEnemyController : MonoBehaviour {
 		}
 		if (lives <= 0) {
 			Destroy (gameObject);
+			SceneManager.LoadScene (sceneName, LoadSceneMode.Single);
 		}
 	}
 
