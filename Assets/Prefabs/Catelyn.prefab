@@ -109,7 +109,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011283067668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3, y: -1.2, z: 0}
+  m_LocalPosition: {x: -0.25, y: -1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -269,7 +269,6 @@ MonoBehaviour:
   jumpForceAsRocket: 1200
   jumpForceAsDefault: 600
   rocketCatColor: {r: 1, g: 1, b: 1, a: 1}
-  rocketPack: {fileID: 21300000, guid: 674714a1cb11cc948bdca72881e5bc3f, type: 3}
   rocketStartSound: {fileID: 0}
   rocketJumpSound: {fileID: 0}
   isRocketJumping: 0
