@@ -505,6 +505,79 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1079064055}
+--- !u!1 &1945549024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1945549026}
+  - 114: {fileID: 1945549025}
+  m_Layer: 0
+  m_Name: EndScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1945549025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1945549024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b175cdac0e24984aca3d922543771c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBox: {fileID: 1000012938744832, guid: 7111059e718d6442cbf54d175d2d1f36, type: 2}
+  readingTime: 8
+  dialog:
+  - 'Phoenix: MAHAHAHA! JAAA! Das war BADASS, Schwesterherz! Seht ihr das, Kameraden?
+    Diese Katze und ich besitzen Teile der gleichen DNA! '
+  - 'Foxy: (...Manchmal auch leider.)'
+  - 'Phoenix: Foxy, ich bitte dich. Wir koennten dich echt gebrauchen. Es gibt nicht
+    viele badass Katzen wie dich.'
+  - 'Foxy: Naja, Freiheit hoert sich nach Abwechslung an...'
+  - "Phoenix: Es ist eine GLORREICHE Abwechslung! Es macht auch Spa\xDF, wie du gerade
+    bemerkt hast. Ach, Schwesterherz, ich bin froh, dass du dabei bist. "
+  - 'Foxy: Danke, denke ich? Also, was jetzt?'
+  - 'Phoenix: Ohhh, es freut mich, dass du fragst, Schwesterherz! Falls du nicht willst,
+    dass unser Herrchen, das sich uns naehert, uns an den Pfoten wieder mit nach Hause
+    schleift, dann sollten wir uns aus dem Staub machen! '
+  - 'Foxy: Richtung?'
+  - 'Phoenix: Das Miauquartier natuerlich.'
+  - "Foxy: Und das ist\u2026 wo?"
+  - "Phoenix: In der katzigen Kanalisation! Keine Sorge, unsere Architekten haben
+    sich ein transportables, faltbares Schiffchen einfallen lassen, womit wir alle
+    unbesorgt unserer trockenen Wege gehen koennen. Air Conditioner sowie gemuetliche
+    Kuschel- und Wollecken gibt es auch, ebenso ein Trainingsareal, wo deinen Krallen
+    keine Grenzen gesetzt sind, inklusive Stoffhunde, mit Bluteffekten\u2026 "
+  - 'Foxy: Aehm, Phoenix?'
+  - 'Phoenix: -Ja, Schwesterherz?'
+  - 'Foxy: Hast du nicht gesagt, wir sollten uns aus dem Staub machen? Wir sind immer
+    noch im Staub und- Du redest die ganze Zeit-'
+  - "Phoenix: Jajaja, natuerlich. Ich bin kurz abgeschweift\u2026 AN ALLE KATZEN UND
+    KATER, AUS DEM STAUB RAUS UND IN DIE KANALISATION REIN! AUF DIE PLAETZE, FERTIG\u2026
+    IN DIE FREIHEIT, VIVA LA REVOLUCI\xD3N- "
+  - 'Foxy: Zu. Viele. Worte... AN ALLE! EINFACH WEG! UND ZWAR JETZT!'
+  - "Phoenix: ...Miau\u2026"
+  creditsAnimation: {fileID: 1079064058}
+--- !u!4 &1945549026
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1945549024}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6059551, y: -0.37493792, z: 0.19591925}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
 --- !u!1 &2048664214
 GameObject:
   m_ObjectHideFlags: 0
