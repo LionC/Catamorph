@@ -45,8 +45,6 @@ public class TextTriggerBehaviour : MonoBehaviour {
 
 				disappeared = !repeatable;
 				triggered = !repeatable;
-			} else if() {
-				
 			}
 		}
 	}

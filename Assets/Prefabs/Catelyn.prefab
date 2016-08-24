@@ -93,7 +93,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012698306376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.780923, y: -2.3366268, z: 0}
+  m_LocalPosition: {x: -43, y: -47.9, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e552dfa0e0d4013a51f9cfb1ba4b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadingTime: 90
+  fadingTimeInSeconds: 2
 --- !u!114 &114000010605878114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,17 +227,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invisibleTimeAfterHitInitialValue: 3
-  invisibleTimeAfterHit: 0
   livesInitialValue: 9
-  lives: 9
+  rocketIsAvailable: 0
+  freezerIsAvailable: 0
+  burnerIsAvailable: 0
+  mixerIsAvailable: 0
   currentAbility: {fileID: 0}
-  CatchedLives: 40
-  CatchedLivesDrain: 0.02
-  CatchedLivesAdd: 1
-  IsCatched: 0
-  DamageIfHumanCatched: 0
-  DamgeIfWiggeldFree: 0
-  rocketCatAnimator: {fileID: 0}
 --- !u!114 &114000010835601882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -285,10 +280,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ac41a9a03e229449e3ff7ff17d03ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedAsBurner: 10
-  speedAsDefault: 5
-  burnLoop: {fileID: 0}
+  speedAsBurner: 20
+  speedAsDefault: 10
   burnerCatColor: {r: 1, g: 1, b: 1, a: 1}
+  burnLoop: {fileID: 0}
   burner: {fileID: 21300000, guid: ae5fad4315ee96445b43867b3f8f1fb0, type: 3}
 --- !u!114 &114000011517322030
 MonoBehaviour:
@@ -307,6 +302,7 @@ MonoBehaviour:
   flyForce: 50
   glideForce: -1
   glideVelocityDelay: -2.5
+  maxFlyPace: 30
   mixerCatColor: {r: 1, g: 1, b: 1, a: 1}
   mixer: {fileID: 21300000, guid: 4949bca2765556d488028027b8c4d3cb, type: 3}
   isFlying: 0
