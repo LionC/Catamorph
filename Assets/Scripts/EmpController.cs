@@ -16,17 +16,21 @@ public class EmpController: MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (triggered)  //Emp is triggered
+		if (triggered && mixerCatController.batteryCurrent > 0)  //Emp is triggered
 			mixerCatController.batteryCurrent = mixerCatController.batteryCurrent - (batteryDrainPerSecond / 50f);  //Reduce batteryLevel by 1/50 of perSecond value
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if (other.gameObject.tag == "Player" && catBehavior.currentAbility.ToString() == "MixerCat")  //Triggering object must be MixerCat
+		if (other.gameObject.tag == "Player" && catBehavior.currentAbility != null && catBehavior.currentAbility.ToString() == "MixerCat")  //Triggering object must be MixerCat
 			triggered = true;  //Emp is triggered
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
 		if (other.gameObject.tag == "Player")  //Triggering object must be Cat
 			triggered = false;  //AbilitySpot isn't triggered any more after leaving it
+	}
+	
+	public bool hitCatEmp() {
+		return triggered;
 	}
 }
