@@ -49,6 +49,32 @@ public class UIManager : MonoBehaviour {
 	{
 		SceneManager.LoadScene("Level Select");
 	}
+
+	public void StartLevel1()
+	{
+		PlayerPrefs.DeleteAll ();
+		SceneManager.LoadScene ("Hannah");
+	}
+
+	public void StartLevel2()
+	{
+		PlayerPrefs.DeleteAll ();
+		SceneManager.LoadScene ("RunnerLevel");
+	}
+
+	public void StartLevel3()
+	{
+		PlayerPrefs.DeleteAll ();
+		SceneManager.LoadScene ("Tutorial3");
+	}
+
+
+	public void StartLevel4()
+	{
+		PlayerPrefs.DeleteAll ();
+		SceneManager.LoadScene ("Grab");
+	}
+		
 	public void Resume()
 	{
 		IsPaused=false;
