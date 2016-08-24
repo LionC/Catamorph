@@ -21,7 +21,7 @@ public class BurnerCatController : MonoBehaviour {
 
 	void OnEnable() {
 		platformerCharacter2D.setMaxSpeed (speedAsBurner);
-		kitchenItem.transform.localScale = new Vector3(-0.2f, -0.2f, 1f);
+		kitchenItem.transform.localScale = new Vector3(-1f, -1f, 1f);
 		kitchenItem.transform.localPosition += new Vector3(-1.35f, 0.2f, 0f);
 		kitchenItem.GetComponent<SpriteRenderer>().sprite = burner;
 		player.GetComponent<Animator> ().SetBool ("Burner", true);
@@ -29,8 +29,9 @@ public class BurnerCatController : MonoBehaviour {
 
 	void OnDisable() {
 		platformerCharacter2D.setMaxSpeed (speedAsDefault);
-		player.GetComponent<Animator> ().SetBool ("Burner", false);
 		kitchenItem.transform.localPosition += new Vector3(1.35f, -0.2f, 0f);
+		kitchenItem.GetComponent<SpriteRenderer>().sprite = null;
+		player.GetComponent<Animator> ().SetBool ("Burner", false);
 
 	}
 
