@@ -78,6 +78,10 @@ public class EnemyController : MonoBehaviour {
 			if (coll.collider.tag != "Player" && coll.collider.tag != "Ground") {
 				obstracle = true;
 			}
+
+			if (coll.collider.tag == "Rocket"){
+				Destroy(gameObject);
+			}
 		}
 	}
 }
