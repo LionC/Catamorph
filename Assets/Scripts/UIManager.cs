@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class UIManager : MonoBehaviour {
 	
@@ -24,7 +25,7 @@ public class UIManager : MonoBehaviour {
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape))
+		if (CrossPlatformInputManager.GetButtonDown("Pause"))
 			IsPaused = !IsPaused;
 		if (IsPaused == true)
 			Time.timeScale = 0;
