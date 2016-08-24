@@ -36,7 +36,8 @@ public class TextTriggerBehaviour : MonoBehaviour {
 		box = Instantiate (textBox);
 		box.tag = "Text";
 		box.transform.parent = canvas.transform;
-		box.GetComponent<RectTransform> ().anchoredPosition = new Vector3 (0, 0, 0);
+		box.GetComponent<RectTransform> ().anchoredPosition = new Vector3 (0, 0, 10f);
+		box.transform.SetAsFirstSibling ();
 
 		box.GetComponentInChildren<Text>().text = isDialog() ? dialog[0] : text;
 
