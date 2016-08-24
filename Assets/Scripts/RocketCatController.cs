@@ -9,7 +9,6 @@ public class RocketCatController : MonoBehaviour {
 	public float jumpForceAsRocket = 1200f;
 	public float jumpForceAsDefault = 600f;
 	public Color rocketCatColor = new Color(60, 179, 113);
-	public Sprite rocketPack;
     public AudioClip rocketStartSound;
     public AudioClip rocketJumpSound;
 

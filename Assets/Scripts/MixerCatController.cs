@@ -40,9 +40,9 @@ public class MixerCatController : MonoBehaviour {
 			crash ();
 
 		if (!crashed) {
-			if (CrossPlatformInputManager.GetButtonDown("Fire") && batteryCurrent > 0) {
+			if (CrossPlatformInputManager.GetButton("Fire") && batteryCurrent > 0) {
 				isFlying = true;
-			} else if (!Input.GetKey (KeyCode.F) && isFlying && !platformerCharacter2D.isGrounded() && batteryCurrent > 0) {
+			} else if (!CrossPlatformInputManager.GetButton("Fire") && isFlying && !platformerCharacter2D.isGrounded() && batteryCurrent > 0) {
 				isFlying = false;
 				isGliding = true;
 			} else if (isGliding && platformerCharacter2D.isGrounded()) {
@@ -77,13 +77,16 @@ public class MixerCatController : MonoBehaviour {
 	}
 
 	void OnEnable() {
-		kitchenItem.transform.localPosition += new Vector3 (0.5f, 0, 0);
-		player.GetComponent<Animator> ().SetBool ("Mixer",true);
+		kitchenItem.transform.localScale = new Vector3(-1f, 1f, 1f);
+		kitchenItem.transform.localPosition += new Vector3 (-0.23f, 1.8f, 0);
+		kitchenItem.GetComponent<SpriteRenderer>().sprite = mixer;
+		player.GetComponent<Animator> ().SetBool ("Mixer", true);
 	}
 
 	void OnDisable() {
-		kitchenItem.transform.localPosition += new Vector3 (-0.5f, 0, 0);
-		player.GetComponent<Animator> ().SetBool ("Mixer",false);
+		kitchenItem.transform.localPosition += new Vector3 (0.23f, -1.8f, 0);
+		kitchenItem.GetComponent<SpriteRenderer>().sprite = mixer;
+		player.GetComponent<Animator> ().SetBool ("Mixer", false);
 	}
 
 	private void resetGravity() {
