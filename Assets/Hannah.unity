@@ -5594,7 +5594,7 @@ Prefab:
       value: 'FOXY: Vor ein paar Tagen ist Phoenix, mein kleiner Bruder, genau dem
         gleichen Lichtpunkt hinterhergelaufen. Seitdem hab ich ihn nicht mehr gesehen.
         Ich vermisse es, gemeinsam mit ihm an Wollknaeueln rumzukauen und das Sofa
-        zu zerkratzen...'
+        zu zerkratzen... (Backspace zum Weitermachen)'
       objectReference: {fileID: 0}
     - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
@@ -16233,8 +16233,8 @@ Prefab:
       propertyPath: text
       value: 'ROCKY: Sieht ganz schoen hoch aus, ne? Ja, mit deinem mickrigen Koerper
         kommst du so auch nicht drueber, Stubentiger. Geh zum Koffer zurueck, druecke
-        1 und schon hast du ''ne Rakete! Versuch dann, mit einem ROCKET JUMP (Space)
-        hier drueberzukommen.'
+        2 und schon hast du ''ne Rakete! Versuch dann, mit einem ROCKET JUMP (Space)
+        hier drueberzukommen. Druecke F zum Schiessen.'
       objectReference: {fileID: 0}
     - target: {fileID: 114000013939519698, guid: 43cf5d72495014760bcd6b2e59c078d2,
         type: 2}
