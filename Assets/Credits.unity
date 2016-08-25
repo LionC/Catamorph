@@ -106,7 +106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &41559714
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: f3008b0acc48f4dafaa22eb32f727dc4, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -296,8 +296,8 @@ Camera:
   m_GameObject: {fileID: 546927272}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 3
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -497,7 +497,7 @@ MonoBehaviour:
     IN DIE FREIHEIT, VIVA LA REVOLUCI\xD3N- "
   - 'Foxy: Zu. Viele. Worte... AN ALLE! EINFACH WEG! UND ZWAR JETZT!'
   - "Phoenix: ...Miau\u2026"
-  creditsAnimation: {fileID: 0}
+  creditsMovie: {fileID: 41559713}
 --- !u!4 &1945549026
 Transform:
   m_ObjectHideFlags: 0

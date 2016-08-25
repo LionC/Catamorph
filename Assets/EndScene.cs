@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.SceneManagement;
 
 public class EndScene : MonoBehaviour {
 
@@ -10,15 +11,18 @@ public class EndScene : MonoBehaviour {
 
 	public string[] dialog;
 
-	public Animator creditsAnimation;
+	public GameObject creditsMovie;
 
 	private bool triggered = false;
 	private float triggerTime = 0;
 	private GameObject box = null;
 	private int dialogIndex = 0;
+	private bool plays = false;
+	private bool videoOver = false;
+	private float videoOvertime = 0;
 
 	void Start() {
-		creditsAnimation.enabled = false;
+		creditsMovie.SetActive(false);
 
 		triggered = true;
 
@@ -56,8 +60,22 @@ public class EndScene : MonoBehaviour {
 
 				triggered = false;
 
-				creditsAnimation.enabled = true;
+				creditsMovie.SetActive (true);
+				((MovieTexture)creditsMovie.GetComponent<MeshRenderer> ().material.mainTexture).Play ();
+				plays = true;
 			}
+		}
+
+		if (plays) {
+			if (!((MovieTexture)creditsMovie.GetComponent<MeshRenderer> ().material.mainTexture).isPlaying) {
+				videoOver = true;
+				plays = false;
+				videoOvertime = Time.time;
+			}
+		}
+
+		if (videoOver && (Time.time - videoOvertime) > 3) {
+			SceneManager.LoadScene ("Main Menu");
 		}
 	}
 		
