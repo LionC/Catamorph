@@ -29,7 +29,7 @@ TagManager:
   - Foreground
   - Background
   - Ground
-  - 
+  - Door
   - 
   - 
   - 
@@ -51,6 +51,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Door
+    uniqueID: 4222397931
+    locked: 0
   - name: Background
     uniqueID: 740551843
     locked: 0
